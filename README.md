@@ -1,5 +1,7 @@
 <h3 align="center">Rankify App</h3>
+
 ## 📋 <a name="table">Table of Contents</a>
+
 1. 🤸 [Quick Start](#quick-start)
 2. 🔗 [Package Update](#Update)
 
@@ -21,7 +23,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/svk324/Rankify-App.git
+git clone https://github.com/vijay324/Rankify-App.git
 cd Rankify-APP
 #then
 cd backend (For Backend Developement)
