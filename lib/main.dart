@@ -12,6 +12,8 @@ import 'package:rankify/features/auth/screens/phonesignup.dart';
 // import 'package:rankify/auth/screens/auth.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
+import 'package:rankify/features/dashboard/widgets/appbar.dart';
+import 'package:rankify/utils/screen_size.dart';
 // import 'package:rankify/splashScreen.dart';
 
 void main() async {
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Screensize.init(context);
     return ScreenUtilInit(
       designSize: Size(375, 812),
       minTextAdapt: true,
@@ -36,7 +39,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           textTheme: GoogleFonts.interTextTheme(),
           scaffoldBackgroundColor: GlobalColors.backgroundColor,
-          // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           appBarTheme: AppBarTheme(color: GlobalColors.backgroundColor),
         ),
