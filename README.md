@@ -1,265 +1,380 @@
 <h3 align="center">Rankify App</h3>
 
-## 📋 <a name="table">Table of Contents</a>
+<p align="center">
+  Rankify is a full-stack application built with Flutter (frontend), Node.js with Express.js (backend), MySQL (database), and Prisma (ORM).
+  This README guides you through setup, development, and releasing new versions using Git.
+</p>
+
+---
+
+## 📋 Table of Contents
 
 1. 🤸 [Quick Start](#quick-start)
-2. 🔗 [Package Update](#Update)
+2. 👩🏻‍💻 [Development Workflow](#development-workflow)
+3. 🚀 [Releasing a New Version](#releasing-a-new-version)
+4. 📦 [Package Updates](#package-updates)
+
+---
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
-Follow these steps to set up the project locally on your machine.
+Set up the project locally with these steps.
 
-**Prerequisites**
+### Prerequisites
 
-Make sure you have the following installed on your machine:
+Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/en)
-- [Express.js](https://nodejs.org/en) ( backend Language )
-- [MySQL](https://www.mysql.com/) ( Data Base )
-- [Prisma ORM](https://www.prisma.io/) ( Object Relational Mapper )
 - [Git](https://git-scm.com/)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Node.js](https://nodejs.org/en) (includes npm)
+- [Flutter](https://flutter.dev/docs/get-started/install)
+- [MySQL](https://www.mysql.com/)
+- A code editor (e.g., VS Code)
 
-**Cloning the Repository**
+---
+
+### Cloning the Repository
 
 ```bash
 git clone https://github.com/vijay324/Rankify-App.git
-cd Rankify-APP
-#then
-cd backend (For Backend Developement)
-cd Frontend (For Frontend Developement)
+cd Rankify-App
 ```
 
-**Installation**
+- **Frontend**: `cd flutter_app` (Flutter app directory).
+- **Backend**: `cd backend` (Node.js/Express directory).
 
-Install the project dependencies using npm:
+---
+
+### Installation
+
+#### Backend
 
 ```bash
+cd backend
 npm install
 ```
 
-**Set Up Environment Variables**
+#### Frontend
 
-Create a new file named `.env` in the root of your project and add the following content:
+```bash
+cd flutter_app
+flutter pub get
+```
+
+---
+
+### Set Up Environment Variables
+
+1. Create a `.env` file in the backend directory:
 
 ```env
 # MySQL
-DATABASE_URI=
-
+DATABASE_URL="mysql://USER:PASSWORD@localhost:3306/DATABASE_NAME"
 ```
 
-Replace the placeholder values with your actual credentials. You can obtain these credentials by signing up on the respective websites
+Replace `USER`, `PASSWORD`, and `DATABASE_NAME` with your MySQL credentials.
 
-**Running the Project**
+2. Initialize Prisma:
 
 ```bash
-npm run dev
+cd backend
+npx prisma migrate dev --name init
 ```
 
-# Development Cycle for Rankify
+---
 
-Great to see you here! This guide will help you understand our development cycle.
+### Running the Project
 
-## Table of Contents
+#### Backend
 
-- 📐 [Setting Up](#setting-up)
-- 👩🏻‍💻[Development Workflow](#development-workflow)
-- 🚩[Pull Request Guidelines](#pull-request-guidelines)
-- 🧾 [Commit Message Guidelines](#commit-message-guidelines)
-- 📜 [Tips for Smooth Collaboration](#Tips for Smooth Collaboration)
+```bash
+cd backend
+npm run dev  # Starts Node.js/Express server
+```
 
-## Setting Up
+#### Frontend
 
-1. **Install Required Tools**
+```bash
+cd flutter_app
+flutter run  # Runs Flutter app (connect a device/emulator)
+```
 
-   - Git ([Download](https://git-scm.com/downloads))
-   - Node.js ([Download](https://nodejs.org/))
-   - A code editor (We recommend VS Code)
+---
 
-2. **Set Up GitHub Account (Recommended)**
+## <a name="development-workflow">👩🏻‍💻 Development Workflow</a>
 
-   ```bash
-   # Configure your Git username and email
-   git config --global user.name "Your Name"
-   git config --global user.email "your.email@example.com"
-   ```
+We use a simplified Gitflow with two main branches:
 
-3. **SSH Key Setup**
+- **main**: Stable, production-ready code.
+- **develop**: Integration branch for new features and bug fixes.
 
-   ```bash
-   # Generate SSH key
-   ssh-keygen -t ed25519 -C "your.email@example.com"
+---
 
-   # Start SSH agent
-   eval "$(ssh-agent -s)"
+### Steps
 
-   # Add SSH key to agent
-   ssh-add ~/.ssh/id_ed25519
-   ```
+#### Update Local Branches:
 
-   - Copy the public key content (`~/.ssh/id_ed25519.pub`)
-   - Add it to your GitHub account (Settings → SSH Keys)
+```bash
+git checkout main
+git pull origin main
+git checkout develop
+git pull origin develop
+```
 
-4. **Clone the Repository**
+# Branch Naming Guidelines
 
-   ```bash
-   # Clone via SSH (recommended)
-   git clone git@github.com:svk324/Rankify-App.git
+To keep our Git workflow consistent and organized, please follow these naming conventions for branches.
 
-   # OR clone via HTTPS
-   git clone https://github.com/svk324/Rankify-App.git
+## Branch Naming Structure
 
-   # Navigate to project directory
-   cd Rankify-App
-   ```
+All branch names should follow the format:
 
-5. **Set Up Development Environment**
+```
+<type>/<short-description>
+```
 
-   ```bash
-   # Install dependencies
-   npm install
+Where:
+- `<type>`: The type of work being done (e.g., `feature`, `bugfix`, `hotfix`, `release`, `experiment`).
+- `<short-description>`: A brief, clear description of the task or feature being worked on.
 
-   # Create and configure .env file
-   cp .env.example .env
-   # Edit .env with your credentials
+---
 
-   # Start development server
-   npm run dev
-   ```
+## Branch Types and Naming Conventions
 
-## Development Workflow
-
-1. **Create a New Branch**
-
-   ```bash
-   # Ensure you're on main and up-to-date
-   git checkout main
-   git pull origin main
-
-   # Create and switch to a new branch
-   git checkout -b feature/your-feature-name
-   # OR
-   git checkout -b fix/bug-description
-   ```
-
-2. **Make Your Changes**
-
-   - Write your code
-   - Test your changes locally
-   - Ensure code style compliance
-
-3. **Commit Your Changes**
-
-   ```bash
-   # Add changed files
-   git add .
-
-   # Commit with meaningful message
-   git commit -m "feat: add new study material feature"
-   ```
-
-4. **Push Changes and Create PR**
-   ```bash
-   # Push your branch
-   git push origin feature/your-feature-name
-   ```
-   - Go to GitHub and create a Pull Request
-   - Fill in the PR template with necessary details
-
-## Pull Request Guidelines
-
-- **Title**: Use clear, descriptive titles
-
-  - Format: `[Type] Brief description`
-  - Example: `[Feature] Add PUC study materials section`
-
-- **Description**:
-
-  ```markdown
-  ## Changes Made
-
-  - Detailed list of changes
-  - Impact on existing features
-
-  ## Testing Done
-
-  - How you tested the changes
-  - Test results/screenshots
-
-  ## Additional Notes
-
-  - Any other relevant information
+### 1. **Feature Branches**
+- **Purpose**: Used for developing new features.
+- **Naming Convention**: 
+  ```
+  feature/<feature-name>
+  ```
+- **Example**:
+  ```
+  feature/user-login
   ```
 
-## Commit Message Guidelines
+### 2. **Bugfix Branches**
+- **Purpose**: Used for fixing bugs or issues.
+- **Naming Convention**: 
+  ```
+  bugfix/<issue-description>
+  ```
+- **Example**:
+  ```
+  bugfix/fix-header-alignment
+  ```
 
-Follow the Conventional Commits specification:
+### 3. **Hotfix Branches**
+- **Purpose**: Used for urgent fixes that need to be deployed quickly.
+- **Naming Convention**: 
+  ```
+  hotfix/<urgent-fix>
+  ```
+- **Example**:
+  ```
+  hotfix/crash-on-login
+  ```
+
+### 4. **Release Branches**
+- **Purpose**: Used for preparing a new release.
+- **Naming Convention**: 
+  ```
+  release/<version>
+  ```
+- **Example**:
+  ```
+  release/1.2.0
+  ```
+
+### 5. **Experiment Branches**
+- **Purpose**: Used for experimental features or testing new ideas.
+- **Naming Convention**: 
+  ```
+  experiment/<experiment-name>
+  ```
+- **Example**:
+  ```
+  experiment/new-auth-flow
+  ```
+
+
+### Best Practices
+
+- **Be Descriptive, but Concise**: Choose names that clearly explain the purpose of the branch, but keep them short and to the point.
+- **Use Hyphens**: Separate words with hyphens (`-`) for readability.
+- **Use Lowercase Letters**: Stick to lowercase letters for consistency and ease of use.
+- **Avoid Special Characters**: Stick to alphanumeric characters and hyphens.
+
+
+## Create a Feature Branch:
 
 ```bash
-# Format
-type(scope): description
-
-# Examples
-feat(auth): add Google authentication
-fix(ui): resolve mobile navigation issue
-docs(readme): update installation steps
+git checkout develop
+git checkout -b feature/add-login  # Replace with your feature name
 ```
 
-Types:
+#### Make Changes:
 
-- `feat`: New feature
-- `fix`: Bug fix
-- `docs`: Documentation changes
-- `style`: Code style changes
-- `refactor`: Code refactoring
-- `test`: Testing changes
-- `chore`: Maintenance tasks
+- **Frontend**: Edit Flutter code in `flutter_app/lib/`.
+- **Backend**: Edit Node.js/Express code in `backend/`.
 
-### Resolve Conflicts (If Any)
-
-- Steps:
-  Edit conflicting files.
+#### Test Locally:
 
 ```bash
-git add <file>
+cd flutter_app && flutter test
+cd backend && npm test
+```
+
+#### Commit Changes:
+
+Use Conventional Commits:
+
+```bash
+git add .
+git commit -m "feat: add login UI and API endpoint"
+```
+
+#### Push and Create a Pull Request:
+
+```bash
+git push origin feature/add-login
+```
+
+Open a PR on GitHub from `feature/add-login` to `develop`.
+
+Include a description (e.g., changes made, testing done).
+
+#### Merge and Clean Up:
+
+After PR approval, merge into `develop`.
+
+Delete the branch:
+
+```bash
+git branch -d feature/add-login
+```
+
+---
+
+## <a name="releasing-a-new-version">🚀 Releasing a New Version</a>
+
+Release a new version (e.g., v1.1.0) from `develop` to `main` using **Semantic Versioning** (MAJOR . MINOR . PATCH).
+
+### Steps
+
+#### Prepare `develop`:
+
+```bash
+git checkout develop
+git pull origin develop
+```
+
+#### Test Everything:
+
+```bash
+cd flutter_app && flutter test && flutter run
+cd backend && npm test && node server.js
+```
+
+#### Merge to `main`:
+
+```bash
+git checkout main
+git pull origin main
+git merge --no-ff develop
+```
+
+#### Update Version Numbers:
+
+- **Flutter** (`flutter_app/pubspec.yaml`):
+
+```yaml
+version: 1.1.0
 ```
 
 ```bash
-git commit
+cd flutter_app
+git add pubspec.yaml
+git commit -m "chore: bump Flutter version to 1.1.0"
 ```
 
-- Purpose: Fix overlaps with others’ work.
-
-### Clean Up After Merge
+- **Node.js** (`backend/package.json`):
 
 ```bash
-   # Delete your branch
-   git branch -d <your-feature>
+cd backend
+npm version minor  # Bumps to 1.1.0
 ```
 
-    - Example: `git branch -d feature/add-login`
-    - Purpose: Delete your branch locally after it’s merged.
-
-## Tips for Smooth Collaboration
-
-- **Small Commits**: Commit often with clear messages (e.g., "Fix login bug").
-- **Pull Frequently**: Run `git pull origin main` daily to stay in sync.
-- **Communicate**: Tell the team (e.g., via Slack) when you push or open a PR.
-- **Review PRs**: Check teammates’ pull requests to catch issues early.
-
-## Need Help?
-
-- Reach out to project maintainers
-- Check existing issues and pull requests
-
-## <a name="Update">For update Packages:</a>
+#### Tag the Release:
 
 ```bash
+git tag -a v1.1.0 -m "Release v1.1.0: Added login feature"
+git push origin v1.1.0
+```
+
+#### Push to `main`:
+
+```bash
+git push origin main
+```
+
+#### Deploy:
+
+- **Flutter**:
+
+```bash
+cd flutter_app
+flutter build apk --release  # Or flutter build ios
+```
+
+Upload to app stores manually or via CI/CD.
+
+- **Backend**:
+
+```bash
+cd backend
+npx prisma migrate deploy
+git push heroku main  # Or your deployment method
+```
+
+#### Sync `develop`:
+
+```bash
+git checkout develop
+git merge --no-ff main
+git push origin develop
+```
+
+---
+
+## <a name="package-updates">📦 Package Updates</a>
+
+Keep dependencies up-to-date:
+
+#### For Backend:
+
+```bash
+# Check for updates
 npx npm-check-updates
-# then
+
+# Update package.json
 npx npm-check-updates -u
-# then
+
+# Install updated packages
 npm install
 ```
 
-Happy Coding!
+#### For Flutter:
+
+```bash
+cd flutter_app
+flutter pub upgrade
+```
+
+---
+
+### Tips for Collaboration
+
+- **Commit Often**: Use small, clear commits (e.g., `fix: resolve login bug`).
+- **Pull Regularly**: Sync with `main` and `develop` daily.
+- **Review PRs**: At least one teammate should review each PR.
+
+Happy coding! Reach out to maintainers if you need help.
