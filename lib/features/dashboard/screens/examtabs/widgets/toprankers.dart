@@ -79,23 +79,23 @@ class Toprankers extends StatelessWidget {
             child: AnotherCarousel(
               images: [
                 SizedBox(
-                  height: Screensize.height * 0.20,
+                  height: Screensize.height * 0.16,
                   child: _buildRankers(context),
                 ),
                 SizedBox(
-                  height: Screensize.height * 0.20,
+                  height: Screensize.height * 0.16,
                   child: _buildRankers(context),
                 ),
                 SizedBox(
-                  height: Screensize.height * 0.20,
+                  height: Screensize.height * 0.16,
                   child: _buildRankers(context),
                 ),
                 SizedBox(
-                  height: Screensize.height * 0.20,
+                  height: Screensize.height * 0.16,
                   child: _buildRankers(context),
                 ),
                 SizedBox(
-                  height: Screensize.height * 0.20,
+                  height: Screensize.height * 0.16,
                   child: _buildRankers(context),
                 ),
               ],
@@ -133,7 +133,7 @@ class Toprankers extends StatelessWidget {
                 width: Screensize.width * 0.21,
                 height: Screensize.height * 0.17,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   // mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
