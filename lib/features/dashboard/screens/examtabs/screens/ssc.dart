@@ -10,11 +10,13 @@ class Ssc extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+
         //toprankers
         Toprankers(),
           
         //upcoming exams
         Upcomingexams()
+        
       ],
     );
   }
