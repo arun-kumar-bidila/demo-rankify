@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/viewallexams.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/buildexamcard.dart';
 import 'package:rankify/features/dashboard/widgets/bottomcontainer.dart';
 import 'package:rankify/features/dashboard/widgets/middlecontainer.dart';
 import 'package:rankify/features/dashboard/widgets/topcontainer.dart';
@@ -14,6 +16,7 @@ class Upcomingexams extends StatefulWidget {
 }
 
 class _UpcomingexamsState extends State<Upcomingexams> {
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +46,14 @@ class _UpcomingexamsState extends State<Upcomingexams> {
                 //viewall
 
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Viewallexams(),
+                      ),
+                    );
+                  },
                   style: TextButton.styleFrom(
                       foregroundColor: GlobalColors.viewall),
                   child: Row(
@@ -72,10 +82,11 @@ class _UpcomingexamsState extends State<Upcomingexams> {
               ],
             ),
           ),
-          SizedBox(
-            height: Screensize.height * 0.48,
-            child: _buildExam(context),
-          ),
+          // SizedBox(
+          //   height: Screensize.height * 0.48,
+          //   child: _buildExam(context),
+          // ),
+          Buildexamcard(layoutheight: Screensize.height * 0.48)
         ],
       ),
     );
