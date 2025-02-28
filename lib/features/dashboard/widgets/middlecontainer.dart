@@ -49,15 +49,15 @@ class _MiddlecontainerState extends State<Middlecontainer> {
             children: [
               Image.asset(
                 "icons/calendar.png",
-                width: Screensize.width * 0.05,
-                height: Screensize.height * 0.02,
+                width: Screensize.width * 0.04,
+                height: Screensize.height * 0.018,
               ),
               SizedBox(
-                width: Screensize.width * 0.01,
+                width: Screensize.width * 0.02,
               ),
               Text(
                 "15 Jan 2025",
-                style: TextStyle(fontSize: 12.sp),
+                style: TextStyle(fontSize: 10.sp),
               )
             ],
           ),
@@ -73,13 +73,16 @@ class _MiddlecontainerState extends State<Middlecontainer> {
             children: [
               Image.asset(
                 "icons/hour-glass.png",
-                width: Screensize.width * 0.05,
-                height: Screensize.height * 0.02,
+                width: Screensize.width * 0.04,
+                height: Screensize.height * 0.018,
+              ),
+               SizedBox(
+                width: Screensize.width * 0.02,
               ),
               Text(
                 "4d 7h 10m",
                 style: TextStyle(
-                    fontSize: 12.sp, color: Color.fromRGBO(224, 0, 0, 1)),
+                    fontSize: 10.sp, color: Color.fromRGBO(224, 0, 0, 1)),
               )
             ],
           ),
@@ -94,11 +97,11 @@ class _MiddlecontainerState extends State<Middlecontainer> {
             children: [
               Image.asset(
                 "icons/time.png",
-                width: Screensize.width * 0.05,
-                height: Screensize.height * 0.02,
+                width: Screensize.width * 0.04,
+                height: Screensize.height * 0.018,
               ),
               SizedBox(
-                width: Screensize.width * 0.01,
+                width: Screensize.width * 0.02,
               ),
               Text(
                 "10:00 AM",
@@ -119,11 +122,11 @@ class _MiddlecontainerState extends State<Middlecontainer> {
         children: [
           Text(
             "₹5,00,000/-",
-            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold),
           ),
           Container(
             height: Screensize.height * 0.03,
-            width: Screensize.width * 0.2,
+            width: Screensize.width * 0.15,
             // padding: EdgeInsets.only(top:2.r,bottom: 2.r),
             decoration: BoxDecoration(
                 color: GlobalColors.buttonColor,
@@ -131,7 +134,7 @@ class _MiddlecontainerState extends State<Middlecontainer> {
             child: Center(
               child: Text(
                 "₹50/-",
-                style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                style: TextStyle(color: Colors.white, fontSize: 12.sp,fontWeight: FontWeight.bold),
               ),
             ),
           )

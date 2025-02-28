@@ -26,12 +26,12 @@ class Bottomcontainer extends StatelessWidget {
         children: [
           Image.asset(
             imagePath,
-            width: Screensize.width * 0.1,
-            height: Screensize.height * 0.02,
+            width: Screensize.width * 0.04,
+            height: Screensize.height * 0.018,
           ),
-          // SizedBox(
-          //   width: Screensize.width * 0.01,
-          // ),
+          SizedBox(
+            width: Screensize.width * 0.02,
+          ),
           Text(
             valueText,
             style: TextStyle(fontSize: 12.sp),
