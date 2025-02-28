@@ -11,8 +11,8 @@ class DashboardAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-          left: Screensize.width * 0.01,
-          right: Screensize.width * 0.01,
+          left: Screensize.width * 0.02,
+          right: Screensize.width * 0.02,
           bottom: Screensize.height * 0.02,
           ),
       // color: Colors.amber,
@@ -35,7 +35,7 @@ class DashboardAppbar extends StatelessWidget {
                 ),
               ),
               Container(
-                width: MediaQuery.of(context).size.width * 0.34,
+                width: MediaQuery.of(context).size.width * 0.32,
                 alignment: Alignment.center,
                 // color: Colors.pink,
                 child: Image.asset(
