@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/dashboard/screens/community.dart';
-import 'package:rankify/features/dashboard/screens/experts.dart';
+import 'package:rankify/features/home/screens/community.dart';
+import 'package:rankify/features/home/screens/experts.dart';
 import 'package:rankify/features/home/screens/homescreen.dart';
-import 'package:rankify/features/dashboard/screens/latestranks.dart';
-import 'package:rankify/features/dashboard/screens/myexams.dart';
+import 'package:rankify/features/home/screens/latestranks.dart';
+import 'package:rankify/features/home/screens/myexams.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
-import 'package:rankify/features/dashboard/widgets/bottomappbar.dart';
-import 'package:rankify/features/home/tabs/screens/appsc.dart';
-import 'package:rankify/features/home/tabs/screens/banks.dart';
-import 'package:rankify/features/home/tabs/screens/others.dart';
-import 'package:rankify/features/home/tabs/screens/rrb.dart';
-import 'package:rankify/features/home/tabs/screens/ssc.dart';
-import 'package:rankify/features/home/tabs/screens/upsc.dart';
-import 'package:rankify/features/home/widgets/topbar.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/bottomappbar.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/appsc.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/banks.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/others.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/rrb.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/ssc.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/upsc.dart';
+import 'package:rankify/features/dashboard/widgets/topbar.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Dashboard extends StatefulWidget {
@@ -55,7 +55,7 @@ class _DashboardState extends State<Dashboard> {
       body: Column(children: [
 
         Topbar(currentIndex: _page, onTap: updatePage),
-        // pages[_page]
+        pages[_page]
       ]),
 
       // //bottomnavigationbar
