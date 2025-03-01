@@ -45,11 +45,11 @@ class _MyexamspageState extends State<Myexamspage> {
             bottom: Screensize.height * 0.01,
           ),
           margin: EdgeInsets.only(
-            top: Screensize.height * 0.02,
-            bottom: Screensize.height * 0.02,
+            top: Screensize.height * 0.015,
+            bottom: Screensize.height * 0.015,
           ),
           width: double.infinity,
-          height: Screensize.height * 0.07,
+          height: Screensize.height * 0.08,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
