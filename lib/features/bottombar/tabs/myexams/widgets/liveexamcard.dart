@@ -10,7 +10,7 @@ class Liveexamcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: Screensize.width*0.02),
+      margin: EdgeInsets.symmetric(horizontal: Screensize.width * 0.02),
       height: double.infinity,
       color: Colors.white,
       padding: EdgeInsets.only(
@@ -40,14 +40,13 @@ class Liveexamcard extends StatelessWidget {
                 )
               ],
             ),
-           
             Padding(
               padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _InfoItem("25 Feb , 2025", "icons/newcalendar.png", "10:00 AM",
-                      "icons/clock.png"),
+                  _InfoItem("25 Feb , 2025", "icons/newcalendar.png",
+                      "10:00 AM", "icons/clock.png"),
                   _InfoItem("Prize: ₹5 Lac", "icons/trophy.png",
                       "10,000 Participants", "icons/group.png"),
                   _InfoItem("Duration:1 Hour", "icons/hour-glass.png",
@@ -87,9 +86,11 @@ class Liveexamcard extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
+              child: TextButton(
+                  onPressed: () {
+                    _buildImportantInstructions(context);
+                  },
+                  style: TextButton.styleFrom(
                       minimumSize: Size(double.infinity, 50.h),
                       backgroundColor: Color(0xFFF2F4F5),
                       shape: RoundedRectangleBorder(
@@ -102,7 +103,7 @@ class Liveexamcard extends StatelessWidget {
                         children: [
                           Image.asset(
                             "icons/exclamation.png",
-                            width: Screensize.width * 0.08,
+                            width: Screensize.width * 0.1,
                             height: Screensize.height * 0.03,
                             color: GlobalColors.liveExamText,
                           ),
@@ -218,6 +219,116 @@ class Liveexamcard extends StatelessWidget {
                 color: Color(0xFFEF7F1A),
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold),
+          )
+        ],
+      ),
+    );
+  }
+
+  void _buildImportantInstructions(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            backgroundColor: Colors.white,
+            // insetPadding: EdgeInsets.only(
+            //     left: Screensize.width * 0.1, right: Screensize.width * 0.1),
+            // insetPadding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.r)),
+            child: Container(
+              padding: EdgeInsets.symmetric(
+                vertical: Screensize.height * 0.02,
+                horizontal: Screensize.width * 0.05,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Important Instructions",
+                        style: TextStyle(
+                            fontSize: 18.sp, fontWeight: FontWeight.bold),
+                      ),
+                      GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Image.asset(
+                          "icons/close.png",
+                          // width: Screensize.width * 0.06,
+                          height: Screensize.height * 0.02,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: Screensize.height * 0.02,
+                  ),
+                  Column(
+                    children: [
+                      _buildInstruction("icons/exclamation.png",
+                          "Each Question carries one mark"),
+                      _buildInstruction(
+                          "icons/remove.png", "No negative marking"),
+                      _buildInstruction("icons/refresh.png",
+                          "Review options available"),
+                      _buildInstruction(
+                          "icons/clock.png", "Time bound exam"),
+                      _buildInstruction("icons/shuffle.png",
+                          "Questions are randomly selected"),
+                      _buildInstruction(
+                          "icons/mark.png", "Cannot go back to previous question"),
+                      _buildInstruction("icons/forbidden.png",
+                          "Tab switching is not allowed"),
+                      _buildInstruction("icons/cell-phone.png",
+                          "Keep mobile phones away"),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Screensize.height * 0.02,
+                    ),
+                    child: CustomButton(
+                      text: "Got it!",
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      color: GlobalColors.buttonColor,
+                      textColor: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  Widget _buildInstruction(String imagePath, String label) {
+    return Padding(
+      padding: EdgeInsets.only(
+          top: Screensize.height * 0.01, bottom: Screensize.height * 0.01),
+      child: Row(
+        // mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            imagePath,
+            width: Screensize.width * 0.1,
+            height: Screensize.height * 0.025,
+            color: Color.fromARGB(255, 0, 0, 0),
+          ),
+          Expanded(
+            child: Text(
+              label,
+              style: TextStyle(fontSize: 14.sp),
+              softWrap: true,
+              overflow: TextOverflow.visible,
+            ),
           )
         ],
       ),
