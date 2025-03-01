@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/bottombar/tabs/myexams/widgets/completedexam.dart';
 import 'package:rankify/features/bottombar/tabs/myexams/widgets/liveexamcard.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/buildexamcard.dart';
 import 'package:rankify/utils/screen_size.dart';
@@ -13,14 +14,12 @@ class Myexamspage extends StatefulWidget {
 }
 
 class _MyexamspageState extends State<Myexamspage> {
-  int _page = 1;
+  int _page = 0;
 
   List<Widget> MyExam = [
     Buildexamcard(layoutheight: double.infinity),
     Liveexamcard(),
-    Center(
-      child: Text("upcoming"),
-    )
+    Completedexam()
   ];
 
   void updatepage(int page) {
@@ -62,10 +61,9 @@ class _MyexamspageState extends State<Myexamspage> {
         Expanded(
           child: Container(
             margin: EdgeInsets.only(
-              left: Screensize.width * 0.02,
-              right: Screensize.width * 0.02,
-              bottom: Screensize.height*0.01
-            ),
+                left: Screensize.width * 0.02,
+                right: Screensize.width * 0.02,
+                bottom: Screensize.height * 0.01),
             child: MyExam[_page],
           ),
         )
