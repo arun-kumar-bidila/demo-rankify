@@ -1,0 +1,322 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rankify/constants/colors.dart';
+import 'package:rankify/utils/screen_size.dart';
+
+class Profilescreen extends StatelessWidget {
+  const Profilescreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        // color: Colors.amber,
+        margin: EdgeInsets.symmetric(
+          vertical: Screensize.height * 0.06,
+          horizontal: Screensize.width * 0.03,
+        ),
+        width: double.infinity,
+        height: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              //profile dp row
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border:
+                                Border.all(color: Color(0xFFEF7F1A), width: 2)),
+                        child: CircleAvatar(
+                          radius: Screensize.width * 0.07,
+                          backgroundColor: Colors.white,
+                          // child: Icon(
+                          //   Icons.person,
+                          //   color: GlobalColors.buttonColor,
+                          // ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              "assets/dp.jpg",
+                              fit: BoxFit.cover,
+                              width: Screensize.width * 0.14,
+                              height: Screensize.width * 0.14,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: Screensize.width * 0.04,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Sreenivasulu Gangala",
+                            style: TextStyle(
+                                fontSize: 15.sp, fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: Screensize.height * 0.005,
+                          ),
+                          Text(
+                            "Latest Ranks in SSC : 12",
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF91919F),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  Image.asset(
+                    "icons/pencil-outline.png",
+                    height: Screensize.height * 0.04,
+                  )
+                ],
+              ),
+
+              //my balance container
+              Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: Screensize.height * 0.015,
+                  horizontal: Screensize.width * 0.03,
+                ),
+                margin: EdgeInsets.symmetric(
+                  vertical: Screensize.height * 0.02,
+                  // horizontal: Screensize.width * 0.05,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "My Balance",
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF91919F),
+                      ),
+                    ),
+                    SizedBox(
+                      height: Screensize.height * 0.01,
+                    ),
+                    Text(
+                      "₹82",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                      height: Screensize.height * 0.01,
+                    ),
+                    Row(
+                      children: [
+                        _buildButton("WITH DRAW"),
+                        SizedBox(
+                          width: Screensize.width * 0.02,
+                        ),
+                        _buildButton("ADD CASH")
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.r)),
+                margin: EdgeInsets.only(bottom: Screensize.height * 0.02),
+                // padding: EdgeInsets.symmetric(
+                //   vertical: Screensize.height * 0.015,
+                //   // horizontal: Screensize.width * 0.02,
+                // ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _buildProfileFeature("icons/group.png", "Refer & Earn", 0),
+                    _buildProfileFeature(
+                        "icons/trophy-2.png", "Winners List", 0),
+                    _buildProfileFeature(
+                        "icons/profit-growth.png", "Check Your Performance", 0),
+                    _buildProfileFeature(
+                        "icons/gear.png", "My Info & Settings", 0),
+                    _buildProfileFeature(
+                        "icons/exclamation.png", "How to Work Rankify", 0),
+                    _buildProfileFeature(
+                        "icons/padlock.png", "Privacy Policy", 0),
+                    _buildProfileFeature("icons/more.png", "More", 0),
+                    _buildProfileFeature(
+                        "icons/24-7.png", "24x7 Help & Support ", 1),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: Screensize.width * 0.03,
+                    bottom: Screensize.height * 0.02),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "More From Rankify",
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: Color(0xFF161719),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.r)),
+                child: Column(
+                  children: [
+                    _buildMoreFromRankify("icons/exclamation.png",
+                        "Rankify GPT", "AI -Based Learning Support", 0),
+                    _buildMoreFromRankify("icons/exclamation.png",
+                        "Rankify Store", "Competitive Book Store", 1),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: Screensize.height * 0.02),
+                child: Center(
+                    child: Text(
+                  "Version 0.1.0",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.sp,
+                      color: Color(0xFF161719)),
+                )),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton(String label) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: Screensize.width * 0.05,
+          vertical: Screensize.height * 0.005),
+      decoration: BoxDecoration(
+          color: GlobalColors.buttonColor,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: Text(
+        label,
+        style: TextStyle(
+            fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildProfileFeature(String iconPath, String label, int pos) {
+    return Container(
+      decoration: BoxDecoration(
+        // color: Colors.amber,
+        border: pos == 0
+            ? Border(
+                bottom: BorderSide(
+                  color: Colors.black,
+                  width: Screensize.height * 0.0001,
+                  // width: 0.2
+                ),
+              )
+            : null,
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: Screensize.height * 0.01,
+            horizontal: Screensize.width * 0.03),
+        child: Row(
+          children: [
+            Image.asset(
+              iconPath,
+              // width: Screensize.width * 0.04,
+              height: Screensize.height * 0.025,
+            ),
+            SizedBox(
+              width: Screensize.width * 0.05,
+            ),
+            Text(
+              label,
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMoreFromRankify(
+      String iconPath, String label, String sublabel, int pos) {
+    return Container(
+      decoration: BoxDecoration(
+        // color: Colors.amber,
+        border: pos == 0
+            ? Border(
+                bottom: BorderSide(
+                  color: Colors.black,
+                  width: Screensize.height * 0.0002,
+                ),
+              )
+            : null,
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+            vertical: Screensize.height * 0.01,
+            horizontal: Screensize.width * 0.03),
+        child: Row(
+          children: [
+            Image.asset(
+              iconPath,
+              // width: Screensize.width * 0.04,
+              height: Screensize.height * 0.03,
+            ),
+            SizedBox(
+              width: Screensize.width * 0.05,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style:
+                      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  sublabel,
+                  style: TextStyle(
+                      fontSize: 9.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF91919F)),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
