@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/utils/screen_size.dart';
+
+import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
+import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});
@@ -148,20 +150,56 @@ class Profilescreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildProfileFeature("icons/group.png", "Refer & Earn", 0),
-                    _buildProfileFeature(
-                        "icons/trophy-2.png", "Winners List", 0),
-                    _buildProfileFeature(
-                        "icons/profit-growth.png", "Check Your Performance", 0),
-                    _buildProfileFeature(
-                        "icons/gear.png", "My Info & Settings", 0),
-                    _buildProfileFeature(
-                        "icons/exclamation.png", "How to Work Rankify", 0),
-                    _buildProfileFeature(
-                        "icons/padlock.png", "Privacy Policy", 0),
-                    _buildProfileFeature("icons/more.png", "More", 0),
-                    _buildProfileFeature(
-                        "icons/24-7.png", "24x7 Help & Support ", 1),
+
+                    Buildprofilefeature(
+                        iconPath: "icons/group.png",
+                        label: "Refer & Earn",
+                        onTap: () {},
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/trophy-2.png",
+                        label: "Winners List",
+                        onTap: () {},
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/profit-growth.png",
+                        label: "Check Your Performance",
+                        onTap: () {},
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/gear.png",
+                        label: "My Info & Settings",
+                        onTap: () {},
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/exclamation.png",
+                        label: "How to Work Rankify",
+                        onTap: () {},
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/padlock.png",
+                        label: "Privacy Policy",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Privacypolicy(),
+                            ),
+                          );
+                        },
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/more.png",
+                        label: "More",
+                        onTap: () {},
+                        pos: 0),
+                    Buildprofilefeature(
+                        iconPath: "icons/24-7.png",
+                        label: "24x7 Help & Support ",
+                        onTap: () {},
+                        pos: 1),
+
+
                   ],
                 ),
               ),
@@ -231,43 +269,6 @@ class Profilescreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileFeature(String iconPath, String label, int pos) {
-    return Container(
-      decoration: BoxDecoration(
-        // color: Colors.amber,
-        border: pos == 0
-            ? Border(
-                bottom: BorderSide(
-                  color: Colors.black,
-                  width: Screensize.height * 0.0001,
-                  // width: 0.2
-                ),
-              )
-            : null,
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-            vertical: Screensize.height * 0.01,
-            horizontal: Screensize.width * 0.03),
-        child: Row(
-          children: [
-            Image.asset(
-              iconPath,
-              // width: Screensize.width * 0.04,
-              height: Screensize.height * 0.025,
-            ),
-            SizedBox(
-              width: Screensize.width * 0.05,
-            ),
-            Text(
-              label,
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _buildMoreFromRankify(
       String iconPath, String label, String sublabel, int pos) {
