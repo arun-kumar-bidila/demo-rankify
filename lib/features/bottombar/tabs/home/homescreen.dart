@@ -6,6 +6,8 @@ import 'package:rankify/features/dashboard/screens/examtabs/screens/others.dart'
 import 'package:rankify/features/dashboard/screens/examtabs/screens/rrb.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/screens/ssc.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/screens/upsc.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/upcomingexams.dart';
 import 'package:rankify/features/dashboard/widgets/topbar.dart';
 
 class Homescreen extends StatefulWidget {
@@ -16,43 +18,23 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int _page = 0;
 
-  List<Widget> pages =[
-    const Ssc(),
-    const Banks(),
-    
-    const Rrb(),
-    const Upsc(),
-    const Appsc(),
-    const Others()
-       
-    ];
-  void updatePage(int page) {
-    setState(() {
-      _page = page;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      // color: Colors.amber,
       child: Column(
-          children: [
-      
-            //topbar
-            Topbar(currentIndex: _page, onTap: updatePage),
-      
-            //somespace between them
-      
-            SizedBox(height: 10.h,),
-      
-            //body
-            Container(child: pages[_page])
-          ],
+        children: [
+           //toprankers
+        Toprankers(),
+          
+           //upcoming exams
+        Upcomingexams(),
+
+        ]
         
-      
-        
+
       ),
     );
   }
