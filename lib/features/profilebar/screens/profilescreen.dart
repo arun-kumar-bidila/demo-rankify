@@ -4,6 +4,7 @@ import 'package:rankify/constants/colors.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
 import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
+import 'package:rankify/utils/screen_size.dart';
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});
