@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
 import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
-import 'package:rankify/utils/screen_size.dart';
 
 class Profilescreen extends StatelessWidget {
   const Profilescreen({super.key});
@@ -150,6 +150,7 @@ class Profilescreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+
                     Buildprofilefeature(
                         iconPath: "icons/group.png",
                         label: "Refer & Earn",
@@ -197,6 +198,8 @@ class Profilescreen extends StatelessWidget {
                         label: "24x7 Help & Support ",
                         onTap: () {},
                         pos: 1),
+
+
                   ],
                 ),
               ),
@@ -265,6 +268,7 @@ class Profilescreen extends StatelessWidget {
       ),
     );
   }
+
 
   Widget _buildMoreFromRankify(
       String iconPath, String label, String sublabel, int pos) {
