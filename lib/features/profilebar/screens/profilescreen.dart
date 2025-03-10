@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
+import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
 import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
 
 class Profilescreen extends StatelessWidget {
@@ -154,7 +155,12 @@ class Profilescreen extends StatelessWidget {
                     Buildprofilefeature(
                         iconPath: "icons/group.png",
                         label: "Refer & Earn",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Referandearn()));
+                        },
                         pos: 0),
                     Buildprofilefeature(
                         iconPath: "icons/trophy-2.png",
