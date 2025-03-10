@@ -40,7 +40,7 @@ class _MyexamspageState extends State<Myexamspage> {
                 offset: Offset(-2, 5))
           ]),
           padding: EdgeInsets.only(
-            top: Screensize.height * 0.02,
+            top: Screensize.height * 0.01,
             bottom: Screensize.height * 0.01,
           ),
           margin: EdgeInsets.only(
@@ -48,7 +48,7 @@ class _MyexamspageState extends State<Myexamspage> {
             bottom: Screensize.height * 0.015,
           ),
           width: double.infinity,
-          height: Screensize.height * 0.08,
+          // height: Screensize.height * 0.08,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -63,7 +63,8 @@ class _MyexamspageState extends State<Myexamspage> {
             margin: EdgeInsets.only(
                 left: Screensize.width * 0.02,
                 right: Screensize.width * 0.02,
-                bottom: Screensize.height * 0.01),
+                // bottom: Screensize.height * 0.01
+                ),
             child: MyExam[_page],
           ),
         )
@@ -75,7 +76,7 @@ class _MyexamspageState extends State<Myexamspage> {
     return InkWell(
       onTap: () => updatepage(index),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             itemlabel,
@@ -85,7 +86,9 @@ class _MyexamspageState extends State<Myexamspage> {
               color: _page == index ? GlobalColors.buttonColor : Colors.black,
             ),
           ),
+           SizedBox(height: Screensize.height*0.012,),
           if (_page == index) ...[
+           
             Container(
               width: Screensize.width * 0.15,
               height: Screensize.height * 0.005,

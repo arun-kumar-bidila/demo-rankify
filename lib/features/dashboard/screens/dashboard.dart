@@ -66,7 +66,14 @@ class _DashboardState extends State<Dashboard> {
             //     child: Myexamspage(),
             //   ),
             // )
-            pages[_page]
+             Expanded(
+              child: Container(
+                // height: double.infinity,
+                // color: Colors.amber,
+                child:  pages[_page]
+              ),
+            )
+           
           ],
         ),
       ),

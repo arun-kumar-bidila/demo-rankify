@@ -16,16 +16,20 @@ class _TopbarState extends State<Topbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 50.h,
-      height: Screensize.height * 0.08,
-      decoration: BoxDecoration(color: Colors.white, boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.2),
-          blurRadius: 8,
-          offset: Offset(-2, 5),
-          // spreadRadius: 1
-        )
-      ]),
+      
+      // height: Screensize.height * 0.08,
+      padding: EdgeInsets.symmetric(vertical: Screensize.height*0.01),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            blurRadius: 8,
+            offset: Offset(-2, 5),
+            // spreadRadius: 1
+          )
+        ],
+      ),
 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -44,31 +48,18 @@ class _TopbarState extends State<Topbar> {
   Widget _buildHomeItem(int index, String label, String iconPath) {
     return InkWell(
       onTap: () => widget.onTap(index),
-      child:
-          // Container(
-          //   padding: EdgeInsets.only(bottom: Screensize.height * 0.02),
-          //   decoration: BoxDecoration(
-          //       border: widget.currentIndex == index
-          //           ? Border(
-          //               bottom: BorderSide(
-          //                   color: GlobalColors.buttonColor,
-          //                   width: Screensize.width * 0.01),
-          //             )
-          //           : null),
-          //   child:
-          Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             iconPath,
-            // width: 17.w,
-            // height: 17.h,
-            width: Screensize.width * (19 / 375),
-            height: Screensize.height * (17 / 812),
+            
+            
+            height: Screensize.height * 0.02,
             color: widget.currentIndex == index ? Colors.pink : Colors.black,
           ),
           SizedBox(
-            // height: 5.h,
+            
             height: Screensize.height * (0.005),
           ),
           Text(
@@ -80,7 +71,7 @@ class _TopbarState extends State<Topbar> {
                 fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            // height: 5.h,
+            
             height: Screensize.height * (0.01),
           ),
           if (widget.currentIndex == index) ...[
@@ -100,7 +91,7 @@ class _TopbarState extends State<Topbar> {
           ]
         ],
       ),
-      // ),
+      
     );
   }
 }

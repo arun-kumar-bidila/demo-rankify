@@ -28,7 +28,7 @@ class Buildprofilefeature extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-              vertical: Screensize.height * 0.01,
+              vertical: Screensize.height * 0.015,
               horizontal: Screensize.width * 0.03),
           child: Row(
             children: [
@@ -42,7 +42,7 @@ class Buildprofilefeature extends StatelessWidget {
               ),
               Text(
                 label,
-                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
               )
             ],
           ),
