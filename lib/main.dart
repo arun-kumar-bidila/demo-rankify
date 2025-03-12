@@ -14,6 +14,7 @@ import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
 import 'package:rankify/features/profilebar/screens/profilescreen.dart';
+import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
 
