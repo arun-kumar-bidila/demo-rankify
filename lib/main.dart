@@ -17,6 +17,7 @@ import 'package:rankify/features/profilebar/screens/profilescreen.dart';
 import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
+import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
 
 import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
 import 'package:rankify/utils/screen_size.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: child,
       ),
-      child: Dashboard(),
+      child: Supportmain(),
     );
   }
 }
