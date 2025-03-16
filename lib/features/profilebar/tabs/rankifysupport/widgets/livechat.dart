@@ -111,19 +111,23 @@ class _LivechatState extends State<Livechat> {
                       filled: true,
                       fillColor: GlobalColors.greyF8,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
+                        borderRadius: BorderRadius.circular(30.r),
                         borderSide: BorderSide.none,
                       ),
                       isDense: true,
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: Screensize.height * 0.02,
-                        horizontal: Screensize.width * 0.02,
-                      ),
+                      // contentPadding: EdgeInsets.symmetric(
+                      //   vertical: Screensize.height * 0.02,
+                      //   horizontal: Screensize.width * 0.02,
+                      // ),
                     ),
                   ),
                 ),
               ),
               Container(
+                margin:EdgeInsets.only(
+                      
+                      right: Screensize.width * 0.02,
+                    ),
                   decoration: BoxDecoration(
                       color: GlobalColors.greyD9, shape: BoxShape.circle),
                   child: Padding(
@@ -133,7 +137,7 @@ class _LivechatState extends State<Livechat> {
                     ),
                     child: Icon(
                       Icons.send,
-                      size: 30.r,
+                      size: 25.r,
                       color: GlobalColors.buttonColor,
                     ),
                   ))

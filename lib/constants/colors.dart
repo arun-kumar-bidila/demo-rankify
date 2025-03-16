@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GlobalColors {
+  //colors
   static const backgroundColor = Color(0xFFF2F2F2);
   static const buttonColor = Color(0xFFCA174D);
   static const inactivebuttonColor = Colors.white;
@@ -13,4 +14,12 @@ class GlobalColors {
   static const greyF8 = Color(0xFFF8F8F8);
   static const greyD9 = Color(0xFFD9D9D9);
   static const grey5E = Color(0xFF5E5E5E);
+  static const deepTeal = Color(0xFF066185);
+
+  //gradients
+  static const LinearGradient primaryGradient = LinearGradient(
+    colors: [Color(0xFFA91241), GlobalColors.buttonColor],
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
+  );
 }

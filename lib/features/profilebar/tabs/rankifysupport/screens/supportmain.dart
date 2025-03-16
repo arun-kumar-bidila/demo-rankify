@@ -18,7 +18,7 @@ class _SupportmainState extends State<Supportmain> {
   int _page = 1;
   List<Widget> pages = [
     Expanded(child: Livechat()),
-    Callsupport(),
+    Expanded(child: Callsupport()),
   ];
 
   void updatePage(int page) {
@@ -49,7 +49,8 @@ class _SupportmainState extends State<Supportmain> {
                       horizontal: Screensize.width * 0.05,
                       vertical: Screensize.height * 0.05),
                   decoration: BoxDecoration(
-                      color: GlobalColors.buttonColor,
+                      // color: GlobalColors.buttonColor,
+                      gradient: GlobalColors.primaryGradient,
                       borderRadius: BorderRadius.circular(20.r)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,14 +80,20 @@ class _SupportmainState extends State<Supportmain> {
                             Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: Screensize.width * 0.01),
-                              child: Text(
-                                "•",
-                                style: TextStyle(
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.green,
-                                ),
-                              ),
+                              child: 
+                              // Text(
+                              //   "•",
+                              //   style: TextStyle(
+                              //     fontSize: 10.sp,
+                              //     fontWeight: FontWeight.w600,
+                              //     color: Colors.green,
+                              //   ),
+                              // ),
+                              CircleAvatar(
+                                backgroundColor: Colors.green,
+                                radius: Screensize.width*0.008,
+                                
+                              )
                             ),
                             Text(
                               "Online",
@@ -145,7 +152,7 @@ class _SupportmainState extends State<Supportmain> {
                             fontWeight: FontWeight.w600,
                             color: _page == 0
                                 ? GlobalColors.buttonColor
-                                : Colors.black,
+                                : GlobalColors.grey80,
                           ),
                         ),
                       ),
@@ -160,7 +167,7 @@ class _SupportmainState extends State<Supportmain> {
                             fontWeight: FontWeight.w600,
                             color: _page == 1
                                 ? GlobalColors.buttonColor
-                                : Colors.black,
+                                : GlobalColors.grey80,
                           ),
                         ),
                       ),
