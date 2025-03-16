@@ -4,6 +4,7 @@ import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
+import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
 import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
 import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
 import 'package:rankify/utils/screen_size.dart';
@@ -206,7 +207,12 @@ class Profilescreen extends StatelessWidget {
                     Buildprofilefeature(
                         iconPath: "icons/24-7.png",
                         label: "24x7 Help & Support ",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Supportmain()));
+                        },
                         pos: 1),
                   ],
                 ),
