@@ -5,6 +5,7 @@ import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
 import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
+import 'package:rankify/features/profilebar/tabs/rankifyworks/screens/howrankifyworks.dart';
 import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
 import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
 import 'package:rankify/utils/screen_size.dart';
@@ -182,7 +183,12 @@ class Profilescreen extends StatelessWidget {
                     Buildprofilefeature(
                         iconPath: "icons/exclamation.png",
                         label: "How to Work Rankify",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Howrankifyworks()));
+                        },
                         pos: 0),
                     Buildprofilefeature(
                         iconPath: "icons/padlock.png",
