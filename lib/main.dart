@@ -14,6 +14,7 @@ import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
 import 'package:rankify/features/profilebar/screens/profilescreen.dart';
+import 'package:rankify/features/profilebar/tabs/infoandsettings/screens/infoandsettings.dart';
 import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
 
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         theme: ThemeData(
-          textTheme: GoogleFonts.interTextTheme(),
+          // textTheme: GoogleFonts.interTextTheme(),
           scaffoldBackgroundColor: GlobalColors.backgroundColor,
           useMaterial3: true,
           appBarTheme: AppBarTheme(color: GlobalColors.backgroundColor),
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: child,
       ),
-      child: Dashboard(),
+      child: Infoandsettings(),
     );
   }
 }
