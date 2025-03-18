@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: child,
       ),
-      child: Infoandsettings(),
+      child: Profilescreen(),
     );
   }
 }

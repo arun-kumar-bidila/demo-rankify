@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rankify/constants/colors.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Buildprofilefeature extends StatelessWidget {
   final int pos;
   final VoidCallback onTap;
   final String label;
-  final String iconPath;
-  const Buildprofilefeature({super.key,required this.iconPath,required this.label,required this.onTap,required this.pos});
+  final IconData icon;
+  const Buildprofilefeature(
+      {super.key,
+      required this.icon,
+      required this.label,
+      required this.onTap,
+      required this.pos});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +25,8 @@ class Buildprofilefeature extends StatelessWidget {
           border: pos == 0
               ? Border(
                   bottom: BorderSide(
-                    color: Colors.black,
-                    width: Screensize.height * 0.0001,
+                    color: Colors.grey.withOpacity(0.2),
+                    width: 1,
                     // width: 0.2
                   ),
                 )
@@ -28,21 +34,31 @@ class Buildprofilefeature extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-              vertical: Screensize.height * 0.015,
-              horizontal: Screensize.width * 0.03),
+            vertical: Screensize.height * 0.01,
+          ),
           child: Row(
             children: [
-              Image.asset(
-                iconPath,
-                // width: Screensize.width * 0.04,
-                height: Screensize.height * 0.025,
+              // Image.asset(
+              //   iconPath,
+              //   // width: Screensize.width * 0.04,
+              //   height: Screensize.height * 0.025,
+              // ),
+              Padding(
+                padding:
+                    EdgeInsets.only(left: Screensize.width * 0.03,right: Screensize.width*0.06),
+                child: Icon(
+                  icon,
+                  size: 25.r,
+                  color: Colors.black,
+                ),
               ),
-              SizedBox(
-                width: Screensize.width * 0.05,
-              ),
+             
               Text(
                 label,
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    color: GlobalColors.grey19),
               )
             ],
           ),
