@@ -20,12 +20,15 @@ class GlobalColors {
   static const grey19 = Color(0xFF161719);
   static const greyC6 = Color(0xFFC1C0C6);
   static const greyF5 = Color(0xFFF2F4F5);
-  static const greyEC= Color(0xFFECECEC);
-  static const grey78=Color(0xFF767578);
+  static const greyEC = Color(0xFFECECEC);
+  static const grey78 = Color(0xFF767578);
+  static const grey9F = Color(0xFF91919F);
 
   static const deepTeal = Color(0xFF066185);
 
   static const blueE6 = Color(0xFF3689E6);
+
+  static const orange1A = Color(0xFFEF7F1A);
 
   //gradients
   static const LinearGradient primaryGradient = LinearGradient(
