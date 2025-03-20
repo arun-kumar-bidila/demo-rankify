@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rankify/features/bottombar/bottombar.dart';
-import 'package:rankify/features/bottombar/tabs/community/community.dart';
+import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
 import 'package:rankify/features/bottombar/tabs/home/homescreen.dart';
 import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart';
 import 'package:rankify/features/bottombar/tabs/rankifyexperts/experts.dart';

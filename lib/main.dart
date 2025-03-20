@@ -11,6 +11,7 @@ import 'package:rankify/features/auth/screens/phonesignup.dart';
 // import 'package:rankify/auth/screens/signup.dart';
 // import 'package:rankify/auth/screens/auth.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
 import 'package:rankify/features/profilebar/screens/profilescreen.dart';
@@ -31,6 +32,13 @@ void main() async {
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: GlobalColors.backgroundColor,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarIconBrightness: Brightness.dark
+      ));
 
   runApp(const MyApp());
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rankify/features/profilebar/tabs/infoandsettings/screens/infoandsettings.dart';
 import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
 import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
 import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
@@ -48,7 +49,10 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
           Buildprofilefeature(
               icon: Icons.settings,
               label: "My Info & Settings",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Infoandsettings()));
+              },
               pos: 0),
           Buildprofilefeature(
               icon: Icons.info,
