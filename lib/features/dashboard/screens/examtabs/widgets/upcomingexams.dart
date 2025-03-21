@@ -82,10 +82,7 @@ class _UpcomingexamsState extends State<Upcomingexams> {
               ],
             ),
           ),
-          // SizedBox(
-          //   height: Screensize.height * 0.48,
-          //   child: _buildExam(context),
-          // ),
+          
           Buildexamcard(layoutheight: Screensize.height * 0.395)
         ],
       ),

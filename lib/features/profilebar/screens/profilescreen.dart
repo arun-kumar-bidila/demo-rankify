@@ -21,7 +21,6 @@ class Profilescreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-
                 //profile dp row
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -30,10 +29,15 @@ class Profilescreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.arrow_back_ios_rounded,
-                        size: 20.r,
-                        color: GlobalColors.grey19,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios_rounded,
+                          size: 20.r,
+                          color: GlobalColors.grey19,
+                        ),
                       ),
                       Container(
                         padding: EdgeInsets.all(2),

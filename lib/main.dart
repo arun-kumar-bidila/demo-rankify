@@ -11,6 +11,7 @@ import 'package:rankify/features/auth/screens/phonesignup.dart';
 // import 'package:rankify/auth/screens/signup.dart';
 // import 'package:rankify/auth/screens/auth.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/bottombar/bottombar2.dart';
 import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: child,
       ),
-      child: Profilescreen(),
+      child: Dashboard(),
     );
   }
 }
