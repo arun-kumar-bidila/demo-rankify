@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/home/screens/community.dart';
-import 'package:rankify/features/home/screens/experts.dart';
-import 'package:rankify/features/home/screens/homescreen.dart';
-import 'package:rankify/features/home/screens/latestranks.dart';
-import 'package:rankify/features/home/screens/myexams.dart';
+import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
+import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart';
+import 'package:rankify/features/bottombar/tabs/rankifyexperts/experts.dart';
+import 'package:rankify/features/bottombar/tabs/home/homescreen.dart';
+// import 'package:rankify/features/bottombar/tabs/screens/latestranks.dart';
+// import 'package:rankify/features/home/screens/myexams.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/bottomappbar.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/screens/appsc.dart';
@@ -52,17 +53,30 @@ class _DashboardState extends State<Dashboard> {
 
       //DashboardbodyScreen
 
-      body: Column(children: [
+      body: Container(
+        height: double.infinity,
+        child: Column(
+          children: [
+            Topbar(currentIndex: _page, onTap: updatePage),
 
-        Topbar(currentIndex: _page, onTap: updatePage),
-        pages[_page]
-      ]),
-
-      // //bottomnavigationbar
-      // bottomNavigationBar: CustomBottomNavBar(
-      //   currentIndex: _page,
-      //   onTap: updatePage,
-      // ),
+            // Expanded(
+            //   child: Container(
+            //     height: double.infinity,
+            //     // color: Colors.amber,
+            //     child: Myexamspage(),
+            //   ),
+            // )
+             Expanded(
+              child: Container(
+                // height: double.infinity,
+                // color: Colors.amber,
+                child:  pages[_page]
+              ),
+            )
+           
+          ],
+        ),
+      ),
     );
   }
 }

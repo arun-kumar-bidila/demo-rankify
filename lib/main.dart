@@ -11,9 +11,20 @@ import 'package:rankify/features/auth/screens/phonesignup.dart';
 // import 'package:rankify/auth/screens/signup.dart';
 // import 'package:rankify/auth/screens/auth.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
+import 'package:rankify/features/profilebar/screens/profilescreen.dart';
+import 'package:rankify/features/profilebar/tabs/infoandsettings/screens/infoandsettings.dart';
+import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
+
+import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
+import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
+import 'package:rankify/features/profilebar/tabs/rankifyworks/screens/howrankifyworks.dart';
+
+import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
 import 'package:rankify/utils/screen_size.dart';
+
 // import 'package:rankify/splashScreen.dart';
 
 void main() async {
@@ -21,6 +32,13 @@ void main() async {
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: GlobalColors.backgroundColor,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarIconBrightness: Brightness.dark
+      ));
 
   runApp(const MyApp());
 }
@@ -37,7 +55,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) => MaterialApp(
         theme: ThemeData(
-          textTheme: GoogleFonts.interTextTheme(),
+          // textTheme: GoogleFonts.interTextTheme(),
           scaffoldBackgroundColor: GlobalColors.backgroundColor,
           useMaterial3: true,
           appBarTheme: AppBarTheme(color: GlobalColors.backgroundColor),
@@ -45,7 +63,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: child,
       ),
-      child: Dashboard(),
+      child: Profilescreen(),
     );
   }
 }

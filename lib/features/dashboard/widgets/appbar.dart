@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/profilebar/screens/profilescreen.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class DashboardAppbar extends StatelessWidget {
@@ -11,27 +12,33 @@ class DashboardAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-          left: Screensize.width * 0.02,
-          right: Screensize.width * 0.02,
-          bottom: Screensize.height * 0.02,
-          ),
+        left: Screensize.width * 0.02,
+        right: Screensize.width * 0.02,
+        bottom: Screensize.height * 0.02,
+      ),
       // color: Colors.amber,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Row(
             children: [
-              Container(
-                width: Screensize.width * 0.32,
-                alignment: Alignment.centerLeft,
-                // color: Colors.purpleAccent,
-                child: Image.asset(
-                  color: Color(0xFFEF7F1A),
-                  "icons/account.png",
-                  // height: 22.h,
-                  // width: 22.w,
-                  height: Screensize.height * (22 / 812),
-                  width: Screensize.width * (22 / 375),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Profilescreen()));
+                },
+                child: Container(
+                  width: Screensize.width * 0.32,
+                  alignment: Alignment.centerLeft,
+                  // color: Colors.purpleAccent,
+                  child: Image.asset(
+                    color: Color(0xFFEF7F1A),
+                    "icons/account.png",
+                    // height: 22.h,
+                    // width: 22.w,
+                    height: Screensize.height * (22 / 812),
+                    width: Screensize.width * (22 / 375),
+                  ),
                 ),
               ),
               Container(
@@ -54,8 +61,8 @@ class DashboardAppbar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     badges.Badge(
-                      badgeStyle:
-                          badges.BadgeStyle(badgeColor: GlobalColors.buttonColor),
+                      badgeStyle: badges.BadgeStyle(
+                          badgeColor: GlobalColors.buttonColor),
                       badgeContent: Text(
                         "3",
                         style: TextStyle(color: Colors.white, fontSize: 6.sp),
@@ -86,7 +93,7 @@ class DashboardAppbar extends StatelessWidget {
                             "icons/dollar.png",
                             // width: 16.w,
                             // height: 16.h,
-          
+
                             width: Screensize.width * (16 / 375),
                             height: Screensize.height * (16 / 812),
                           ),
