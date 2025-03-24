@@ -28,7 +28,7 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: Screensize.height * 0.01,
+        vertical: Screensize.height * 0.02,
         horizontal: Screensize.width * 0.03,
       ),
       child: Column(

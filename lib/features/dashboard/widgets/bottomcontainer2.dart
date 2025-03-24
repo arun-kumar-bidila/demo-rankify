@@ -28,7 +28,7 @@ class _Bottomcontainer2State extends State<Bottomcontainer2> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          vertical: Screensize.height * 0.01,
+          vertical: Screensize.height * 0.015,
           horizontal: Screensize.width * 0.05),
       // height: 20,
       // width: double.infinity,
