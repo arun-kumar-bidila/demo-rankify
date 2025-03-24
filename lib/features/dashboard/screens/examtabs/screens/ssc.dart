@@ -10,7 +10,8 @@ import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.d
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/upcomingexams.dart';
 
 class Ssc extends StatefulWidget {
-  const Ssc({super.key});
+  final Function(bool) onFullScreenChange;
+  const Ssc({super.key, required this.onFullScreenChange});
 
   @override
   State<Ssc> createState() => _SscState();
@@ -30,6 +31,7 @@ class _SscState extends State<Ssc> {
   void updatePage(int page) {
     setState(() {
       _page = page;
+      widget.onFullScreenChange(page == 3);
     });
   }
 
@@ -45,9 +47,14 @@ class _SscState extends State<Ssc> {
               child: pages[_page],
             ),
           ),
+          if(_page!=3)...[
           Container(
-            child: Bottombar(currentIndex: _page,onTap: updatePage,),
+            child: Bottombar(
+              currentIndex: _page,
+              onTap: updatePage,
+            ),
           ),
+        ],
         ],
       ),
     );

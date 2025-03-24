@@ -7,8 +7,11 @@ import 'package:rankify/features/dashboard/screens/examtabs/screens/rrb.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/screens/ssc.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/screens/upsc.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers2.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/upcomingexams.dart';
-import 'package:rankify/features/dashboard/widgets/topbar.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/upcomingexams2.dart';
+import 'package:rankify/features/dashboard/widgets/exambar.dart';
+import 'package:rankify/utils/screen_size.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -23,18 +26,24 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: Screensize.width*0.05),
       // color: Colors.amber,
-      child: Column(
-        children: [
-           //toprankers
-        Toprankers(),
-          
-           //upcoming exams
-        Upcomingexams(),
-
-        ]
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+             //toprankers
+          Toprankers2(),
+          // Toprankers()
+            
+             //upcoming exams
+          Upcomingexams2(),
+          // Upcomingexams(),
         
-
+          ]
+          
+        
+        ),
       ),
     );
   }
