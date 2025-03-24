@@ -26,52 +26,66 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _page = 0;
+  bool _isFullScreen = false;
 
-  List<Widget> pages = [
-    const Ssc(),
+  List<Widget> pages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    pages=[
+     Ssc(onFullScreenChange: toggleFullScreen,),
     const Banks(),
     const Rrb(),
     const Upsc(),
     const Appsc(),
     const Others(),
-  ];
+    ];
+  }
+
+  void toggleFullScreen(bool isFullScreen) {
+    setState(() {
+      _isFullScreen = isFullScreen;
+    });
+  }
+
   void updatePage(int page) {
     setState(() {
       _page = page;
+      _isFullScreen = false;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-    
-
-      body:SafeArea(
-        child: Column(
-          children: [
-            DashboardAppbar(),
-            Exambar(currentIndex: _page, onTap: updatePage),
-            Flexible(child: pages[_page])
+        body: SafeArea(
+      child: Column(
+        children: [
+          if(!_isFullScreen)...[
+          DashboardAppbar(),
+          Exambar(currentIndex: _page, onTap: updatePage),
           ],
-        ),
-      )
-      //  Container(
-      //   height: double.infinity,
-      //   child: Column(
-      //     children: [
-      //       Topbar(currentIndex: _page, onTap: updatePage),
+          Flexible(child: pages[_page])
+        ],
+      ),
+    )
+        //  Container(
+        //   height: double.infinity,
+        //   child: Column(
+        //     children: [
+        //       Topbar(currentIndex: _page, onTap: updatePage),
 
-      //        Expanded(
-      //         child: Container(
-              
-      //           child:  pages[_page]
-      //         ),
-      //       )
-           
-      //     ],
-      //   ),
-      // ),
-    );
+        //        Expanded(
+        //         child: Container(
+
+        //           child:  pages[_page]
+        //         ),
+        //       )
+
+        //     ],
+        //   ),
+        // ),
+        );
   }
 }

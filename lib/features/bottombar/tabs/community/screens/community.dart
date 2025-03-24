@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/bottombar/tabs/community/widgets/communitychat.dart';
+import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Community extends StatelessWidget {
@@ -20,10 +21,15 @@ class Community extends StatelessWidget {
                   horizontal: Screensize.width * 0.05),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.arrow_back_rounded,
-                    size: 25.r,
-                    color: GlobalColors.grey25,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard()));
+                    },
+                    child: Icon(
+                      Icons.arrow_back_rounded,
+                      size: 25.r,
+                      color: GlobalColors.grey25,
+                    ),
                   ),
                   Expanded(
                     child: Center(
@@ -96,10 +102,9 @@ class Community extends StatelessWidget {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.r),
-                        border: Border.all(color: GlobalColors.greyFA,width: 1)
-                      ),
-                    
+                          borderRadius: BorderRadius.circular(10.r),
+                          border:
+                              Border.all(color: GlobalColors.greyFA, width: 1)),
                       child: Row(
                         children: [
                           Expanded(
@@ -111,32 +116,39 @@ class Community extends StatelessWidget {
                                       fontSize: 10.sp,
                                       fontWeight: FontWeight.w400,
                                       color: GlobalColors.grey9F),
-                                      border: InputBorder.none,
-                                 
+                                  border: InputBorder.none,
                                   contentPadding: EdgeInsets.symmetric(
                                       vertical: Screensize.height * 0.01,
                                       horizontal: Screensize.width * 0.03)),
                             ),
                           ),
                           Padding(
-                            padding:  EdgeInsets.symmetric(
-                                      horizontal: Screensize.width * 0.03,),
-                            child: Icon(Icons.attach_file,size: 20.r,color: GlobalColors.grey9F,),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: Screensize.width * 0.03,
+                            ),
+                            child: Icon(
+                              Icons.attach_file,
+                              size: 20.r,
+                              color: GlobalColors.grey9F,
+                            ),
                           )
                         ],
                       ),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: Screensize.width*0.03),
-                    padding: EdgeInsets.symmetric(vertical: Screensize.height*0.01,horizontal: Screensize.width*0.02),
+                    margin: EdgeInsets.only(left: Screensize.width * 0.03),
+                    padding: EdgeInsets.symmetric(
+                        vertical: Screensize.height * 0.01,
+                        horizontal: Screensize.width * 0.02),
                     decoration: BoxDecoration(
-                      color: GlobalColors.greyD9,
-                      shape: BoxShape.circle
+                        color: GlobalColors.greyD9, shape: BoxShape.circle),
+                    child: Icon(
+                      Icons.send,
+                      size: 25.r,
+                      color: GlobalColors.buttonColor,
                     ),
-                    child: Icon(Icons.send,size: 25.r,color: GlobalColors.buttonColor,),
                   )
-
                 ],
               ),
             )
