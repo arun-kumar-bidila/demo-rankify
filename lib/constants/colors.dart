@@ -27,6 +27,7 @@ class GlobalColors {
   static const greyFA = Color(0xFFF1F1FA);
   static const grey99 = Color(0x3C3C4399);
   static const greyDA = Color(0xFFD6D7DA);
+  static const grey38 = Color(0xFF383838);
 
   static const deepTeal = Color(0xFF066185);
 
@@ -37,6 +38,8 @@ class GlobalColors {
 
   static const green50 = Color(0xFF4CAF50);
 
+  static const pinkF3 = Color(0xFFFFEEF3);
+
   //gradients
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [Color(0xFFA91241), GlobalColors.buttonColor],
@@ -44,6 +47,8 @@ class GlobalColors {
     end: Alignment.topCenter,
   );
 
-  static const LinearGradient progressBar =
-      LinearGradient(colors: [Color(0xFFCE2347), Color(0xFFEE7B1C)],begin: Alignment.centerLeft,end: Alignment.centerRight);
+  static const LinearGradient progressBar = LinearGradient(
+      colors: [Color(0xFFCE2347), Color(0xFFEE7B1C)],
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight);
 }

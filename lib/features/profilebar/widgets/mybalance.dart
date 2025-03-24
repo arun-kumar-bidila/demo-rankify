@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/profilebar/tabs/addcash/screens/addcash.dart';
+import 'package:rankify/features/profilebar/tabs/withdraw/screens/withdrawcash.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Mybalance extends StatefulWidget {
@@ -20,7 +22,7 @@ class _MybalanceState extends State<Mybalance> {
       ),
       // margin: EdgeInsets.symmetric(
       //   vertical: Screensize.height * 0.02,
-        
+
       // ),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -38,9 +40,8 @@ class _MybalanceState extends State<Mybalance> {
               color: GlobalColors.grey9F,
             ),
           ),
-         
           Padding(
-            padding: EdgeInsets.symmetric(vertical: Screensize.height*0.01),
+            padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
             child: Text(
               "₹82",
               style: TextStyle(
@@ -50,32 +51,35 @@ class _MybalanceState extends State<Mybalance> {
               ),
             ),
           ),
-          
           Row(
-            children: [
-              _buildButton("WITH DRAW"),
-              
-              _buildButton("ADD CASH")
-            ],
+            children: [_buildButton("WITH DRAW",Withdrawcash()), _buildButton("ADD CASH",Addcash())],
           )
         ],
       ),
     );
   }
 
-  Widget _buildButton(String label) {
-    return Container(
-      margin: EdgeInsets.only(right: Screensize.width*0.05),
-      padding: EdgeInsets.symmetric(
-          horizontal: Screensize.width * 0.03,
-          vertical: Screensize.height * 0.01),
-      decoration: BoxDecoration(
-          color: GlobalColors.buttonColor,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: Text(
-        label,
-        style: TextStyle(
-            fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.w500),
+  Widget _buildButton(String label,Widget page) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => page));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: Screensize.width * 0.05),
+        padding: EdgeInsets.symmetric(
+            horizontal: Screensize.width * 0.03,
+            vertical: Screensize.height * 0.01),
+        decoration: BoxDecoration(
+            color: GlobalColors.buttonColor,
+            borderRadius: BorderRadius.circular(5.r)),
+        child: Text(
+          label,
+          style: TextStyle(
+              fontSize: 12.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.w500),
+        ),
       ),
     );
   }

@@ -18,7 +18,7 @@ class _Topcontainer2State extends State<Topcontainer2> {
     return Container(
       // // width: double.infinity,
       // height: 20,
-      padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
+      padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.015),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
