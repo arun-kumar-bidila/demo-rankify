@@ -2,31 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:rankify/features/auth/screens/phonesignup.dart';
-// import 'package:rankify/auth/screens/Sucessful.dart';
-// import 'package:rankify/auth/screens/examCategory.dart';
-// import 'package:rankify/auth/screens/language.dart';
-// import 'package:rankify/auth/screens/signin.dart';
-// import 'package:rankify/auth/screens/signup.dart';
-// import 'package:rankify/auth/screens/auth.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/bottombar/bottombar2.dart';
-import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
-import 'package:rankify/features/dashboard/widgets/appbar.dart';
-import 'package:rankify/features/profilebar/screens/profilescreen.dart';
-import 'package:rankify/features/profilebar/tabs/infoandsettings/screens/infoandsettings.dart';
-import 'package:rankify/features/profilebar/tabs/more/screens/more.dart';
-
-import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypolicy.dart';
-import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
-import 'package:rankify/features/profilebar/tabs/rankifyworks/screens/howrankifyworks.dart';
-
-import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
 import 'package:rankify/utils/screen_size.dart';
 
-// import 'package:rankify/splashScreen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,8 +19,7 @@ void main() async {
       statusBarColor: GlobalColors.backgroundColor,
       statusBarIconBrightness: Brightness.dark,
       systemNavigationBarColor: Colors.white,
-      systemNavigationBarIconBrightness: Brightness.dark
-      ));
+      systemNavigationBarIconBrightness: Brightness.dark));
 
   runApp(const MyApp());
 }

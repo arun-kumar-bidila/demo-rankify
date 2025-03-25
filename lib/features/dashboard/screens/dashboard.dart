@@ -60,14 +60,17 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: Column(
-        children: [
-          if(!_isFullScreen)...[
-          DashboardAppbar(),
-          Exambar(currentIndex: _page, onTap: updatePage),
+      child: Padding(
+        padding:  EdgeInsets.only(top: Screensize.height*0.01),
+        child: Column(
+          children: [
+            if(!_isFullScreen)...[
+            DashboardAppbar(),
+            Exambar(currentIndex: _page, onTap: updatePage),
+            ],
+            Flexible(child: pages[_page])
           ],
-          Flexible(child: pages[_page])
-        ],
+        ),
       ),
     )
         //  Container(
