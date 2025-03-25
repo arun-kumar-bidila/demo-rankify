@@ -6,7 +6,7 @@ import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart
 import 'package:rankify/features/bottombar/tabs/rankifyexperts/experts.dart';
 import 'package:rankify/features/bottombar/tabs/ranks/ranks.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/widgets/upcomingexams.dart';
+
 
 class Others extends StatefulWidget {
   const Others({super.key});

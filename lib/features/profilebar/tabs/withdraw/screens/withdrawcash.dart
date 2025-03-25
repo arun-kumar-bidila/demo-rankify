@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rankify/common/widgets/custom_button.dart';
+
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/profilebar/tabs/addcash/widgets/addcashtitle.dart';
-import 'package:rankify/features/profilebar/tabs/addcash/widgets/addmoneyfield.dart';
+
 import 'package:rankify/features/profilebar/tabs/withdraw/widgets/withdrawcashtitle.dart';
 import 'package:rankify/features/profilebar/tabs/withdraw/widgets/withdrawmoneyfield.dart';
 import 'package:rankify/utils/screen_size.dart';
@@ -39,8 +38,8 @@ class _WithdrawcashState extends State<Withdrawcash> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                         padding:
-                    EdgeInsets.symmetric(vertical: Screensize.height * 0.005),
+                          padding: EdgeInsets.symmetric(
+                              vertical: Screensize.height * 0.005),
                           child: Text(
                             "Withdraw Money",
                             style: TextStyle(

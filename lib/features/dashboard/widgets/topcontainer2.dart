@@ -6,7 +6,14 @@ import 'package:rankify/utils/screen_size.dart';
 class Topcontainer2 extends StatefulWidget {
   final String examImage;
   final String examTitle;
-  const Topcontainer2({super.key,required this.examTitle,required this.examImage});
+  final Color color;
+  final Color textColor;
+  const Topcontainer2(
+      {super.key,
+      required this.examTitle,
+      required this.examImage,
+      required this.color,
+      required this.textColor});
 
   @override
   State<Topcontainer2> createState() => _Topcontainer2State();
@@ -20,7 +27,7 @@ class _Topcontainer2State extends State<Topcontainer2> {
       // height: 20,
       padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.015),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: widget.color,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.r), topRight: Radius.circular(20.r)),
           boxShadow: [
@@ -44,7 +51,7 @@ class _Topcontainer2State extends State<Topcontainer2> {
               style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
-                  color: GlobalColors.grey25),
+                  color: widget.textColor),
             ),
           )
         ],

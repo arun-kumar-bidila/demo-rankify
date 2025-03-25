@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/screens/viewallexams.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/widgets/examcard.dart';
 import 'package:rankify/features/dashboard/widgets/bottomcontainer2.dart';
 import 'package:rankify/features/dashboard/widgets/middlecontainer2.dart';
 import 'package:rankify/features/dashboard/widgets/topcontainer2.dart';
@@ -31,7 +33,7 @@ class _Upcomingexams2State extends State<Upcomingexams2> {
       "addOn3": "icons/profit.png",
       "addOn3Lable": "50%",
     },
-      {
+    {
       "examImage": "assets/ssc.png",
       "examTitle": "SSC General Studies",
       "examDate": "2025-04-15",
@@ -47,7 +49,7 @@ class _Upcomingexams2State extends State<Upcomingexams2> {
       "addOn3": "icons/profit.png",
       "addOn3Lable": "50%",
     },
-      {
+    {
       "examImage": "assets/ssc.png",
       "examTitle": "SSC General Studies",
       "examDate": "2025-04-15",
@@ -78,7 +80,12 @@ class _Upcomingexams2State extends State<Upcomingexams2> {
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Viewallexams()));
+                  },
                   child: Row(
                     children: [
                       Padding(
@@ -106,7 +113,7 @@ class _Upcomingexams2State extends State<Upcomingexams2> {
           ),
         ),
         for (var card in examDetails)
-          _buildUpcomingExams(
+          Examcard(
             examImage: card["examImage"],
             examTitle: card["examTitle"],
             examDate: card["examDate"],
@@ -121,51 +128,54 @@ class _Upcomingexams2State extends State<Upcomingexams2> {
             addOn2Label: card["addOn2Lable"],
             addOn3: card["addOn3"],
             addOn3Label: card["addOn3Lable"],
+            color: Colors.white,
+            textColor: GlobalColors.grey25,
+            shadowColor: Colors.grey.withOpacity(0.2),
           )
       ],
     );
   }
 
-  Widget _buildUpcomingExams({
-    required examImage,
-    required examTitle,
-    required examDate,
-    required examTime,
-    required prizePool,
-    required entryFee,
-    required availableSlots,
-    required totalSlots,
-    required addOn1,
-    required addOn1Label,
-    required addOn2,
-    required addOn2Label,
-    required addOn3,
-    required addOn3Label,
-  }) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: Screensize.height*0.01),
-      width: double.infinity,
-      decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(20.r)),
-      child: Column(
-        children: [
-          Topcontainer2(examTitle: examTitle, examImage: examImage),
-          Middlecontainer2(
-              examDate: examDate,
-              examTime: examTime,
-              prizepool: prizePool,
-              entryFee: entryFee,
-              availableSlots: availableSlots,
-              totalSlots: totalSlots),
-          Bottomcontainer2(
-              addOn1: addOn1,
-              addOn2: addOn2,
-              addOn3: addOn3,
-              addOn1Label: addOn1Label,
-              addOn2Label: addOn2Label,
-              addOn3Label: addOn3Label)
-        ],
-      ),
-    );
-  }
+  // Widget _buildUpcomingExams({
+  //   required examImage,
+  //   required examTitle,
+  //   required examDate,
+  //   required examTime,
+  //   required prizePool,
+  //   required entryFee,
+  //   required availableSlots,
+  //   required totalSlots,
+  //   required addOn1,
+  //   required addOn1Label,
+  //   required addOn2,
+  //   required addOn2Label,
+  //   required addOn3,
+  //   required addOn3Label,
+  // }) {
+  //   return Container(
+  //     margin: EdgeInsets.symmetric(vertical: Screensize.height*0.01),
+  //     width: double.infinity,
+  //     decoration: BoxDecoration(
+  //         color: Colors.white, borderRadius: BorderRadius.circular(20.r)),
+  //     child: Column(
+  //       children: [
+  //         Topcontainer2(examTitle: examTitle, examImage: examImage),
+  //         Middlecontainer2(
+  //             examDate: examDate,
+  //             examTime: examTime,
+  //             prizepool: prizePool,
+  //             entryFee: entryFee,
+  //             availableSlots: availableSlots,
+  //             totalSlots: totalSlots),
+  //         Bottomcontainer2(
+  //             addOn1: addOn1,
+  //             addOn2: addOn2,
+  //             addOn3: addOn3,
+  //             addOn1Label: addOn1Label,
+  //             addOn2Label: addOn2Label,
+  //             addOn3Label: addOn3Label)
+  //       ],
+  //     ),
+  //   );
+  // }
 }

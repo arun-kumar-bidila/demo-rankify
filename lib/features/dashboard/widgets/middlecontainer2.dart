@@ -5,6 +5,8 @@ import 'package:rankify/utils/screen_size.dart';
 
 class Middlecontainer2 extends StatefulWidget {
   final String examDate;
+   final Color color;
+  final Color textColor;
   final String examTime;
   final String prizepool;
   final String entryFee;
@@ -17,7 +19,9 @@ class Middlecontainer2 extends StatefulWidget {
       required this.prizepool,
       required this.entryFee,
       required this.availableSlots,
-      required this.totalSlots});
+      required this.totalSlots,
+      required this.color,
+      required this.textColor});
 
   @override
   State<Middlecontainer2> createState() => _Middlecontainer2State();
@@ -64,7 +68,7 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
             children: [
               Text(
                 "₹ ${widget.prizepool}",
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600,color: widget.textColor),
               ),
               IntrinsicWidth(
                 child: TextButton(
@@ -114,7 +118,7 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
                     style: TextStyle(
                         fontSize: 8.sp,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black),
+                        color: widget.textColor),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: Screensize.width*0.01),
@@ -184,7 +188,7 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
                 fontSize: 10.sp,
                 fontWeight: FontWeight.w400,
                 color:
-                    isTime == true ? GlobalColors.buttonColor : Colors.black),
+                    isTime == true ? GlobalColors.buttonColor : widget.textColor),
           ),
         )
       ],
