@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/viewallexams.dart';
+import 'package:rankify/features/dashboard/screens/viewallexams.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/examcard.dart';
 import 'package:rankify/features/dashboard/widgets/bottomcontainer2.dart';
 import 'package:rankify/features/dashboard/widgets/middlecontainer2.dart';

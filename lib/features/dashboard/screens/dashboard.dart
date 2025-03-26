@@ -8,12 +8,12 @@ import 'package:rankify/features/bottombar/tabs/home/homescreen.dart';
 
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/bottomappbar.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/appsc.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/banks.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/others.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/rrb.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/ssc.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/screens/upsc.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/appsc/appsc.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/banks/banks.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/others/others.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/rrb/rrb.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/ssc/ssc.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/upsc/upsc.dart';
 import 'package:rankify/features/dashboard/widgets/exambar.dart';
 import 'package:rankify/utils/screen_size.dart';
 
