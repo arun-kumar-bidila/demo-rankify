@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/ssc/confirmexamdetails.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Middlecontainer2 extends StatefulWidget {
   final String examDate;
-   final Color color;
+  final Color color;
   final Color textColor;
   final String examTime;
   final String prizepool;
@@ -68,11 +69,19 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
             children: [
               Text(
                 "₹ ${widget.prizepool}",
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600,color: widget.textColor),
+                style: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w600,
+                    color: widget.textColor),
               ),
               IntrinsicWidth(
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Confirmexamdetails()));
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                       minimumSize: Size.zero, // Removes minimum constraints
@@ -114,50 +123,46 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
                   Row(
                     children: [
                       Text(
-                    "${widget.totalSlots} ",
-                    style: TextStyle(
-                        fontSize: 8.sp,
-                        fontWeight: FontWeight.w500,
-                        color: widget.textColor),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: Screensize.width*0.01),
-                    decoration: BoxDecoration(
-                      color: GlobalColors.orange1A,
-                      borderRadius: BorderRadius.circular(1.r)
-                    ),
-                    child: Text(
-                    "M",
-                    style: TextStyle(
-                        fontSize: 6.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
-                  ),
-                  )
+                        "${widget.totalSlots} ",
+                        style: TextStyle(
+                            fontSize: 8.sp,
+                            fontWeight: FontWeight.w500,
+                            color: widget.textColor),
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: Screensize.width * 0.01),
+                        decoration: BoxDecoration(
+                            color: GlobalColors.orange1A,
+                            borderRadius: BorderRadius.circular(1.r)),
+                        child: Text(
+                          "M",
+                          style: TextStyle(
+                              fontSize: 6.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        ),
+                      )
                     ],
                   )
                 ],
               ),
-
               Padding(
-                padding:  EdgeInsets.only(top: Screensize.height*0.01),
+                padding: EdgeInsets.only(top: Screensize.height * 0.01),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5.r),
                   child: Container(
                     width: double.infinity,
                     height: 10,
-                    decoration: BoxDecoration(
-                      color: GlobalColors.greyDA
-                    ),
+                    decoration: BoxDecoration(color: GlobalColors.greyDA),
                     child: Stack(
                       children: [
                         FractionallySizedBox(
-                          widthFactor: 5/10,
+                          widthFactor: 5 / 10,
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.r),
-                              gradient: GlobalColors.progressBar
-                            ),
+                                borderRadius: BorderRadius.circular(5.r),
+                                gradient: GlobalColors.progressBar),
                           ),
                         )
                       ],
@@ -187,8 +192,9 @@ class _Middlecontainer2State extends State<Middlecontainer2> {
             style: TextStyle(
                 fontSize: 10.sp,
                 fontWeight: FontWeight.w400,
-                color:
-                    isTime == true ? GlobalColors.buttonColor : widget.textColor),
+                color: isTime == true
+                    ? GlobalColors.buttonColor
+                    : widget.textColor),
           ),
         )
       ],

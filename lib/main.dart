@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/ssc/paymentmethods.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 

@@ -32,6 +32,7 @@ class GlobalColors {
   static const deepTeal = Color(0xFF066185);
 
   static const blueE6 = Color(0xFF3689E6);
+  static const blueF3 = Color(0xFF2396F3);
 
   static const orange1A = Color(0xFFEF7F1A);
   static const orangeD1 = Color(0xFFFCE5D1);
@@ -39,6 +40,8 @@ class GlobalColors {
   static const green50 = Color(0xFF4CAF50);
 
   static const pinkF3 = Color(0xFFFFEEF3);
+
+  static const whiteDE = Color(0xFFDEDEDE);
 
   //gradients
   static const LinearGradient primaryGradient = LinearGradient(
