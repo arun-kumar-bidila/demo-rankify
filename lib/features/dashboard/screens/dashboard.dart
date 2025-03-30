@@ -58,6 +58,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+     double textScale = MediaQuery.of(context).textScaleFactor; // ✅ Correct property
+print(textScale);
     return Scaffold(
         body: SafeArea(
       child: Padding(
