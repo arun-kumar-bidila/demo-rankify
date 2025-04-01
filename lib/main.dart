@@ -7,6 +7,8 @@ import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/ssc/paymentmethods.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/ssc/winnings.dart';
+import 'package:rankify/features/liveexam/screens/confirmexam.dart';
+import 'package:rankify/features/liveexam/screens/liveexamscreen.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
         ),
       );
       },
-      child: Winnings(),
+      child: Dashboard(),
     );
   }
 }
