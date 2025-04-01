@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/common/widgets/custom_button.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/constants/variables.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/ssc/confirmexamdetails.dart';
 
 class Winningsinfo extends StatefulWidget {
   const Winningsinfo({super.key});
@@ -34,7 +35,6 @@ class _WinningsinfoState extends State<Winningsinfo> {
     {"rank": "#10", "money": "₹500"},
     {"rank": "#10", "money": "₹500"},
     {"rank": "#10", "money": "₹500"},
-
   ];
 
   @override
@@ -109,13 +109,18 @@ class _WinningsinfoState extends State<Winningsinfo> {
                       ),
                     ],
                   ),
-      
+
                   // SizedBox(
                   //   height: Variables.columnspace,
                   // ),
                   CustomButton(
                       text: "JOIN ₹50",
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Confirmexamdetails()));
+                      },
                       color: GlobalColors.buttonColor,
                       textColor: Colors.white),
                   // SizedBox(
@@ -186,33 +191,33 @@ class _WinningsinfoState extends State<Winningsinfo> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
-                           spacing: Variables.columnspace,
+                          spacing: Variables.columnspace,
                           children: [
-                             _buildRank(
-                            rank: "Rank",
-                            money: "₹25,000",
-                            isTop: true,
-                            topColor: Colors.amber),
-                        _buildRank(
-                            rank: "Rank",
-                            money: "₹10,000",
-                            isTop: true,
-                            topColor: Colors.grey),
-                        _buildRank(
-                            rank: "Rank",
-                            money: "₹7,000",
-                            isTop: true,
-                            topColor: GlobalColors.buttonColor),
-                        for (var item in ranks) ...[
-                          
-                          _buildRank(rank: item["rank"], money: item["money"],isTop: false),
-                        ]
-                        
+                            _buildRank(
+                                rank: "Rank",
+                                money: "₹25,000",
+                                isTop: true,
+                                topColor: Colors.amber),
+                            _buildRank(
+                                rank: "Rank",
+                                money: "₹10,000",
+                                isTop: true,
+                                topColor: Colors.grey),
+                            _buildRank(
+                                rank: "Rank",
+                                money: "₹7,000",
+                                isTop: true,
+                                topColor: GlobalColors.buttonColor),
+                            for (var item in ranks) ...[
+                              _buildRank(
+                                  rank: item["rank"],
+                                  money: item["money"],
+                                  isTop: false),
+                            ]
                           ],
                         ),
                       ),
                     )
-                   
                   ],
                 ),
               ),
@@ -239,11 +244,10 @@ class _WinningsinfoState extends State<Winningsinfo> {
                 size: 20.r,
                 color: topColor,
               ),
-             
             ],
-             SizedBox(
-                width: Variables.rowwidgetspace,
-              ),
+            SizedBox(
+              width: Variables.rowwidgetspace,
+            ),
             Text(
               rank,
               style: TextStyle(
