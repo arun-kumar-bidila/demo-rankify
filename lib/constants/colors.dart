@@ -38,6 +38,7 @@ class GlobalColors {
   static const orangeD1 = Color(0xFFFCE5D1);
 
   static const green50 = Color(0xFF4CAF50);
+  static const greenEE = Color(0xFFE0FBEE);
 
   static const pinkF3 = Color(0xFFFFEEF3);
 

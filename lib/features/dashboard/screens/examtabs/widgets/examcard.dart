@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rankify/features/dashboard/screens/examtabs/ssc/winnings.dart';
 import 'package:rankify/features/dashboard/widgets/bottomcontainer2.dart';
 import 'package:rankify/features/dashboard/widgets/bottomcontainer3.dart';
 
@@ -55,10 +56,16 @@ class Examcard extends StatefulWidget {
 class _ExamcardState extends State<Examcard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
-      width: double.infinity,
-      decoration: BoxDecoration(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Winnings()));
+        ;
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
+        width: double.infinity,
+        decoration: BoxDecoration(
           color: widget.color,
           borderRadius: BorderRadius.circular(20.r),
           // boxShadow: [
@@ -68,36 +75,37 @@ class _ExamcardState extends State<Examcard> {
           //       offset: Offset(0, 2),
           //       spreadRadius: 0)
           // ],
-          ),
-      child: Column(
-        children: [
-          Topcontainer2(
-            examTitle: widget.examTitle,
-            examImage: widget.examImage,
-            color: widget.color,
-            textColor: widget.textColor,
-          ),
-          Middlecontainer2(
-            examDate: widget.examDate,
-            examTime: widget.examTime,
-            prizepool: widget.prizePool,
-            entryFee: widget.entryFee,
-            availableSlots: widget.availableSlots,
-            totalSlots: widget.totalSlots,
-            color: widget.color,
-            textColor: widget.textColor,
-          ),
-          Bottomcontainer2(
-            addOn1: widget.addOn1,
-            addOn2: widget.addOn2,
-            addOn3: widget.addOn3,
-            addOn1Label: widget.addOn1Label,
-            addOn2Label: widget.addOn2Label,
-            addOn3Label: widget.addOn3Label,
-            color: widget.color,
-            textColor: widget.textColor,
-          )
-        ],
+        ),
+        child: Column(
+          children: [
+            Topcontainer2(
+              examTitle: widget.examTitle,
+              examImage: widget.examImage,
+              color: widget.color,
+              textColor: widget.textColor,
+            ),
+            Middlecontainer2(
+              examDate: widget.examDate,
+              examTime: widget.examTime,
+              prizepool: widget.prizePool,
+              entryFee: widget.entryFee,
+              availableSlots: widget.availableSlots,
+              totalSlots: widget.totalSlots,
+              color: widget.color,
+              textColor: widget.textColor,
+            ),
+            Bottomcontainer2(
+              addOn1: widget.addOn1,
+              addOn2: widget.addOn2,
+              addOn3: widget.addOn3,
+              addOn1Label: widget.addOn1Label,
+              addOn2Label: widget.addOn2Label,
+              addOn3Label: widget.addOn3Label,
+              color: widget.color,
+              textColor: widget.textColor,
+            )
+          ],
+        ),
       ),
     );
     ;
