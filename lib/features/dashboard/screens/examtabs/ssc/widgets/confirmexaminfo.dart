@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/constants/variables.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Confirmexaminfo extends StatefulWidget {
@@ -11,35 +12,54 @@ class Confirmexaminfo extends StatefulWidget {
 }
 
 class _ConfirmexaminfoState extends State<Confirmexaminfo> {
+  String selectedLanguage = "Select Language";
   bool isChecked = false;
+  String Price = "50";
+
+  final ExpansionTileController _expansionTileController =
+      ExpansionTileController();
+
+  List<String> languages = [
+    "English",
+    "हिंदी",
+    "తెలుగు",
+    "தமிழ்",
+    "മലയാളം",
+    "ಕನ್ನಡ "
+  ];
+
+  void changeLanguage(String language) {
+    setState(() {
+      selectedLanguage = language;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(top: Screensize.height * 0.01),
-        padding: EdgeInsets.symmetric(horizontal: Screensize.width * 0.03),
+        margin: EdgeInsets.only(top: Variables.columnspace),
+        padding: EdgeInsets.only(
+            left: Variables.rowspace,
+            top: Variables.top,
+            right: Variables.rowspace),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: Variables.top,
             children: [
-              Padding(
-                padding: EdgeInsets.only(
-                    top: Screensize.height * 0.01,
-                    bottom: Screensize.height * 0.015),
-                child: Text(
-                  "Redeem Coins",
-                  style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: GlobalColors.grey25),
-                ),
+              Text(
+                "Redeem Coins",
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: GlobalColors.grey25),
               ),
               Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: Screensize.width * 0.03,
-                  // vertical: Screensize.height * 0.005,
+                  horizontal: Variables.rowspace,
                 ),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.r),
@@ -54,8 +74,7 @@ class _ConfirmexaminfoState extends State<Confirmexaminfo> {
                           color: Colors.amber,
                         ),
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: Screensize.width * 0.05),
+                          padding: EdgeInsets.only(left: Variables.side),
                           child: Text(
                             "Use Coins: 10",
                             style: TextStyle(
@@ -74,6 +93,11 @@ class _ConfirmexaminfoState extends State<Confirmexaminfo> {
                                 onChanged: (bool? value) {
                                   setState(() {
                                     isChecked = value!;
+                                    if (isChecked) {
+                                      Price = "40";
+                                    } else {
+                                      Price = "50";
+                                    }
                                   });
                                 },
                                 side: BorderSide(
@@ -90,8 +114,8 @@ class _ConfirmexaminfoState extends State<Confirmexaminfo> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: Screensize.width * 0.02,
-                    vertical: Screensize.height * 0.01),
+                  horizontal: Variables.rowspace,
+                ),
                 child: Text(
                   "1 Coin = ₹1",
                   style: TextStyle(
@@ -100,64 +124,131 @@ class _ConfirmexaminfoState extends State<Confirmexaminfo> {
                       color: GlobalColors.grey5D),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: Screensize.height * 0.01,
-                    bottom: Screensize.height * 0.015),
-                child: Text(
-                  "Details of Exam",
-                  style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: GlobalColors.grey25),
-                ),
+              Text(
+                "Details of Exam",
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: GlobalColors.grey25),
               ),
-              _buildDetailFeature(
-                  icon: Icons.currency_rupee,
-                  info: "Entry Fee : 50/-",
-                  isMainFeature: true),
-              _buildDetailFeature(
-                  icon: Icons.event_outlined,
-                  info: "25 January 2025, 10:00 AM",
-                  isMainFeature: true),
-              Padding(
-                padding: EdgeInsets.only(bottom: Screensize.height * 0.01),
-                child: IntrinsicHeight(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                          child: Padding(
-                        padding:
-                            EdgeInsets.only(right: Screensize.width * 0.01),
-                        child: _buildDetailFeature(
-                            icon: Icons.info_outline,
-                            info: "Total Questions: 50",
-                            isMainFeature: false),
-                      )),
-                      Expanded(
-                        child: Padding(
+              Column(
+                spacing: Variables.columnspace,
+                children: [
+                  _buildDetailFeature(
+                      icon: Icons.currency_rupee,
+                      info: "Entry Fee : 50/-",
+                      isMainFeature: true),
+                  _buildDetailFeature(
+                      icon: Icons.event_outlined,
+                      info: "25 January 2025, 10:00 AM",
+                      isMainFeature: true),
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                            child: Padding(
                           padding:
-                              EdgeInsets.only(left: Screensize.width * 0.01),
+                              EdgeInsets.only(right: Variables.rowwidgetspace),
                           child: _buildDetailFeature(
-                              icon: Icons.access_time_rounded,
-                              info: "Duration: 60 Min",
+                              icon: Icons.info_outline,
+                              info: "Total Questions: 50",
                               isMainFeature: false),
-                        ),
-                      )
-                    ],
+                        )),
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                EdgeInsets.only(left: Variables.rowwidgetspace),
+                            child: _buildDetailFeature(
+                                icon: Icons.access_time_rounded,
+                                info: "Duration: 60 Min",
+                                isMainFeature: false),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
+                  _buildDetailFeature(
+                      icon: Icons.payments,
+                      info: "Price Money: 5,00,000",
+                      isMainFeature: true),
+                  _buildDetailFeature(
+                      icon: Icons.emoji_events_rounded,
+                      info:
+                          "Reward: Top 50% get cashback. Bottom 50% will earn coins.",
+                      isMainFeature: true),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: GlobalColors.greyF5,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Theme(
+                      data: Theme.of(context)
+                          .copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        controller: _expansionTileController,
+                        title: Text(
+                          selectedLanguage,
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: GlobalColors.grey5D),
+                        ),
+                        children: [
+                          for (int i = 0; i < languages.length; i++)
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: TextButton(
+                                onPressed: () {
+                                  changeLanguage(languages[i]);
+                                  _expansionTileController.collapse();
+                                },
+                                child: Text(
+                                  languages[i],
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: GlobalColors.grey5D),
+                                ),
+                              ),
+                            )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              _buildDetailFeature(
-                  icon: Icons.payments,
-                  info: "Price Money: 5,00,000",
-                  isMainFeature: true),
-              _buildDetailFeature(
-                  icon: Icons.emoji_events_rounded,
-                  info:
-                      "Reward: Top 50% get cashback. Bottom 50% will earn coins.",
-                  isMainFeature: true)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: Variables.rowspace),
+                    child: Text(
+                      "₹$Price",
+                      style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w700,
+                          color: GlobalColors.grey5D),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: GlobalColors.buttonColor,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.r)),
+                    ),
+                    child: Text(
+                      "Pay Now",
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: Variables.columnspace,)
             ],
           ),
         ),
@@ -170,11 +261,8 @@ class _ConfirmexaminfoState extends State<Confirmexaminfo> {
       required String info,
       required bool isMainFeature}) {
     return Container(
-      margin:
-          EdgeInsets.only(bottom: isMainFeature ? Screensize.height * 0.01 : 0),
       padding: EdgeInsets.symmetric(
-          vertical: Screensize.height * 0.01,
-          horizontal: Screensize.width * 0.02),
+          vertical: Variables.columnspace, horizontal: Variables.mediumrow),
       decoration: BoxDecoration(
         color: GlobalColors.greyF5,
         borderRadius: BorderRadius.circular(10.r),
@@ -183,15 +271,13 @@ class _ConfirmexaminfoState extends State<Confirmexaminfo> {
         children: [
           Container(
             padding: EdgeInsets.symmetric(
-                vertical: Screensize.height * 0.005,
-                horizontal: Screensize.width * 0.01),
+                vertical: Variables.halfcolumn, horizontal: Variables.smallrow),
             decoration: isMainFeature
                 ? BoxDecoration(
                     color: GlobalColors.pinkF3, shape: BoxShape.circle)
                 : null,
             child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: Screensize.width * 0.03),
+              padding: EdgeInsets.symmetric(horizontal: Variables.rowspace),
               child: Icon(
                 icon,
                 color: isMainFeature
