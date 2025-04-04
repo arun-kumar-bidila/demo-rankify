@@ -6,7 +6,9 @@ import 'package:rankify/constants/variables.dart';
 class Liveexambottombar extends StatelessWidget {
   final VoidCallback onNext;
   final VoidCallback onPrevious;
-  const Liveexambottombar({super.key,required this.onNext,required this.onPrevious});
+  final VoidCallback onMark;
+  const Liveexambottombar(
+      {super.key, required this.onNext, required this.onPrevious,required this.onMark});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class Liveexambottombar extends StatelessWidget {
         children: [
           Expanded(
             child: TextButton(
-                onPressed:onPrevious,
+                onPressed: onPrevious,
                 style: TextButton.styleFrom(
                     backgroundColor: GlobalColors.buttonColor,
                     shape: RoundedRectangleBorder(
@@ -37,7 +39,7 @@ class Liveexambottombar extends StatelessWidget {
           ),
           Expanded(
             child: TextButton(
-                onPressed: () {},
+                onPressed: onMark,
                 style: TextButton.styleFrom(
                     backgroundColor: GlobalColors.greyF5,
                     shape: RoundedRectangleBorder(

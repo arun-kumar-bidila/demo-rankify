@@ -35,11 +35,11 @@ class _DashboardState extends State<Dashboard> {
     super.initState();
     pages=[
      Ssc(onFullScreenChange: toggleFullScreen,),
-    const Banks(),
-    const Rrb(),
-    const Upsc(),
-    const Appsc(),
-    const Others(),
+     Banks(onFullScreenChange: toggleFullScreen,),
+     Rrb(onFullScreenChange: toggleFullScreen,),
+     Upsc(onFullScreenChange: toggleFullScreen,),
+     Appsc(onFullScreenChange: toggleFullScreen,),
+     Others(onFullScreenChange: toggleFullScreen,),
     ];
   }
 

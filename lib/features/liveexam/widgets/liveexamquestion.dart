@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/constants/variables.dart';
 import 'package:rankify/features/liveexam/screens/confirmexam.dart';
+import 'package:rankify/features/liveexam/widgets/allquestions.dart';
 import 'package:rankify/features/liveexam/widgets/liveexambottombar.dart';
 
 class Liveexamquestion extends StatefulWidget {
@@ -17,73 +18,47 @@ class Liveexamquestion extends StatefulWidget {
 
 class _LiveexamquestionState extends State<Liveexamquestion> {
   int currentQuestionIndex = 0;
-  List<Map<String, dynamic>> questions = [
-    {
-      "question":
-          "Which of the following statements are correct Constitution of India?",
-      "questionStatements": [
-        "Powers of the Municipalities are given in Part IX A of the Constitution",
-        "Emergency provisions are given in Part XVIII of the Constitution",
-        "Provisions related to the amendment of the Constitution are given in Part XX of the Constitution."
-      ],
-      "imagePath": "",
-      "options": [
-        "1 and 2 only",
-        "2 and 3 only",
-        "1 and 3 only",
-        "All are correct",
-      ]
-    },
-    {
-      "question":
-          "In the following number series, which number comes next: 2, 6, 12, 20, 30, ?",
-      "questionStatements": [
-       
-      ],
-      "imagePath": "",
-      "options": [
-        "40",
-        "42",
-        "44",
-        "46",
-      ]
-    },
-    {
-      "question":
-          "Study the pattern and find the missing term: \n 2, 6, 12, 20, ?, 42 \n \nThe pattern follows a specific rule where each term increases by a sequence.",
-      "questionStatements": [],
-      "imagePath": "",
-      "options": [
-        "28",
-        "30",
-        "32",
-        "34",
-      ]
-    },
-     {
-      "question":
-          "In the image below, identify the monument shown:",
-      "questionStatements": [],
-      "imagePath": "assets/tajmahal.png",
-      "options": [
-        "Taj Mahal",
-        "Charminar",
-        "Burj Khalifa",
-        "Red Fort",
-      ]
-    }
-  ];
+  int attempted = 0;
+  int marked = 0;
+  int notAttempted = 12;
+  Set<int> attemptedQuestions = {};
+  Set<int> markedQuestions = {};
+  Map<int, int> selectedOptions = {};
+  List<Map<String, dynamic>> questions = allquestions;
 
-  void changeQuestion(int step) {
+  void changeQuestion(int step, {bool saveAttempt = false}) {
     setState(() {
       int newIndex = currentQuestionIndex + step;
+      if (saveAttempt) {
+        attemptedQuestions.add(currentQuestionIndex);
+        markedQuestions.remove(currentQuestionIndex);
+        updateCounts(attemptedQuestions.length, markedQuestions.length);
+      }
       if (newIndex >= 0 && newIndex < questions.length) {
         currentQuestionIndex = newIndex;
-      }
-      if (newIndex == questions.length) {
+      } else if (newIndex == questions.length) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Confirmexam()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => Confirmexam(
+                      attempted: attempted,
+                      marked: marked,
+                      notAttempted: questions.length - attempted - marked,
+                    )));
       }
+    });
+  }
+
+  void markedForReview() {
+    markedQuestions.add(currentQuestionIndex);
+    updateCounts(attemptedQuestions.length, markedQuestions.length);
+  }
+
+  void updateCounts(int newlyAttempted, int newMarked) {
+    setState(() {
+      attempted = newlyAttempted;
+      marked = newMarked;
+      notAttempted = questions.length - attempted - marked;
     });
   }
 
@@ -92,6 +67,70 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
     return Expanded(
       child: Column(
         children: [
+          Container(
+            color: Colors.white,
+            padding: EdgeInsets.symmetric(
+                vertical: Variables.top, horizontal: Variables.side),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  spacing: Variables.rowwidgetspace,
+                  children: [
+                    Icon(
+                      Icons.check_circle,
+                      color: Colors.green,
+                      size: 20.r,
+                    ),
+                    Text(
+                      "Attempted: $attempted",
+                      style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: GlobalColors.grey5D),
+                    )
+                  ],
+                ),
+                Row(
+                  spacing: Variables.rowwidgetspace,
+                  children: [
+                    Icon(
+                      Icons.bookmark,
+                      color: Colors.orange,
+                      size: 20.r,
+                    ),
+                    Text(
+                      "Marked: $marked",
+                      style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: GlobalColors.grey5D),
+                    )
+                  ],
+                ),
+                Row(
+                  spacing: Variables.rowwidgetspace,
+                  children: [
+                    Icon(
+                      Icons.cancel,
+                      color: Colors.red,
+                      size: 20.r,
+                    ),
+                    Text(
+                      "Not Attempted: $notAttempted",
+                      style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: GlobalColors.grey5D),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: Variables.columnspace,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: Variables.side),
             child: Row(
@@ -170,6 +209,18 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
                                 color: GlobalColors.grey25),
                           ),
                         ),
+                        if (markedQuestions.contains(currentQuestionIndex)) ...[
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: Variables.rowwidgetspace,
+                                vertical: Variables.columnspace),
+                            child: Icon(
+                              Icons.bookmark,
+                              color: GlobalColors.buttonColor,
+                              size: 25.r,
+                            ),
+                          )
+                        ]
                       ],
                     ),
                     if (questions[currentQuestionIndex]["imagePath"] != "") ...[
@@ -180,8 +231,7 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
                       // SvgPicture.asset(
                       //   "assets/svg/tajmahal.svg",
                       //   height: Variables.imageverylarge,
-                       
-                        
+
                       // ),
                     ],
                     if ((questions[currentQuestionIndex]["questionStatements"]
@@ -237,46 +287,70 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
                           int index = entry.key;
                           String point = entry.value;
                           List<String> prefixes = ["A", "B", "C", "D"];
-                          return Container(
-                            margin:
-                                EdgeInsets.only(bottom: Variables.columnspace),
-                            decoration: BoxDecoration(
-                                color: GlobalColors.greyF5,
-                                borderRadius: BorderRadius.circular(10.r)),
-                            padding: EdgeInsets.symmetric(
-                                vertical: Variables.columnspace,
-                                horizontal: Variables.rowspace),
-                            child: Row(
-                              // crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: Variables.rowspace,
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: Variables.columnspace,
-                                      horizontal: Variables.rowspace),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                          color: GlobalColors.greyD9,
-                                          width: 1)),
-                                  child: Text(
-                                    prefixes[index],
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (selectedOptions[currentQuestionIndex] ==
+                                    index) {
+                                  selectedOptions.remove(currentQuestionIndex);
+                                }
+                                else{
+                                    selectedOptions[currentQuestionIndex] = index;
+
+                                }
+                              
+                              });
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                  bottom: Variables.columnspace),
+                              decoration: BoxDecoration(
+                                color: selectedOptions[currentQuestionIndex] ==
+                                        index
+                                    ? GlobalColors.pinkF3
+                                    : GlobalColors.greyF5,
+                                borderRadius: BorderRadius.circular(10.r),
+                                border: selectedOptions[currentQuestionIndex] ==
+                                        index
+                                    ? Border.all(
+                                        color: GlobalColors.buttonColor,
+                                        width: 1)
+                                    : null,
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: Variables.columnspace,
+                                  horizontal: Variables.rowspace),
+                              child: Row(
+                                spacing: Variables.rowspace,
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: Variables.columnspace,
+                                        horizontal: Variables.rowspace),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: GlobalColors.greyD9,
+                                            width: 1)),
+                                    child: Text(
+                                      prefixes[index],
+                                      style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w500,
+                                          color: GlobalColors.grey25),
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: Text(
+                                    point,
                                     style: TextStyle(
                                         fontSize: 16.sp,
                                         fontWeight: FontWeight.w500,
-                                        color: GlobalColors.grey25),
-                                  ),
-                                ),
-                                Expanded(
-                                    child: Text(
-                                  point,
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: GlobalColors.grey5D),
-                                ))
-                              ],
+                                        color: GlobalColors.grey5D),
+                                  ))
+                                ],
+                              ),
                             ),
                           );
                         }).toList())
@@ -286,8 +360,13 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
             ),
           ),
           Liveexambottombar(
-            onNext: () => changeQuestion(1),
+            onNext: () {
+              bool hasSelected =
+                  selectedOptions.containsKey(currentQuestionIndex);
+              changeQuestion(1, saveAttempt: hasSelected);
+            },
             onPrevious: () => changeQuestion(-1),
+            onMark: () => markedForReview(),
           ),
         ],
       ),

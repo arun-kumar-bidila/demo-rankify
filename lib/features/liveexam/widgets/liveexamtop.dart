@@ -105,67 +105,6 @@ class Liveexamtop extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          color: Colors.white,
-          padding: EdgeInsets.symmetric(
-              vertical: Variables.top, horizontal: Variables.side),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                spacing: Variables.rowwidgetspace,
-                children: [
-                  Icon(
-                    Icons.check_circle,
-                    color: Colors.green,
-                    size: 20.r,
-                  ),
-                  Text(
-                    "Attempted: 1",
-                    style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: GlobalColors.grey5D),
-                  )
-                ],
-              ),
-              Row(
-                spacing: Variables.rowwidgetspace,
-                children: [
-                  Icon(
-                    Icons.bookmark,
-                    color: Colors.orange,
-                    size: 20.r,
-                  ),
-                  Text(
-                    "Marked: 0",
-                    style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: GlobalColors.grey5D),
-                  )
-                ],
-              ),
-              Row(
-                spacing: Variables.rowwidgetspace,
-                children: [
-                  Icon(
-                    Icons.cancel,
-                    color: Colors.red,
-                    size: 20.r,
-                  ),
-                  Text(
-                    "Not Attempted: 11",
-                    style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: GlobalColors.grey5D),
-                  )
-                ],
-              )
-            ],
-          ),
-        )
       ],
     );
   }

@@ -9,7 +9,8 @@ import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.d
 
 
 class Appsc extends StatefulWidget {
-  const Appsc({super.key});
+  final Function(bool) onFullScreenChange;
+  const Appsc({super.key,required this.onFullScreenChange});
 
   @override
   State<Appsc> createState() => _RrbState();
@@ -29,6 +30,7 @@ int _page = 0;
   void updatePage(int page) {
     setState(() {
       _page = page;
+      widget.onFullScreenChange(page == 3);
     });
   }
 
@@ -44,9 +46,14 @@ int _page = 0;
               child: pages[_page],
             ),
           ),
+          if(_page!=3)...[
           Container(
-            child: Bottombar(currentIndex: _page,onTap: updatePage,),
+            child: Bottombar(
+              currentIndex: _page,
+              onTap: updatePage,
+            ),
           ),
+        ],
         ],
       ),
     );
