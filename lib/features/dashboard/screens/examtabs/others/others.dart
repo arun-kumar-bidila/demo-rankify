@@ -7,16 +7,16 @@ import 'package:rankify/features/bottombar/tabs/rankifyexperts/experts.dart';
 import 'package:rankify/features/bottombar/tabs/ranks/ranks.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.dart';
 
-
 class Others extends StatefulWidget {
-  const Others({super.key});
+  final Function(bool) onFullScreenChange;
+  const Others({super.key, required this.onFullScreenChange});
 
   @override
   State<Others> createState() => _RrbState();
 }
 
 class _RrbState extends State<Others> {
-int _page = 0;
+ int _page = 0;
 
   List<Widget> pages = [
     Homescreen(),
@@ -29,6 +29,7 @@ int _page = 0;
   void updatePage(int page) {
     setState(() {
       _page = page;
+      widget.onFullScreenChange(page == 3);
     });
   }
 
@@ -44,9 +45,14 @@ int _page = 0;
               child: pages[_page],
             ),
           ),
+          if(_page!=3)...[
           Container(
-            child: Bottombar(currentIndex: _page,onTap: updatePage,),
+            child: Bottombar(
+              currentIndex: _page,
+              onTap: updatePage,
+            ),
           ),
+        ],
         ],
       ),
     );

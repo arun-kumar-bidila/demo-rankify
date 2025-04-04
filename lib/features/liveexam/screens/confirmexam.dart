@@ -5,7 +5,10 @@ import 'package:rankify/constants/colors.dart';
 import 'package:rankify/constants/variables.dart';
 
 class Confirmexam extends StatelessWidget {
-  const Confirmexam({super.key});
+  final int attempted;
+  final int marked;
+  final int notAttempted;
+  const Confirmexam({super.key,required this.attempted,required this.marked,required this.notAttempted});
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +52,17 @@ class Confirmexam extends StatelessWidget {
                       featureColor: Colors.green,
                       icon: Icons.check_circle_outline,
                       featureTitle: "Attempted",
-                      featureValue: "2"),
+                      featureValue: attempted),
                   _buildSubmissionFeature(
                       featureColor: Colors.amber,
                       icon: Icons.help_outline,
                       featureTitle: "Marked for Review",
-                      featureValue: "0"),
+                      featureValue: marked),
                   _buildSubmissionFeature(
                       featureColor: Colors.red,
                       icon: Icons.info_outline,
                       featureTitle: "Not Attempted",
-                      featureValue: "10"),
+                      featureValue: notAttempted),
                 ],
               ),
               // SizedBox(
@@ -161,7 +164,7 @@ class Confirmexam extends StatelessWidget {
                     color: GlobalColors.grey25),
               ),
               Text(
-                featureValue,
+                featureValue.toString(),
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
