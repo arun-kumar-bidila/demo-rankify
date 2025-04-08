@@ -1,8 +1,9 @@
-import 'dart:ffi';
+// import 'dart:ffi';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/constants/variables.dart';
 import 'package:rankify/features/liveexam/screens/confirmexam.dart';
@@ -26,14 +27,19 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
   Map<int, int> selectedOptions = {};
   List<Map<String, dynamic>> questions = allquestions;
 
-  void changeQuestion(int step, {bool saveAttempt = false}) {
+  void changeQuestion(int step, {bool saveAttempt = false,bool toPrevious=true}) {
     setState(() {
       int newIndex = currentQuestionIndex + step;
       if (saveAttempt) {
         attemptedQuestions.add(currentQuestionIndex);
-        markedQuestions.remove(currentQuestionIndex);
+        // markedQuestions.remove(currentQuestionIndex);
         updateCounts(attemptedQuestions.length, markedQuestions.length);
       }
+      // if (!saveAttempt&&!toPrevious) {
+      //   attemptedQuestions.remove(currentQuestionIndex);
+      //   // markedQuestions.remove(currentQuestionIndex);
+      //   updateCounts(attemptedQuestions.length, markedQuestions.length);
+      // }
       if (newIndex >= 0 && newIndex < questions.length) {
         currentQuestionIndex = newIndex;
       } else if (newIndex == questions.length) {
@@ -41,9 +47,10 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
             context,
             MaterialPageRoute(
                 builder: (context) => Confirmexam(
-                      attempted: attempted,
-                      marked: marked,
-                      notAttempted: questions.length - attempted - marked,
+                      attempted: attemptedQuestions.length,
+                      marked: markedQuestions.length,
+                      notAttempted:
+                          questions.length - attemptedQuestions.length,
                     )));
       }
     });
@@ -58,7 +65,7 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
     setState(() {
       attempted = newlyAttempted;
       marked = newMarked;
-      notAttempted = questions.length - attempted - marked;
+      notAttempted = questions.length - attemptedQuestions.length;
     });
   }
 
@@ -214,10 +221,19 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
                             padding: EdgeInsets.symmetric(
                                 horizontal: Variables.rowwidgetspace,
                                 vertical: Variables.columnspace),
-                            child: Icon(
-                              Icons.bookmark,
-                              color: GlobalColors.buttonColor,
-                              size: 25.r,
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  markedQuestions.remove(currentQuestionIndex);
+                                  updateCounts(attemptedQuestions.length,
+                                      markedQuestions.length);
+                                });
+                              },
+                              child: Icon(
+                                Icons.bookmark,
+                                color: GlobalColors.buttonColor,
+                                size: 25.r,
+                              ),
                             ),
                           )
                         ]
@@ -293,12 +309,9 @@ class _LiveexamquestionState extends State<Liveexamquestion> {
                                 if (selectedOptions[currentQuestionIndex] ==
                                     index) {
                                   selectedOptions.remove(currentQuestionIndex);
+                                } else {
+                                  selectedOptions[currentQuestionIndex] = index;
                                 }
-                                else{
-                                    selectedOptions[currentQuestionIndex] = index;
-
-                                }
-                              
                               });
                             },
                             child: Container(

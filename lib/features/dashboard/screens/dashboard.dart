@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
-import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart';
-import 'package:rankify/features/bottombar/tabs/rankifyexperts/experts.dart';
-import 'package:rankify/features/bottombar/tabs/home/homescreen.dart';
+
 
 import 'package:rankify/features/dashboard/widgets/appbar.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/widgets/bottomappbar.dart';
+
 import 'package:rankify/features/dashboard/screens/examtabs/appsc/appsc.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/banks/banks.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/others/others.dart';
@@ -58,8 +53,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-     double textScale = MediaQuery.of(context).textScaleFactor; // ✅ Correct property
-print(textScale);
+    
     return Scaffold(
         body: SafeArea(
       child: Padding(
@@ -75,22 +69,7 @@ print(textScale);
         ),
       ),
     )
-        //  Container(
-        //   height: double.infinity,
-        //   child: Column(
-        //     children: [
-        //       Topbar(currentIndex: _page, onTap: updatePage),
-
-        //        Expanded(
-        //         child: Container(
-
-        //           child:  pages[_page]
-        //         ),
-        //       )
-
-        //     ],
-        //   ),
-        // ),
+       
         );
   }
 }

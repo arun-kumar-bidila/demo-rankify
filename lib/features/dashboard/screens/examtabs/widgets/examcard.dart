@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/ssc/winnings.dart';
-import 'package:rankify/features/dashboard/widgets/bottomcontainer2.dart';
+
 import 'package:rankify/features/dashboard/widgets/bottomcontainer3.dart';
 
-import 'package:rankify/features/dashboard/widgets/bottomcontainer4.dart';
+
 import 'package:rankify/features/dashboard/widgets/middlecontainer2.dart';
 import 'package:rankify/features/dashboard/widgets/topcontainer2.dart';
 import 'package:rankify/utils/screen_size.dart';
@@ -60,7 +60,7 @@ class _ExamcardState extends State<Examcard> {
       onTap: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Winnings()));
-        ;
+        
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
@@ -108,6 +108,6 @@ class _ExamcardState extends State<Examcard> {
         ),
       ),
     );
-    ;
+    
   }
 }

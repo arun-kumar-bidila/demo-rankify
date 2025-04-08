@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rankify/constants/colors.dart';
+import 'package:rankify/constants/variables.dart';
+import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
+import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart';
+import 'package:rankify/features/dashboard/screens/dashboard.dart';
 
 class BottomBar2 extends StatefulWidget {
   @override
@@ -9,10 +15,10 @@ class _BottomBar2State extends State<BottomBar2> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    Center(child: Text("Home Page", style: TextStyle(fontSize: 22))),
-    Center(child: Text("My Exams Page", style: TextStyle(fontSize: 22))),
+    Dashboard(),
+    Myexamspage(),
     Center(child: Text("Ranks Page", style: TextStyle(fontSize: 22))),
-    Center(child: Text("Community Page", style: TextStyle(fontSize: 22))),
+    Community(),
     Center(child: Text("Experts Page", style: TextStyle(fontSize: 22))),
   ];
 
@@ -25,80 +31,121 @@ class _BottomBar2State extends State<BottomBar2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            _pages[_selectedIndex],
+            if (_selectedIndex != 3)
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Material(
+                      elevation: 5,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: Variables.columnspace,
+                            horizontal: Variables.rowwidgetspace),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(color: Colors.black12, blurRadius: 5),
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            buildNavItem(Icons.home, "Home", 0),
+                            buildNavItem(Icons.list, "My Exams", 1),
+                            buildNavItem(Icons.emoji_events, "Ranks", 2),
+                            buildNavItem(Icons.group, "Community", 3),
+                            buildNavItem(Icons.settings, "Experts", 4),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: -28,
+                      left: _selectedIndex == 0
+                          ? MediaQuery.of(context).size.width /
+                                  5 *
+                                  _selectedIndex +
+                              10
+                          : _selectedIndex == 4
+                          ? MediaQuery.of(context).size.width /
+                                  5 *
+                                  _selectedIndex -
+                              10:MediaQuery.of(context).size.width /
+                              5 *
+                              _selectedIndex,
+                     
+                      
+                      child: AnimatedContainer(
+                        duration: Duration(milliseconds: 200),
+                        width: 70,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Column(
+                            spacing: Variables.halfcolumn,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                getIconForIndex(_selectedIndex),
+                                color: GlobalColors.buttonColor,
+                                size: 25.r,
+                              ),
+                              Text(
+                                getLabelForIndex(_selectedIndex),
+                                style: TextStyle(
+                                    color: GlobalColors.buttonColor,
+                                    fontSize: 10.sp,
+                                    fontWeight: FontWeight.w600),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildNavItem(IconData icon, String label, int index) {
+    bool isSelected = _selectedIndex == index;
+
+    return GestureDetector(
+      onTap: () => _onItemTapped(index),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _pages[_selectedIndex], // Show selected page
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Stack(
-              clipBehavior: Clip.none, // Allow circle to overflow
-              children: [
-                Container(
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      buildNavItem(Icons.home, "Home", 0),
-                      buildNavItem(Icons.list, "My Exams", 1),
-                      buildNavItem(Icons.emoji_events, "Ranks", 2),
-                      buildNavItem(Icons.group, "Community", 3),
-                      buildNavItem(Icons.settings, "Experts", 4),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: -20, // Move half above bottom bar
-                  left: MediaQuery.of(context).size.width / 5 * _selectedIndex + 20, 
-                  child: AnimatedContainer(
-                    duration: Duration(milliseconds: 200),
-                    width: 55,
-                    height: 55,
-                    decoration: BoxDecoration(
-                      color: Colors.pink.shade100,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      getIconForIndex(_selectedIndex),
-                      color: Colors.pink,
-                      size: 28,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          Icon(
+            icon,
+            color: isSelected ? Colors.transparent : GlobalColors.grey25,
+            size: 25.r,
+          ),
+          Text(
+            label,
+            style: TextStyle(
+                color: isSelected ? Colors.transparent : GlobalColors.grey25,
+                fontSize: 10.sp,
+                fontWeight: FontWeight.w400),
           ),
         ],
       ),
     );
   }
-Widget buildNavItem(IconData icon, String label, int index) {
-  bool isSelected = _selectedIndex == index;
-
-  return GestureDetector(
-    onTap: () => _onItemTapped(index),
-    child: SizedBox(
-      height: 60, // Ensure it fits within the bottom bar
-      child: Column(
-        mainAxisSize: MainAxisSize.min, // Prevents extra space issues
-        children: [
-          if (isSelected) SizedBox(height: 15), // Push down only if selected
-          Icon(icon, color: isSelected ? Colors.transparent : Colors.grey, size: 28),
-          SizedBox(height: 4),
-          Text(label, style: TextStyle(color: isSelected ? Colors.pink : Colors.grey)),
-        ],
-      ),
-    ),
-  );
-}
-
 
   IconData getIconForIndex(int index) {
     switch (index) {
@@ -114,6 +161,23 @@ Widget buildNavItem(IconData icon, String label, int index) {
         return Icons.settings;
       default:
         return Icons.home;
+    }
+  }
+
+  String getLabelForIndex(int index) {
+    switch (index) {
+      case 0:
+        return "Home";
+      case 1:
+        return "My Exams";
+      case 2:
+        return "Ranks";
+      case 3:
+        return "Community";
+      case 4:
+        return "Experts";
+      default:
+        return "";
     }
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rankify/constants/colors.dart';
+
 import 'package:rankify/features/profilebar/tabs/privacypolicy/widgets/pagetopcontainer.dart';
 import 'package:rankify/features/profilebar/tabs/privacypolicy/widgets/policycardscontainer.dart';
 import 'package:rankify/utils/screen_size.dart';

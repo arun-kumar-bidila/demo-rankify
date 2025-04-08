@@ -26,22 +26,22 @@ class _MoreoptionState extends State<Moreoption> {
     {
       "title":"About Us",
       "imagePath":"icons/exclamation.png",
-      "optionfile":Aboutus()
+      "optionfile":()=>Aboutus()
     },
      {
       "title":"Community Guidelines",
       "imagePath":"icons/exclamation.png",
-      "optionfile":Communityguidelines()
+      "optionfile":()=>Communityguidelines()
     },
      {
       "title":"Legality",
       "imagePath":"icons/shield.png",
-      "optionfile":Legality()
+      "optionfile":()=>Legality()
     },
      {
       "title":"Terms and Conditions",
       "imagePath":"icons/exclamation.png",
-      "optionfile":Termsandconditions()
+      "optionfile":()=>Termsandconditions()
     },
 
   ];
@@ -158,7 +158,7 @@ class _MoreoptionState extends State<Moreoption> {
                             ),
                           ),
                           Column(
-                            children: [options[pageOption]["optionfile"]],
+                            children: [options[pageOption]["optionfile"]()],
                           )
                         ],
                       ),

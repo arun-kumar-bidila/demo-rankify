@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/auth/screens/language.dart';
+
 import 'package:rankify/features/profilebar/tabs/infoandsettings/widgets/genderinfo.dart';
 import 'package:rankify/features/profilebar/tabs/infoandsettings/widgets/language.dart';
 import 'package:rankify/features/profilebar/tabs/infoandsettings/widgets/mainsector.dart';

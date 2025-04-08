@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/bottombar/bottombar2.dart';
 import 'package:rankify/features/bottombar/tabs/community/widgets/communitychat.dart';
-import 'package:rankify/features/dashboard/screens/dashboard.dart';
+
 import 'package:rankify/utils/screen_size.dart';
 
 class Community extends StatelessWidget {
@@ -23,7 +24,7 @@ class Community extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomBar2()));
                     },
                     child: Icon(
                       Icons.arrow_back_rounded,

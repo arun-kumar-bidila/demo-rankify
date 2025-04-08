@@ -44,7 +44,7 @@ class More extends StatelessWidget {
                       child: Text(
                         "More",
                         style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 20.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),

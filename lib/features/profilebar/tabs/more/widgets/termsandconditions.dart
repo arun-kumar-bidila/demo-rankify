@@ -14,15 +14,13 @@ class Termsandconditions extends StatelessWidget {
         
         Padding(
           padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
-          child: Expanded(
-            child: Text(
-              "By accessing and using Rankify, you agree to the following terms and conditions:",
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
-              ),
-              softWrap: true,
+          child: Text(
+            "By accessing and using Rankify, you agree to the following terms and conditions:",
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w400,
             ),
+            softWrap: true,
           ),
         ),
         

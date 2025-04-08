@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rankify/common/widgets/custom_button.dart';
+
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/profilebar/tabs/addcash/widgets/addcashtitle.dart';
 import 'package:rankify/features/profilebar/tabs/addcash/widgets/addmoneyfield.dart';

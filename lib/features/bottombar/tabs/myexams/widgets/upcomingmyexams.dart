@@ -66,7 +66,7 @@ class _UpcomingmyexamsState extends State<Upcomingmyexams> {
     return Container(
       height: double.infinity,
       margin: EdgeInsets.only(
-          bottom: Screensize.height * 0.02,
+          // bottom: Screensize.height * 0.02,
           left: Screensize.width * 0.01,
           right: Screensize.width * 0.01),
       padding: EdgeInsets.symmetric(
@@ -75,29 +75,34 @@ class _UpcomingmyexamsState extends State<Upcomingmyexams> {
       color: Colors.white,
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            for (var card in examDetails)
-              Examcard(
-                examImage: card["examImage"],
-                examTitle: card["examTitle"],
-                examDate: card["examDate"],
-                examTime: card["examTime"],
-                prizePool: card["prizePool"],
-                entryFee: card["entryFee"],
-                availableSlots: card["availableSlots"],
-                totalSlots: card["totalSlots"],
-                addOn1: card["addOn1"],
-                addOn1Label: card["addOn1Lable"],
-                addOn2: card["addOn2"],
-                addOn2Label: card["addOn2Lable"],
-                addOn3: card["addOn3"],
-                addOn3Label: card["addOn3Lable"],
-                color: GlobalColors.greyF5,
-                textColor: GlobalColors.grey5D,
-                shadowColor: Colors.black.withOpacity(0.2),
-              )
-          ],
+        child: Padding(
+        padding: EdgeInsets.only(
+          bottom: Screensize.height * 0.1,
+         ),
+          child: Column(
+            children: [
+              for (var card in examDetails)
+                Examcard(
+                  examImage: card["examImage"],
+                  examTitle: card["examTitle"],
+                  examDate: card["examDate"],
+                  examTime: card["examTime"],
+                  prizePool: card["prizePool"],
+                  entryFee: card["entryFee"],
+                  availableSlots: card["availableSlots"],
+                  totalSlots: card["totalSlots"],
+                  addOn1: card["addOn1"],
+                  addOn1Label: card["addOn1Lable"],
+                  addOn2: card["addOn2"],
+                  addOn2Label: card["addOn2Lable"],
+                  addOn3: card["addOn3"],
+                  addOn3Label: card["addOn3Lable"],
+                  color: GlobalColors.greyF5,
+                  textColor: GlobalColors.grey5D,
+                  shadowColor: Colors.black.withOpacity(0.2),
+                )
+            ],
+          ),
         ),
       ),
     );

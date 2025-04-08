@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/constants/variables.dart';
 import 'package:rankify/features/dashboard/screens/examtabs/ssc/widgets/winningsinfo.dart';
-import 'package:rankify/utils/screen_size.dart';
+
 
 class Winnings extends StatefulWidget {
   const Winnings({super.key});

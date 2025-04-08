@@ -16,7 +16,7 @@ class _ExambarState extends State<Exambar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
+      margin: EdgeInsets.only(top: Screensize.height * 0.01),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
