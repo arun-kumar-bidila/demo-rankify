@@ -1,6 +1,7 @@
 import 'package:rankify/utils/screen_size.dart';
 
 class Variables {
+  
   //column spaces
   static double get top => Screensize.height * 0.02;
   static double get columnspace => Screensize.height * 0.01;

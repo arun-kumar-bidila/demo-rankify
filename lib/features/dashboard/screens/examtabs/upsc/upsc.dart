@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rankify/features/bottombar/bottombar.dart';
-import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
+
 import 'package:rankify/features/bottombar/tabs/home/homescreen.dart';
-import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart';
-import 'package:rankify/features/bottombar/tabs/rankifyexperts/experts.dart';
-import 'package:rankify/features/bottombar/tabs/ranks/ranks.dart';
-import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.dart';
+
 
 
 class Upsc extends StatefulWidget {
@@ -13,49 +9,31 @@ class Upsc extends StatefulWidget {
   const Upsc({super.key,required this.onFullScreenChange});
 
   @override
-  State<Upsc> createState() => _RrbState();
+  State<Upsc> createState() => _UpscState();
 }
 
-class _RrbState extends State<Upsc> {
-int _page = 0;
+class _UpscState extends State<Upsc> {
 
-  List<Widget> pages = [
-    Homescreen(),
-    Myexamspage(),
-    Experts(),
-    Community(),
-    Ranks()
-  ];
-
-  void updatePage(int page) {
-    setState(() {
-      _page = page;
-      widget.onFullScreenChange(page == 3);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.black,
-      // height: double.infinity,
-      child: Column(
+    return  Column(
         children: [
           Expanded(
             child: Container(
-              child: pages[_page],
+              child: Homescreen(whichHome: "UPSC"),
             ),
           ),
-          if(_page!=3)...[
-          Container(
-            child: Bottombar(
-              currentIndex: _page,
-              onTap: updatePage,
-            ),
-          ),
+        //   if(_page!=3)...[
+        //   Container(
+        //     child: Bottombar(
+        //       currentIndex: _page,
+        //       onTap: updatePage,
+        //     ),
+        //   ),
+        // ],
         ],
-        ],
-      ),
+      
     );
   }
 }

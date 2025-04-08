@@ -13,15 +13,13 @@ class Communityguidelines extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
-          child: Expanded(
-            child: Text(
-              "Welcome to Rankify! To ensure a fair and productive environment for all users, please follow these guidelines:",
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
-              ),
-              softWrap: true,
+          child: Text(
+            "Welcome to Rankify! To ensure a fair and productive environment for all users, please follow these guidelines:",
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w400,
             ),
+            softWrap: true,
           ),
         ),
         Column(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/constants/variables.dart';
-import 'package:rankify/utils/screen_size.dart';
+
 
 class Confirmexaminfo extends StatefulWidget {
   const Confirmexaminfo({super.key});

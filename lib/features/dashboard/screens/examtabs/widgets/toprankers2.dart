@@ -4,7 +4,9 @@ import 'package:rankify/constants/colors.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Toprankers2 extends StatefulWidget {
-  const Toprankers2({super.key});
+  final String exam;
+
+  const Toprankers2({super.key, required this.exam});
 
   @override
   State<Toprankers2> createState() => _Toprankers2State();
@@ -107,14 +109,21 @@ class _Toprankers2State extends State<Toprankers2> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              for (var ranker in rankerDetails) ...[
+              for (int i = 0; i < 6;i++) ...[
                 _buildRankers(
-                    exam: ranker["exam"],
-                    imagePath: ranker["imagePath"],
-                    rank: ranker["rank"],
-                    name: ranker["name"],
-                    score: ranker["score"],
-                    subject: ranker["sub"])
+                    // exam: ranker["exam"],
+                    // imagePath: ranker["imagePath"],
+                    // rank: ranker["rank"],
+                    // name: ranker["name"],
+                    // score: ranker["score"],
+                    // subject: ranker["sub"]
+                    exam: widget.exam,
+                    imagePath: "assets/dp.jpg",
+                    rank: "1",
+      name: "arun",
+      score: "25",
+      subject: "GS"
+                    )
               ]
             ],
           ),
@@ -131,7 +140,7 @@ class _Toprankers2State extends State<Toprankers2> {
       required score,
       required subject}) {
     return Container(
-      margin: EdgeInsets.only(right: Screensize.width*0.02),
+      margin: EdgeInsets.only(right: Screensize.width * 0.02),
       padding: EdgeInsets.symmetric(
           vertical: Screensize.height * 0.01,
           horizontal: Screensize.width * 0.035),
