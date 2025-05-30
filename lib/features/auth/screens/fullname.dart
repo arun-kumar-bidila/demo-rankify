@@ -9,18 +9,21 @@ import 'package:rankify/features/auth/widgets/toptitle.dart';
 
 // import 'package:rankify/utils/screen_size.dart';
 
-class DetailsPage extends StatelessWidget {
+class DetailsPage extends StatefulWidget {
   const DetailsPage({super.key});
 
   @override
+  State<DetailsPage> createState() => _DetailsPageState();
+}
+
+class _DetailsPageState extends State<DetailsPage> {
+  final nameFormKey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    final nameFormKey = GlobalKey<FormState>();
-    TextEditingController nameController = TextEditingController();
-   
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-       
         scrolledUnderElevation: 0,
       ),
       body: KeyboardVisibilityBuilder(
@@ -29,25 +32,24 @@ class DetailsPage extends StatelessWidget {
             padding: EdgeInsets.only(top: 40.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              
               children: [
-                if(isKeyboardVisible)...[
+                if (isKeyboardVisible) ...[
                   Image.asset(
-                   "assets/R1.png",
-                  // width: screen.Width * 0.8,
-                  // height: screen.Height * 0.2,
-                  height: 100.h,
-                  width: 300.w,
-                ),
+                    "assets/R1.png",
+                    // width: screen.Width * 0.8,
+                    // height: screen.Height * 0.2,
+                    height: 100.h,
+                    width: 300.w,
+                  ),
                 ],
-                if(!isKeyboardVisible)...[
+                if (!isKeyboardVisible) ...[
                   Image.asset(
-                   "assets/R1.png",
-                  // width: screen.Width * 0.8,
-                  // height: screen.Height * 0.2,
-                  height: 250.h,
-                  width: 300.w,
-                ),
+                    "assets/R1.png",
+                    // width: screen.Width * 0.8,
+                    // height: screen.Height * 0.2,
+                    height: 250.h,
+                    width: 300.w,
+                  ),
                 ],
                 Expanded(
                   child: Container(
@@ -93,19 +95,19 @@ class DetailsPage extends StatelessWidget {
                                   //   height: 10.h,
                                   // ),
                                   // Text("Please enter your full name"),
-                                   Toptitle(
-                                      subtitle:
-                                          "Please enter your full name",
+                                  Toptitle(
+                                      subtitle: "Please enter your full name",
                                       title: "Enter Your Full Name"),
                                   SizedBox(
                                     // height: screen.Height * (25 / 812),
                                     height: 25.h,
                                   ),
                                   CustomTextfield(
-                                      hintText: "Enter your Full Name",
-                                      // label: "Mobile Number",
-                                      controller: nameController,
-                                      keyboardType: TextInputType.name,)
+                                    hintText: "Enter your Full Name",
+                                    // label: "Mobile Number",
+                                    controller: nameController,
+                                    keyboardType: TextInputType.name,
+                                  )
                                 ],
                               ),
                             ),
