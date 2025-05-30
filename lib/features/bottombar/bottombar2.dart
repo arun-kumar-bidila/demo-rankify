@@ -5,6 +5,8 @@ import 'package:rankify/constants/variables.dart';
 import 'package:rankify/features/bottombar/tabs/community/screens/community.dart';
 import 'package:rankify/features/bottombar/tabs/myexams/screens/myexamspage.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
+import 'package:rankify/features/profilebar/tabs/winnerslist/screens/winnerslist.dart';
+import 'package:rankify/utils/screen_size.dart';
 
 class BottomBar2 extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _BottomBar2State extends State<BottomBar2> {
   final List<Widget> _pages = [
     Dashboard(),
     Myexamspage(),
-    Center(child: Text("Ranks Page", style: TextStyle(fontSize: 22))),
+    Winnerslist(),
     Community(),
     Center(child: Text("Experts Page", style: TextStyle(fontSize: 22))),
   ];
@@ -66,7 +68,7 @@ class _BottomBar2State extends State<BottomBar2> {
                       ),
                     ),
                     Positioned(
-                      top: -28,
+                      top: -(Screensize.height*0.04),
                       left: _selectedIndex == 0
                           ? MediaQuery.of(context).size.width /
                                   5 *
@@ -83,8 +85,8 @@ class _BottomBar2State extends State<BottomBar2> {
                       
                       child: AnimatedContainer(
                         duration: Duration(milliseconds: 200),
-                        width: 70,
-                        height: 70,
+                        width: Screensize.width*0.2,
+                        height: Screensize.height*0.1,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,

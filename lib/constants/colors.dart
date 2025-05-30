@@ -33,6 +33,8 @@ class GlobalColors {
 
   static const blueE6 = Color(0xFF3689E6);
   static const blueF3 = Color(0xFF2396F3);
+  static const blueF4 = Color(0xFFCCDEF4);
+  
 
   static const orange1A = Color(0xFFEF7F1A);
   static const orangeD1 = Color(0xFFFCE5D1);

@@ -4,7 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/auth/screens/phonesignup.dart';
 import 'package:rankify/features/bottombar/bottombar2.dart';
+import 'package:rankify/features/profilebar/tabs/winnerslist/screens/winnerslist.dart';
+import 'package:rankify/features/profilebar/tabs/winnerslist/widgets/winnerslistexamtab.dart';
 
 import 'package:rankify/utils/screen_size.dart';
 
@@ -51,7 +54,7 @@ class MyApp extends StatelessWidget {
         ),
       );
       },
-      child: BottomBar2(),
+      child:Phonenumber(),
     );
   }
 }
