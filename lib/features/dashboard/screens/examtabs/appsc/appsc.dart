@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:rankify/features/bottombar/tabs/home/homescreen.dart';
+import 'package:rankify/utils/userdata.dart';
 
 // import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers.dart';
 
@@ -21,7 +22,7 @@ class _RrbState extends State<Appsc> {
         children: [
           Expanded(
             child: Container(
-              child: Homescreen(whichHome: "APPSC"),
+              child: Homescreen(whichHome: UserData().stateExam!.toLowerCase()),
             ),
           ),
         //   if(_page!=3)...[

@@ -5,6 +5,7 @@ import 'package:rankify/features/dashboard/screens/examtabs/widgets/toprankers2.
 import 'package:rankify/features/dashboard/screens/examtabs/widgets/upcomingexams2.dart';
 
 import 'package:rankify/utils/screen_size.dart';
+import 'package:rankify/utils/userdata.dart';
 
 class Homescreen extends StatefulWidget {
   final String whichHome;
@@ -16,22 +17,22 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   late String examImage;
+  String homeStateExam = UserData().stateExam!.toLowerCase();
   String getExamImage(String whichHome) {
-    switch (whichHome) {
-      case "ssc":
-        return "assets/ssc.png";
-      case "banks":
-        return "assets/banks.png";
-      case "rrb":
-        return "assets/rrb.png";
-      case "upsc":
-        return "assets/upsc.png";
-      case "appsc":
-        return "assets/appsc.png";
-      case "others":
-        return "assets/ssc.png";
-      default:
-        return "assets/ssc.png";
+    if (whichHome == "ssc") {
+      return "assets/ssc.png";
+    } else if (whichHome == "banks") {
+      return "assets/banks.png";
+    } else if (whichHome == "rrb") {
+      return "assets/rrb.png";
+    } else if (whichHome == "upsc") {
+      return "assets/upsc.png";
+    } else if (whichHome == "others") {
+      return "assets/ssc.png";
+    } else if (whichHome == homeStateExam) {
+      return "assets/$homeStateExam.png";
+    } else {
+      return "assets/ssc.png";
     }
   }
 
@@ -39,6 +40,7 @@ class _HomescreenState extends State<Homescreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    // homeStateExam = UserData().stateExam ?? "appsc";
     examImage = getExamImage(widget.whichHome);
   }
 

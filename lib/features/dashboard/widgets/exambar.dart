@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/utils/screen_size.dart';
+import 'package:rankify/utils/userdata.dart';
 
 class Exambar extends StatefulWidget {
   final currentIndex;
@@ -34,7 +35,7 @@ class _ExambarState extends State<Exambar> {
           _buildHomeItem(1, "BANKS", "assets/rbi.png"),
           _buildHomeItem(2, "RRB", "assets/rrb.png"),
           _buildHomeItem(3, "UPSC", "assets/upsc.png"),
-          _buildHomeItem(4, "APPSC", "assets/appsc.png"),
+          _buildHomeItem(4, UserData().stateExam!, "assets/${UserData().stateExam!.toLowerCase()}.png"),
           _buildHomeItem(5, "OTHERS", "icons/more.png"),
         ],
       ),
