@@ -3,6 +3,8 @@ final Map<String, List<String>> examsByCategory = {
   "banks": ["IBPS PO", "IBPS CLERK", "SBI PO", "SBI Clerk"],
   "rrb": ["NTPC", "Group D", "RRB JE", "ALP"],
   "appsc": ["Group-1", "Group-2", "Group-3", "Group-4"],
+  "tnpsc": ["Group-1", "Group-2", "Group-3", "Group-4"],
+   "tpsc": ["Group-1", "Group-2", "Group-3", "Group-4"],
   "upsc": [
     "History",
     "Geography[Ind+World]",
