@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rankify/features/bottombar/bottombar2.dart';
 import 'package:rankify/features/dashboard/screens/dashboard.dart';
 // import 'package:rankify/utils/screen_size.dart';
 
@@ -18,7 +19,7 @@ class _SuccessfulState extends State<Successful> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Dashboard()));
+          context, MaterialPageRoute(builder: (context) => BottomBar2()));
     });
   }
 

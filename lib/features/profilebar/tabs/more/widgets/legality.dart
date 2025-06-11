@@ -21,15 +21,13 @@ class Legality extends StatelessWidget {
             ),
         Padding(
           padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
-          child: Expanded(
-            child: Text(
-              "Yes! Rankify is a legally compliant online exam platform that follows all data protection laws, privacy regulations, and fair examination practices.",
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w400,
-              ),
-              softWrap: true,
+          child: Text(
+            "Yes! Rankify is a legally compliant online exam platform that follows all data protection laws, privacy regulations, and fair examination practices.",
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w400,
             ),
+            softWrap: true,
           ),
         ),
         

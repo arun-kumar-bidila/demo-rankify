@@ -6,6 +6,7 @@ import 'package:rankify/features/profilebar/tabs/privacypolicy/screens/privacypo
 import 'package:rankify/features/profilebar/tabs/rankifysupport/screens/supportmain.dart';
 import 'package:rankify/features/profilebar/tabs/rankifyworks/screens/howrankifyworks.dart';
 import 'package:rankify/features/profilebar/tabs/referandearn/screens/referandearn.dart';
+import 'package:rankify/features/profilebar/tabs/winnerslist/screens/winnerslist.dart';
 import 'package:rankify/features/profilebar/widgets/buildprofilefeature.dart';
 import 'package:rankify/utils/screen_size.dart';
 
@@ -20,11 +21,9 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
   @override
   Widget build(BuildContext context) {
     return Container(
-    
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
       margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.02),
-     
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -37,12 +36,15 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-               icon: Icons.emoji_events,
+              icon: Icons.emoji_events,
               label: "Winners List",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Winnerslist()));
+              },
               pos: 0),
           Buildprofilefeature(
-               icon: Icons.bar_chart,
+              icon: Icons.bar_chart,
               label: "Check Your Performance",
               onTap: () {},
               pos: 0),
@@ -63,7 +65,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-             icon: Icons.lock,
+              icon: Icons.lock,
               label: "Privacy Policy",
               onTap: () {
                 Navigator.push(
@@ -75,7 +77,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-               icon: Icons.more_horiz,
+              icon: Icons.more_horiz,
               label: "More",
               onTap: () {
                 Navigator.push(
@@ -83,7 +85,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-               icon: Icons.access_time,
+              icon: Icons.access_time,
               label: "24 x 7 Help & Support ",
               onTap: () {
                 Navigator.push(context,
