@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/common/widgets/custom_button.dart';
 import 'package:rankify/constants/colors.dart';
+import 'package:rankify/features/liveexam/screens/liveexamscreen.dart';
 import 'package:rankify/utils/screen_size.dart';
 
 class Liveexamcard extends StatelessWidget {
@@ -128,7 +129,12 @@ class Liveexamcard extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
               child: CustomButton(
                 text: "Start Exams",
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Liveexamscreen()));
+                },
                 color: GlobalColors.buttonColor,
                 textColor: Colors.white,
               ),
@@ -273,18 +279,17 @@ class Liveexamcard extends StatelessWidget {
                           "Each Question carries one mark"),
                       _buildInstruction(
                           "icons/remove.png", "No negative marking"),
-                      _buildInstruction("icons/refresh.png",
-                          "Review options available"),
                       _buildInstruction(
-                          "icons/clock.png", "Time bound exam"),
+                          "icons/refresh.png", "Review options available"),
+                      _buildInstruction("icons/clock.png", "Time bound exam"),
                       _buildInstruction("icons/shuffle.png",
                           "Questions are randomly selected"),
-                      _buildInstruction(
-                          "icons/mark.png", "Cannot go back to previous question"),
+                      _buildInstruction("icons/mark.png",
+                          "Cannot go back to previous question"),
                       _buildInstruction("icons/forbidden.png",
                           "Tab switching is not allowed"),
-                      _buildInstruction("icons/cell-phone.png",
-                          "Keep mobile phones away"),
+                      _buildInstruction(
+                          "icons/cell-phone.png", "Keep mobile phones away"),
                     ],
                   ),
                   Padding(

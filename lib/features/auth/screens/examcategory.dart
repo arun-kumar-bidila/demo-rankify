@@ -3,10 +3,13 @@ import 'package:rankify/features/auth/screens/language.dart';
 import 'package:rankify/common/widgets/rectangle_button.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:rankify/features/auth/screens/successful.dart';
+import 'package:rankify/utils/userdata.dart';
 
 class Examcategory extends StatefulWidget {
-  const Examcategory({super.key});
+  const Examcategory({
+    super.key,
+  });
 
   @override
   State<Examcategory> createState() => _ExamcategoryState();
@@ -15,12 +18,48 @@ class Examcategory extends StatefulWidget {
 class _ExamcategoryState extends State<Examcategory> {
   Color textColor = GlobalColors.textBlack;
   Color buttonColor = GlobalColors.backgroundColor;
+  Map<String, String> userStateExam = {
+    "Andhra Pradesh": "APPSC",
+    "Telangana": "TPSC",
+    "Arunachal Pradesh": "TNPSC",
+    "Assam": "TNPSC",
+    "Bihar": "TNPSC",
+    "Chhattisgarh": "TNPSC",
+    "Goa": "TNPSC",
+    "Gujarat": "TNPSC",
+    "Haryana": "TNPSC",
+    "Himachal Pradesh": "TNPSC",
+    "Jharkhand": "TNPSC",
+    "Karnataka": "TNPSC",
+    "Kerala": "TNPSC",
+    "Madhya Pradesh": "TNPSC",
+    "Maharashtra": "TNPSC",
+    "Manipur": "TNPSC",
+    "Meghalaya": "TNPSC",
+    "Mizoram": "TNPSC",
+    "Nagaland": "TNPSC",
+    "Odisha": "TNPSC",
+    "Punjab": "TNPSC",
+    "Rajasthan": "TNPSC",
+    "Sikkim": "TNPSC",
+    "Tamil Nadu": "TNPSC",
+    "Tripura": "TNPSC",
+    "Uttar Pradesh": "TNPSC",
+    "Uttarakhand": "TNPSC",
+    "West Bengal": "TNPSC",
+  };
 
   void changeColor() {
     setState(() {
       textColor = GlobalColors.textWhite;
       buttonColor = GlobalColors.buttonColor;
     });
+  }
+
+  void NavigateToSuccessPage() {
+    UserData().stateExam = userStateExam[UserData().state];
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => Successful()));
   }
 
   @override
@@ -56,12 +95,12 @@ class _ExamcategoryState extends State<Examcategory> {
                 padding: EdgeInsets.all(8.r),
                 margin: EdgeInsets.only(top: 30.r),
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40.r),
-                      topRight: Radius.circular(40.r),
-                    ),
-                    ),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40.r),
+                    topRight: Radius.circular(40.r),
+                  ),
+                ),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: EdgeInsets.all(8.r),
@@ -72,10 +111,8 @@ class _ExamcategoryState extends State<Examcategory> {
                         RectangleButton(
                             text: "SSC",
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Language()));
+                              UserData().category = "ssc";
+                              NavigateToSuccessPage();
                             }),
                         SizedBox(
                           // height: screenHeight * (10 / 812),
@@ -83,11 +120,10 @@ class _ExamcategoryState extends State<Examcategory> {
                         ),
                         RectangleButton(
                             text: "BANKS",
+                            
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Language()));
+                              UserData().category = "banks";
+                              NavigateToSuccessPage();
                             }),
                         SizedBox(
                           // height: screenHeight * (10 / 812),
@@ -96,10 +132,8 @@ class _ExamcategoryState extends State<Examcategory> {
                         RectangleButton(
                             text: "RRB",
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Language()));
+                              UserData().category = "rrb";
+                              NavigateToSuccessPage();
                             }),
                         SizedBox(
                           // height: screenHeight * (10 / 812),
@@ -108,22 +142,18 @@ class _ExamcategoryState extends State<Examcategory> {
                         RectangleButton(
                             text: "UPSC",
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Language()));
+                              UserData().category = "upsc";
+                              NavigateToSuccessPage();
                             }),
                         SizedBox(
                           // height: screenHeight * (10 / 812),
                           height: 20.h,
                         ),
                         RectangleButton(
-                            text: "APPSC",
+                            text: userStateExam[UserData().state]!,
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Language()));
+                              UserData().category = userStateExam[UserData().state]!;
+                              NavigateToSuccessPage();
                             }),
                         SizedBox(
                           // height: screenHeight * (10 / 812),
@@ -132,10 +162,8 @@ class _ExamcategoryState extends State<Examcategory> {
                         RectangleButton(
                             text: "OTHERS",
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Language()));
+                              UserData().category = "others";
+                              NavigateToSuccessPage();
                             }),
                         SizedBox(
                           // height: screenHeight * (10 / 812),

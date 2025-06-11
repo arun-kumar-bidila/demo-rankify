@@ -9,7 +9,10 @@ class RectangleButton extends StatefulWidget {
   final VoidCallback onPressed;
 
   const RectangleButton(
-      {super.key, required this.text, required this.onPressed});
+      {
+        super.key, required this.text, required this.onPressed
+        }
+        );
 
   @override
   State<RectangleButton> createState() => _RectangleButtonState();

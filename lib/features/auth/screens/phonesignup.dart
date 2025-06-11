@@ -11,14 +11,20 @@ import 'package:rankify/common/widgets/custom_textfield.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/auth/widgets/toptitle.dart';
 
-class Phonenumber extends StatelessWidget {
+class Phonenumber extends StatefulWidget {
   const Phonenumber({super.key});
 
   @override
+  State<Phonenumber> createState() => _PhonenumberState();
+}
+
+class _PhonenumberState extends State<Phonenumber> {
+   final phoneSignUpFormKey = GlobalKey<FormState>();
+    TextEditingController phoneController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     // final screen = ScreenSize(context);
-    final phoneSignUpFormKey = GlobalKey<FormState>();
-    TextEditingController phoneController = TextEditingController();
+   
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
@@ -64,7 +70,7 @@ class Phonenumber extends StatelessWidget {
               //     height: 100.h,
               //   )
               // ],
-              Expanded(
+              Flexible(
                 child: Container(
                   // height: screenHeight * 0.5,
                   padding: EdgeInsets.all(16.r),
