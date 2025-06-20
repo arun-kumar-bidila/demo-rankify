@@ -1,5 +1,4 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,12 +18,12 @@ class Phonenumber extends StatefulWidget {
 }
 
 class _PhonenumberState extends State<Phonenumber> {
-   final phoneSignUpFormKey = GlobalKey<FormState>();
-    TextEditingController phoneController = TextEditingController();
+  final phoneSignUpFormKey = GlobalKey<FormState>();
+  TextEditingController phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // final screen = ScreenSize(context);
-   
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
@@ -119,34 +118,15 @@ class _PhonenumberState extends State<Phonenumber> {
                                     if (phoneSignUpFormKey.currentState!
                                         .validate())
                                       {
-                                        FirebaseAuth.instance.verifyPhoneNumber(
-                                          phoneNumber: phoneController.text,
-                                          verificationCompleted:
-                                              (phoneAuthCredential) {},
-                                          verificationFailed: (error) {
-                                            // log(error.toString());
-                                            print("error in phonesignup");
-                                          },
-                                          codeSent: (verificationId,
-                                              forceResendingId) {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) => OTP(
-                                                  phonenumber:
-                                                      phoneController.text,
-                                                  verificationId:
-                                                      verificationId,
-                                                ),
-                                              ),
-                                            );
-                                          },
-                                          codeAutoRetrievalTimeout:
-                                              (verificationId) {
-                                            // log("Auto retrievel timeout");
-                                            print("Autho retrievela timeout");
-                                          },
-                                        )
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => OTP(
+                                              phonenumber: phoneController.text,
+                                              verificationId: "hjb",
+                                            ),
+                                          ),
+                                        ),
                                       }
                                   },
                               color: GlobalColors.buttonColor,
@@ -160,8 +140,8 @@ class _PhonenumberState extends State<Phonenumber> {
                             children: [
                               Expanded(
                                 child: Divider(
-                                  color: GlobalColors.textBlack
-                                      .withOpacity(0.4),
+                                  color:
+                                      GlobalColors.textBlack.withOpacity(0.4),
                                   thickness: 1.r,
                                   endIndent: 10.r,
                                 ),
@@ -171,14 +151,14 @@ class _PhonenumberState extends State<Phonenumber> {
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
-                                  color: GlobalColors.textBlack
-                                      .withOpacity(0.4),
+                                  color:
+                                      GlobalColors.textBlack.withOpacity(0.4),
                                 ),
                               ),
                               Expanded(
                                 child: Divider(
-                                  color: GlobalColors.textBlack
-                                      .withOpacity(0.4),
+                                  color:
+                                      GlobalColors.textBlack.withOpacity(0.4),
                                   thickness: 1,
                                   indent: 10,
                                   endIndent: 10,
@@ -186,25 +166,12 @@ class _PhonenumberState extends State<Phonenumber> {
                               )
                             ],
                           ),
-                          
                           SizedBox(
                             // height: 15,
                             height: 15.h,
                           ),
                           InkWell(
-                            onTap: () async {
-                              UserCredential? userCredential =
-                                  await Authservice.signInWithGoogle();
-                              if (userCredential != null) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => OTP(
-                                              email: userCredential.user?.email,
-                                              verificationId: "",
-                                            )));
-                              }
-                            },
+                            onTap: () async {},
                             child: Container(
                               padding: EdgeInsets.all(8.r),
                               // width: screen.Width * 0.8,
@@ -216,7 +183,6 @@ class _PhonenumberState extends State<Phonenumber> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  
                                   Image.asset(
                                     "icons/google.png",
                                     // width: screen.Width * (50 / 812),
