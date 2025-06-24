@@ -23,63 +23,56 @@ class _AddmoneyfieldState extends State<Addmoneyfield> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: Screensize.width * 0.03,
-          ),
-          child: Text(
-            "Add Money",
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
-          ),
+        Text(
+          "Add Money",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            vertical: Screensize.height * 0.01,
+            vertical: 16,
           ),
           child: TextField(
             cursorColor: GlobalColors.buttonColor,
             style: TextStyle(
-              fontSize: 22.sp,
+              fontSize: 22,
               fontWeight: FontWeight.w500,
             ),
             decoration: InputDecoration(
                 hintText: "₹ Enter Amount",
                 hintStyle: TextStyle(
-                  fontSize: 22.sp,
+                  fontSize: 22,
                   fontWeight: FontWeight.w500,
                   color: GlobalColors.grey80,
                 ),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none),
                 filled: true,
                 fillColor: Colors.white,
                 contentPadding: EdgeInsets.symmetric(
-                    vertical: Screensize.height * 0.03,
-                    horizontal: Screensize.width * 0.05)),
+                    horizontal: 30,
+                  vertical: 16,)),
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-              vertical: Screensize.height * 0.01,
-              horizontal: Screensize.width * 0.03),
+          padding: const EdgeInsets.only(bottom:10),
           child: Row(
             children: [
               Text(
                 "Quick Option",
                 style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 12,
                     fontWeight: FontWeight.w500,
                     fontStyle: FontStyle.italic,
                     color: GlobalColors.grey80),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: Screensize.width * 0.03,
+                  horizontal: 4,
                 ),
                 child: Icon(
                   Icons.info,
-                  size: 15.r,
+                  size: 15,
                   color: GlobalColors.grey80,
                 ),
               )
@@ -92,31 +85,34 @@ class _AddmoneyfieldState extends State<Addmoneyfield> {
             children: [
               for (var card in addMoney) ...[
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: Screensize.width*0.01),
-                  padding: EdgeInsets.symmetric(vertical: Screensize.height*0.02,horizontal: Screensize.width*0.03),
+                  margin: EdgeInsets.symmetric(horizontal: 4),
+                  padding: EdgeInsets.symmetric(
+                     vertical: 20,
+                     horizontal: 10
+                  ),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
+                      borderRadius: BorderRadius.circular(10),
                       color: Colors.white),
                   child: Column(
                     children: [
                       Text(
                         "₹ ${card["amount"]}",
                         style: TextStyle(
-                            fontSize: 14.sp,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                             color: GlobalColors.grey38),
                       ),
                       Container(
-                         margin: EdgeInsets.only(top: Screensize.height*0.01),
-                        padding: EdgeInsets.symmetric(vertical: Screensize.height*0.005,horizontal: Screensize.width*0.05),
+                         margin: EdgeInsets.only(top: 5),
+                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5.r),
+                            borderRadius: BorderRadius.circular(5),
                             color: GlobalColors.pinkF3),
                         child: Row(
                           children: [
                             Text(
                               "+₹${card["bonusAmount"]} Bonus",
-                              style: TextStyle(fontSize: 8.sp,fontWeight: FontWeight.w800,color: GlobalColors.buttonColor),
+                              style: TextStyle(fontSize: 10,fontWeight: FontWeight.w800,color: GlobalColors.buttonColor),
                             ),
                           ],
                         ),

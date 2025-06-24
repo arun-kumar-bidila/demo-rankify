@@ -11,25 +11,26 @@ class Referandearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: Screensize.height * 0.05,
-          horizontal: Screensize.width * 0.05,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            //firstcontainer
-          Referandearnpagetop(),
-          //secondcontainer
-          Yourreferralcodewidget(),
-          //thirdcontainer
-          Referalinfo(),
-          //fourthcontainer
-          Flexible(child: Waytoearncoins()),
-
-          ]
-          
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                //firstcontainer
+              Referandearnpagetop(),
+              //secondcontainer
+              Yourreferralcodewidget(),
+              //thirdcontainer
+              Referalinfo(),
+              //fourthcontainer
+              Flexible(child: Waytoearncoins()),
+            
+              ]
+              
+            ),
+          ),
         ),
       ),
     );
