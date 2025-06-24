@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/utils/screen_size.dart';
 
@@ -7,10 +8,10 @@ class Buildprofilefeature extends StatelessWidget {
   final int pos;
   final VoidCallback onTap;
   final String label;
-  final IconData icon;
+  final String svgIcon;
   const Buildprofilefeature(
       {super.key,
-      required this.icon,
+      required this.svgIcon,
       required this.label,
       required this.onTap,
       required this.pos});
@@ -34,7 +35,7 @@ class Buildprofilefeature extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: Screensize.height * 0.01,
+            vertical: 13,
           ),
           child: Row(
             children: [
@@ -45,18 +46,18 @@ class Buildprofilefeature extends StatelessWidget {
               // ),
               Padding(
                 padding:
-                    EdgeInsets.only(left: Screensize.width * 0.03,right: Screensize.width*0.06),
-                child: Icon(
-                  icon,
-                  size: 25.r,
-                  color: Colors.black,
-                ),
+                    EdgeInsets.only(left: 13,right: 20),
+                child: SvgPicture.asset(
+                  svgIcon,
+                  height: 20,
+                  width: 22,
+                )
               ),
              
               Text(
                 label,
                 style: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: GlobalColors.grey19),
               )
