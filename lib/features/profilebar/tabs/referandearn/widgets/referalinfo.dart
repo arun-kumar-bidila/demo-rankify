@@ -9,13 +9,13 @@ class Referalinfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     margin: EdgeInsets.only(top: Screensize.height * 0.02),
+     margin: EdgeInsets.only(top: 30),
       padding: EdgeInsets.symmetric(
-          vertical: Screensize.height * 0.01,
-          horizontal: Screensize.width * 0.03),
+          vertical: 25,
+          horizontal: 15),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(10),
 
       ),
       child: Row(
@@ -23,24 +23,24 @@ class Referalinfo extends StatelessWidget {
         children: [
           Column(
             children: [
-              Text("5",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold,color: GlobalColors.buttonColor),),
-              Text("Friends Referred",style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.bold,color: Color(0xFF808080)),)
+              Text("5",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: GlobalColors.buttonColor),),
+              Text("Friends Referred",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Color(0xFF808080)),)
             ],
           ),
           SizedBox(
-            height: Screensize.height*0.05,
+            height: 45,
             child: VerticalDivider(
               color: Colors.black,
              
-              thickness: Screensize.width*0.001,
+              thickness: 1,
             
             ),
           ),
 
           Column(
             children: [
-              Text("1000",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold,color: GlobalColors.buttonColor),),
-              Text("Coins Earned",style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.bold,color: Color(0xFF808080)),)
+              Text("1000",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: GlobalColors.buttonColor),),
+              Text("Coins Earned",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: Color(0xFF808080)),)
 
             ],
           )
