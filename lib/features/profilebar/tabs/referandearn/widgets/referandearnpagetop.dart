@@ -26,7 +26,7 @@ class Referandearnpagetop extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
               onTap: () {
@@ -37,15 +37,22 @@ class Referandearnpagetop extends StatelessWidget {
                 size: 30,
                 color: Colors.white,
               )),
-              Padding(
-                padding: const EdgeInsets.only(left: 50,bottom: 10),
-                child: Text("Welcome to Rankify\nReferral Dashboard",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.bold),),
+              Text("Welcome to Rankify\nReferral Dashboard",style: TextStyle(fontSize: 22,color: Colors.white,fontWeight: FontWeight.bold),),
+              Opacity(
+                opacity: 0,
+                // dummy spacer to aust width
+                child: Icon(
+                Icons.arrow_back,
+                size: 30,
+                color: Colors.white,
               ),
+              )
             ],
           ),
           
           Padding(
            padding: EdgeInsets.only(
+            top: 5,
               bottom: 10,
             ),
             child: Row(
