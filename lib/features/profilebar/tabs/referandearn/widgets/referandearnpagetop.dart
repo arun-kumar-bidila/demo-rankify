@@ -12,7 +12,7 @@ class Referandearnpagetop extends StatelessWidget {
     return Container(
       
       margin: EdgeInsets.symmetric(vertical: 30),
-      padding: EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric( 
         horizontal: 11,
         vertical: 30,
       ),
