@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/profilebar/tabs/more/widgets/aboutus.dart';
 import 'package:rankify/features/profilebar/tabs/more/widgets/communityguidelines.dart';
@@ -25,22 +26,22 @@ class _MoreoptionState extends State<Moreoption> {
   List<Map<String,dynamic>> options =[
     {
       "title":"About Us",
-      "imagePath":"icons/exclamation.png",
+      "imagePath":"assets/svg/info.svg",
       "optionfile":()=>Aboutus()
     },
      {
       "title":"Community Guidelines",
-      "imagePath":"icons/exclamation.png",
+      "imagePath":"assets/svg/doc.svg",
       "optionfile":()=>Communityguidelines()
     },
      {
       "title":"Legality",
-      "imagePath":"icons/shield.png",
+      "imagePath":"assets/svg/shield.svg",
       "optionfile":()=>Legality()
     },
      {
       "title":"Terms and Conditions",
-      "imagePath":"icons/exclamation.png",
+      "imagePath":"assets/svg/terms.svg",
       "optionfile":()=>Termsandconditions()
     },
 
@@ -53,28 +54,26 @@ class _MoreoptionState extends State<Moreoption> {
       },
       child: Container(
         padding: EdgeInsets.symmetric(
-          vertical: Screensize.height * 0.03,
-          horizontal: Screensize.width * 0.05,
+          vertical: 30,
+          horizontal: 15,
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 15,
           children: [
-            Padding(
-              padding: EdgeInsets.only(right: Screensize.width * 0.05),
-              child: Image.asset(
-                widget.optionImagePath,
-                height: Screensize.height * 0.05,
-                color: Colors.black,
-              ),
+            SvgPicture.asset(
+              widget.optionImagePath,
+              height: 40,
             ),
             Expanded(
               child: Text(
                 widget.optionName,
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
             Icon(
               Icons.arrow_forward_ios_rounded,
-              size: 20.sp,
+              size: 20,
             )
           ],
         ),
@@ -88,14 +87,15 @@ class _MoreoptionState extends State<Moreoption> {
         builder: (BuildContext context) {
           return Dialog(
             insetPadding: EdgeInsets.symmetric(
-                horizontal: Screensize.width * 0.05,
-                vertical: Screensize.height * 0.08),
+              horizontal: 16,
+              vertical: 50,
+            ),
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.r)),
+                borderRadius: BorderRadius.circular(20)),
             child: Container(
               padding: EdgeInsets.only(
-                bottom: Screensize.height * 0.02,
+                bottom: 5,
                 
               ),
 
@@ -104,13 +104,13 @@ class _MoreoptionState extends State<Moreoption> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.r),
-                          topRight: Radius.circular(20.r)),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)),
                       color: GlobalColors.buttonColor,
                     ),
                     padding: EdgeInsets.symmetric(
-                      vertical: Screensize.height * 0.03,
-                      horizontal: Screensize.width * 0.05,
+                      vertical: 20,
+                      horizontal: 31,
                     ),
                     child: Stack(
                       alignment: Alignment.center,
@@ -121,9 +121,9 @@ class _MoreoptionState extends State<Moreoption> {
                               onTap: () {
                                 Navigator.pop(context);
                               },
-                              child: Image.asset(
-                                "icons/close.png",
-                                height: Screensize.height * 0.025,
+                              child: SvgPicture.asset(
+                                "assets/svg/close.svg",
+                                height: 20,
                                 color: Colors.white,
                               ),
                             ),
@@ -133,7 +133,7 @@ class _MoreoptionState extends State<Moreoption> {
                           child: Text(
                             options[pageOption]["title"],
                             style: TextStyle(
-                                fontSize: 18.sp,
+                                fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white),
                           ),
@@ -144,16 +144,16 @@ class _MoreoptionState extends State<Moreoption> {
                   Expanded(
                     child: SingleChildScrollView(
                       padding: EdgeInsets.symmetric(
-                          horizontal: Screensize.width * 0.05,
+                          horizontal: 25,
                          ),
                       child: Column(
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                vertical: Screensize.height * 0.02),
-                            child: Image.asset(
+                                vertical: 20),
+                            child: SvgPicture.asset(
                               options[pageOption]["imagePath"],
-                              height: Screensize.height * 0.04,
+                              height: 40,
                               color: GlobalColors.buttonColor,
                             ),
                           ),
