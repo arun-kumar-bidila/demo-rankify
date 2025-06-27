@@ -10,76 +10,78 @@ class More extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          margin: EdgeInsets.only(
-              top: Screensize.height * 0.05,
-              left: Screensize.width * 0.05,
-              right: Screensize.width * 0.05),
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                    vertical: Screensize.height * 0.05,
-                    horizontal: Screensize.width * 0.1),
-                decoration: BoxDecoration(
-                    color: GlobalColors.buttonColor,
-                    borderRadius: BorderRadius.circular(10.r)),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 30.sp,
-                        color: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                  decoration: BoxDecoration(
+                      color: GlobalColors.buttonColor,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: Screensize.width * 0.2),
-                      child: Text(
+                      Text(
                         "More",
                         style: TextStyle(
                             fontSize: 20.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
-                    ),
-                  ],
+                      Opacity(
+                        opacity: 0,
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: Screensize.height * 0.01),
-                child: Column(
-                  children: [
-                    Moreoption(
-                      optionImagePath: "icons/exclamation.png",
-                      optionName: "About Us",
-                      option: 0,
-                    ),
-                    Moreoption(
-                      optionImagePath: "icons/exclamation.png",
-                      optionName: "Community Guidelines",
-                      option: 1,
-                    ),
-                    Moreoption(
-                      optionImagePath: "icons/shield.png",
-                      optionName: "Legality",
-                      option: 2,
-                    ),
-                    Moreoption(
-                      optionImagePath: "icons/exclamation.png",
-                      optionName: "Terms and Conditions",
-                      option: 3,
-                    )
-                  ],
-                ),
-              )
-            ],
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Column(
+                    children: [
+                      Moreoption(
+                        optionImagePath: "assets/svg/info.svg",
+                        optionName: "About Us",
+                        option: 0,
+                      ),
+                      Moreoption(
+                        optionImagePath: "assets/svg/doc.svg",
+                        optionName: "Community Guidelines",
+                        option: 1,
+                      ),
+                      Moreoption(
+                        optionImagePath: "assets/svg/shield.svg",
+                        optionName: "Legality",
+                        option: 2,
+                      ),
+                      Moreoption(
+                        optionImagePath: "assets/svg/terms.svg",
+                        optionName: "Terms and Conditions",
+                        option: 3,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
