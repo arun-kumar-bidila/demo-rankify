@@ -29,8 +29,8 @@ class _SupportmainState extends State<Supportmain> {
 
   @override
   Widget build(BuildContext context) {
-     double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-    bool isKeyboardFullyClosed = keyboardHeight == 0;
+    //  double keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+    // bool isKeyboardFullyClosed = keyboardHeight == 0;
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: KeyboardVisibilityBuilder(
@@ -38,72 +38,75 @@ class _SupportmainState extends State<Supportmain> {
           return SafeArea(
             child: Column(
               children: [
-                if(isKeyboardFullyClosed)...[
+                if(!isKeyboardVisible)...[
                 Container(
                   margin: EdgeInsets.only(
-                    top: Screensize.height * 0.02,
-                    left: Screensize.width * 0.05,
-                    right: Screensize.width * 0.05,
+                    top: 20,
+                    left: 16,
+                    right: 16,
                   ),
                   padding: EdgeInsets.symmetric(
-                      horizontal: Screensize.width * 0.05,
-                      vertical: Screensize.height * 0.05),
+                     horizontal: 11,
+                    vertical: 30,),
                   decoration: BoxDecoration(
                       // color: GlobalColors.buttonColor,
                       gradient: GlobalColors.primaryGradient,
-                      borderRadius: BorderRadius.circular(20.r)),
+                      borderRadius: BorderRadius.circular(20)),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Icon(
-                        Icons.arrow_back,
-                        size: 30.r,
-                        color: Colors.white,
+                      GestureDetector(
+                        onTap: 
+                        () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 30,
+                          color: Colors.white,
+                        ),
                       ),
                       Text(
                         "Rankify 24/7 Support",
                         style: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: Colors.white,
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.symmetric(
-                            vertical: Screensize.height * 0.001,
-                            horizontal: Screensize.width * 0.01),
+                            vertical: 2,
+                            horizontal: 4),
                         decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(10.r)),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: Screensize.width * 0.01),
-                              child: 
-                              // Text(
-                              //   "•",
-                              //   style: TextStyle(
-                              //     fontSize: 10.sp,
-                              //     fontWeight: FontWeight.w600,
-                              //     color: Colors.green,
-                              //   ),
-                              // ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: Screensize.width*0.008,
-                                
-                              )
-                            ),
-                            Text(
-                              "Online",
-                              style: TextStyle(
-                                fontSize: 8.sp,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 1,
+                            horizontal: 2,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 2),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.green,
+                                  radius: 3,
+                                  
+                                ),
                               ),
-                            )
-                          ],
+                              Text(
+                                "Online",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       )
                     ],
@@ -112,8 +115,8 @@ class _SupportmainState extends State<Supportmain> {
                 
                 Container(
                   padding: EdgeInsets.symmetric(
-                      horizontal: Screensize.width * 0.05,
-                      vertical: Screensize.height * 0.03),
+                      horizontal: 16,
+                      vertical: 30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -136,8 +139,8 @@ class _SupportmainState extends State<Supportmain> {
                 Container(
                   color: Colors.white,
                   padding: EdgeInsets.symmetric(
-                      horizontal: Screensize.width * 0.05,
-                      vertical: Screensize.height * 0.03),
+                      // horizontal: 30,
+                      vertical: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -148,7 +151,7 @@ class _SupportmainState extends State<Supportmain> {
                         child: Text(
                           "Live Chat",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600,
                             color: _page == 0
                                 ? GlobalColors.buttonColor
@@ -163,7 +166,7 @@ class _SupportmainState extends State<Supportmain> {
                         child: Text(
                           "Call Support",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600,
                             color: _page == 1
                                 ? GlobalColors.buttonColor
