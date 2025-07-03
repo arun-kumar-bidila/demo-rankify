@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/common/widgets/custom_button.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/auth/screens/fullname.dart';
+import 'package:rankify/features/auth/screens/details_screen.dart';
 
 class OTPInput extends StatefulWidget {
   final String verificationId;
@@ -107,7 +107,7 @@ class _OTPInputState extends State<OTPInput> {
                 String otp = getOTP();
                 print("Entered OTP: $otp");
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailsPage()));
+                    MaterialPageRoute(builder: (context) => DetailsScreen()));
               } catch (e) {
                 print("error occured in otpinput");
               }
