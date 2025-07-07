@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/dashboard/screens/notifications.dart';
+import 'package:rankify/features/dashboard/screens/rankifyCoins.dart';
 import 'package:rankify/features/profilebar/screens/profilescreen.dart';
 import 'package:rankify/utils/screen_size.dart';
 
@@ -85,20 +86,28 @@ class DashboardAppbar extends StatelessWidget {
                     color: Color(0x33EF7F1A),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "icons/dollar.png",
-                        height: Screensize.height * 0.02,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => Rankifycoins()));
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            "icons/dollar.png",
+                            height: Screensize.height * 0.02,
+                          ),
+                          Text(
+                            "10",
+                            style: TextStyle(
+                              fontSize: 10.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )
+                        ],
                       ),
-                      Text(
-                        "10",
-                        style: TextStyle(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
               ],

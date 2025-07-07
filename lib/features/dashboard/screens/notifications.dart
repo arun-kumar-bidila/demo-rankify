@@ -68,12 +68,14 @@ class _NotificationsState extends State<Notifications> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: SafeArea(
-        child: Column(
-          children: [
-            customAppBar(context),
-            showFilters(),
-            buildNotifications(groupedNotifications),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _customAppBar(context),
+              showFilters(),
+              buildNotifications(groupedNotifications),
+            ],
+          ),
         ),
       ),
     );
@@ -124,47 +126,47 @@ class _NotificationsState extends State<Notifications> {
     List<DateTime> sortedDates = notifications.keys.toList()
       ..sort((a, b) => b.compareTo(a));
 
-    return Expanded(
-      child: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        itemCount: sortedDates.length,
-        itemBuilder: (context, index) {
-          DateTime date = sortedDates[index];
-          List<NotificationItem> dayNotifications = notifications[date] ?? [];
-          
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-                    ...dayNotifications.where((n) => n.type == _selectedFilter.toLowerCase() || _selectedFilter == 'All')
-              .map(
-                (notification) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      _formatDate(date),
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[600],
-                      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      itemCount: sortedDates.length,
+      itemBuilder: (context, index) {
+        DateTime date = sortedDates[index];
+        List<NotificationItem> dayNotifications = notifications[date] ?? [];
+        
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+                  ...dayNotifications.where((n) => n.type == _selectedFilter.toLowerCase() || _selectedFilter == 'All')
+            .map(
+              (notification) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _formatDate(date),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey[600],
                     ),
-                  Divider(),
-                    customNotificationTile(
-                    title: notification.title,
-                    subtitle: notification.subtitle,
-                    date: _formatDate(notification.date),
-                    isNew: notification.isNew,
-                    icon: notification.icon,
-                  
-                                ),
-                                ]
-                ),
+                  ),
+                Divider(),
+                  customNotificationTile(
+                  title: notification.title,
+                  subtitle: notification.subtitle,
+                  date: _formatDate(notification.date),
+                  isNew: notification.isNew,
+                  icon: notification.icon,
+                
+                              ),
+                              ]
               ),
-              
-            ],
-          );
-        },
-      ),
+            ),
+            
+          ],
+        );
+      },
     );
   }
 
@@ -275,7 +277,7 @@ Widget customNotificationTile({
   );
 }
 
-Widget customAppBar(BuildContext context) {
+Widget _customAppBar(BuildContext context) {
   return Container(
     color: GlobalColors.buttonColor,
     child: Padding(
