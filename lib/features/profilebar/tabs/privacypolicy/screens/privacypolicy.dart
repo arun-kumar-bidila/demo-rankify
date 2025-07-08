@@ -10,15 +10,23 @@ class Privacypolicy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              Pagetopcontainer(),
-              Expanded(child: PolicyCardsContainer())
-            ],
-          ),
+      body: Container(
+        height: double.infinity,
+        margin: EdgeInsets.symmetric(
+          vertical: Screensize.height * 0.05,
+          horizontal: Screensize.width * 0.05,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding:  EdgeInsets.only(bottom: Screensize.height*0.02),
+              child: Pagetopcontainer(),
+            ),
+          Expanded(child: PolicyCardsContainer())
+
+            
+          ],
         ),
       ),
     );

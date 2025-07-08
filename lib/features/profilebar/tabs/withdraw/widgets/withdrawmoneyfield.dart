@@ -23,45 +23,54 @@ class _WithdrawmoneyfieldState extends State<Withdrawmoneyfield> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Withdraw Money",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: Screensize.width * 0.03,
+          ),
+          child: Text(
+            "Withdraw Money",
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+          ),
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            vertical: 16,
+            vertical: Screensize.height * 0.01,
           ),
           child: TextField(
             cursorColor: GlobalColors.buttonColor,
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 22.sp,
               fontWeight: FontWeight.w500,
             ),
             decoration: InputDecoration(
                 hintText: "₹ Enter Amount",
                 hintStyle: TextStyle(
-                  fontSize: 22,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w500,
                   color: GlobalColors.grey80,
                 ),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                     borderSide: BorderSide.none),
                 filled: true,
                 fillColor: Colors.white,
                 contentPadding: EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 16,
-                )),
+                    vertical: Screensize.height * 0.03,
+                    horizontal: Screensize.width * 0.05)),
           ),
         ),
-        Text(
-          "Maximum Withdrawal Amount : ₹82",
-          style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-              fontStyle: FontStyle.italic,
-              color: GlobalColors.grey80),
+        Padding(
+          padding: EdgeInsets.symmetric(
+              vertical: Screensize.height * 0.01,
+              horizontal: Screensize.width * 0.03),
+          child: Text(
+            "Maximum Withdrawal Amount : ₹82",
+            style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500,
+                fontStyle: FontStyle.italic,
+                color: GlobalColors.grey80),
+          ),
         ),
        
       ],

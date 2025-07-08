@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/utils/screen_size.dart';
 
@@ -19,27 +18,27 @@ class _MorefromrankifyState extends State<Morefromrankify> {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 17,top: 2,bottom: 12),
-              child: Text(
-                "More From Rankify",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: GlobalColors.grey19,
-                  fontWeight: FontWeight.w500,
-                ),
+            Text(
+              "More From Rankify",
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: GlobalColors.grey19,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],
         ),
         Container(
+          margin: EdgeInsets.symmetric(
+            vertical: Screensize.height * 0.01,
+          ),
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
           child: Column(
             children: [
               _buildMoreFromRankify(
-                  'assets/svg/info.svg', "Rankify GPT", "AI -Based Learning Support", 0),
-              _buildMoreFromRankify('assets/svg/store.svg', "Rankify Store",
+                  Icons.info, "Rankify GPT", "AI -Based Learning Support", 0),
+              _buildMoreFromRankify(Icons.storefront_sharp, "Rankify Store",
                   "Competitive Book Store", 1),
             ],
           ),
@@ -49,7 +48,7 @@ class _MorefromrankifyState extends State<Morefromrankify> {
   }
 
   Widget _buildMoreFromRankify(
-      String svgIcon, String label, String sublabel, int pos) {
+      IconData icon, String label, String sublabel, int pos) {
     return Container(
       decoration: BoxDecoration(
         // color: Colors.amber,
@@ -64,16 +63,18 @@ class _MorefromrankifyState extends State<Morefromrankify> {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: 13,
+          vertical: Screensize.height * 0.01,
         ),
         child: Row(
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 13,right: 20),
-              child: SvgPicture.asset(
-                svgIcon,
-                height: 20,
-                width: 20,
+              padding: EdgeInsets.only(
+                  left: Screensize.width * 0.03,
+                  right: Screensize.width * 0.06),
+              child: Icon(
+                icon,
+                size: 25.r,
+                color: Colors.black,
               ),
             ),
             // Image.asset(
@@ -90,14 +91,14 @@ class _MorefromrankifyState extends State<Morefromrankify> {
                 Text(
                   label,
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: GlobalColors.grey19),
                 ),
                 Text(
                   sublabel,
                   style: TextStyle(
-                      fontSize: 9,
+                      fontSize: 9.sp,
                       fontWeight: FontWeight.w400,
                       color: GlobalColors.grey80),
                 ),

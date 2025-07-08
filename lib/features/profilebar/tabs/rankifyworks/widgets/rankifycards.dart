@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/utils/screen_size.dart';
 
@@ -16,7 +15,7 @@ class _RankifycardsState extends State<Rankifycards> {
     {
       "step": "Step 1",
       "color":Colors.green,
-      "imagePath":"assets/svg/parent_tick.svg",
+      "imagePath":"icons/group.png",
       "title": "Register & Select Exam",
       "description":
           "Create your account for free and choose from SSC, RRB, Banking, SI & PC, DSC, or other competitive exams.",
@@ -31,7 +30,7 @@ class _RankifycardsState extends State<Rankifycards> {
     {
       "step": "Step 2",
       "color":Colors.blue,
-       "imagePath":"assets/svg/shield.svg",
+       "imagePath":"icons/shield.png",
       "title": "Join Live AI-Proctored Exam",
       "description":
           "Select an exam, pay entry fee, and take the test in our secure exam mode with AI proctoring.",
@@ -46,7 +45,7 @@ class _RankifycardsState extends State<Rankifycards> {
     {
       "step": "Step 3",
       "color":Colors.purple,
-       "imagePath":"assets/svg/edit_pen.svg",
+       "imagePath":"icons/open-book.png",
       "title": "Attempt Smart MCQ Exam",
       "description":
           "50 randomized questions with varying difficulty levels and live progress tracking.",
@@ -57,7 +56,7 @@ class _RankifycardsState extends State<Rankifycards> {
     {
       "step": "Step 4",
       "color":Colors.deepOrangeAccent,
-       "imagePath":"assets/svg/results.svg",
+       "imagePath":"icons/question.png",
       "title": "Get Instant Results",
       "description":
           "Receive immediate ranking among thousands of participants with detailed analytics.",
@@ -72,7 +71,7 @@ class _RankifycardsState extends State<Rankifycards> {
     {
       "step": "Step 5",
       "color":Colors.yellow,
-       "imagePath":"assets/svg/trophy.svg",
+       "imagePath":"icons/trophy.png",
       "title": "Earn Rewards",
       "description":
           "Top 50% get cashback (₹50), others earn coins for next attempts.",
@@ -85,8 +84,9 @@ class _RankifycardsState extends State<Rankifycards> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: double.infinity,
       margin: EdgeInsets.symmetric(
-        vertical: 10,
+        vertical: Screensize.height * 0.02,
       ),
       child: ListView.builder(
           itemCount: rankifyWorksData.length,
@@ -107,15 +107,16 @@ class _RankifycardsState extends State<Rankifycards> {
   Widget _buildRankifyCard(String step, String title, String subtitle,
       String example, List<dynamic> key_points,Color color,String imagepath) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      padding: EdgeInsets.symmetric(vertical: 29,horizontal: 9),
+      margin: EdgeInsets.only(bottom: Screensize.height * 0.01),
+      padding: EdgeInsets.symmetric(vertical: Screensize.height*0.02),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
           childrenPadding: EdgeInsets.symmetric(
-            horizontal: 9,
+            vertical: Screensize.height * 0.01,
+            horizontal: Screensize.width * 0.05,
           ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,25 +124,25 @@ class _RankifycardsState extends State<Rankifycards> {
               Text(
                 step,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16.sp,
                     color: GlobalColors.grey5E,
                     fontWeight: FontWeight.w500),
               ),
               Text(
                 title,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
             ],
           ),
           leading: CircleAvatar(
-            radius: 20,
+            radius: Screensize.height * 0.025,
             backgroundColor: color,
-            child: SvgPicture.asset(
+            child: Image.asset(
               imagepath,
-              height: 20,
+              height: Screensize.height * 0.03,
               color: Colors.white,
             ),
           ),
@@ -152,11 +153,11 @@ class _RankifycardsState extends State<Rankifycards> {
               thickness: 0.5,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
               child: Text(
                 subtitle,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16.sp,
                     color: GlobalColors.grey5D,
                     fontWeight: FontWeight.w400),
                 softWrap: true,
@@ -166,22 +167,22 @@ class _RankifycardsState extends State<Rankifycards> {
               children: key_points.map<Widget>((point) {
                 return Padding(
                   padding:
-                      EdgeInsets.symmetric(vertical: 5),
+                      EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
                   child: Row(
                     children: [
                       Padding(
                        padding:
-                      EdgeInsets.symmetric(horizontal: 8),
+                      EdgeInsets.symmetric(horizontal: Screensize.width * 0.02),
                         child: Icon(
                           Icons.check_circle,
                           color: color,
-                          size: 20,
+                          size: 20.r,
                         ),
                       ),
                       Text(
                         point,
                         style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
                             color: GlobalColors.grey5D),
                       )
@@ -192,32 +193,32 @@ class _RankifycardsState extends State<Rankifycards> {
             ),
             Container(
               padding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 9),
+                  vertical: Screensize.height * 0.01,
+                  horizontal: Screensize.width * 0.02),
               decoration: BoxDecoration(
                   color: GlobalColors.greyF2,
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(10.r)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: 10),
+                        vertical: Screensize.height * 0.01),
                     child: Text(
                       "Example",
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        bottom: 10),
+                        bottom: Screensize.height * 0.01),
                     child: Text(
                       example,
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
                           color: GlobalColors.grey5D),
                     ),

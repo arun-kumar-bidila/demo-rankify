@@ -12,49 +12,56 @@ class Callsupport extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal:20),
+        padding: EdgeInsets.symmetric(horizontal: Screensize.width * 0.05),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.02),
               child: Container(
                 width: double.infinity,
                 // margin: EdgeInsets.symmetric(horizontal: Screensize.width*0.05),
                 padding: EdgeInsets.symmetric(
-                    // horizontal: 0,
-                    vertical: 20),
+                    horizontal: Screensize.width * 0.05,
+                    vertical: Screensize.height * 0.02),
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10.r)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  spacing: 10,
                   children: [
                     Icon(
                       Icons.headset_mic,
-                      size: 40,
+                      size: 40.r,
                       color: GlobalColors.buttonColor,
                     ),
-                    Text(
-                      "Alert",
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w600),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: Screensize.height * 0.01),
+                      child: Text(
+                        "Alert",
+                        style: TextStyle(
+                            fontSize: 16.sp, fontWeight: FontWeight.w600),
+                      ),
                     ),
                     Text(
                       "Callback requested!",
                       style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w500,
                           color: GlobalColors.grey80),
                     ),
-                    Text(
-                      "Our team will contact you shortly",
-                      style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          color: GlobalColors.grey80),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: Screensize.height * 0.01),
+                      child: Text(
+                        "Our team will contact you shortly",
+                        style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w500,
+                            color: GlobalColors.grey80),
+                      ),
                     ),
                   ],
                 ),
@@ -67,12 +74,12 @@ class Callsupport extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: "Enter your phone number",
                       hintStyle: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                         color: GlobalColors.grey80,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.r),
                         borderSide: BorderSide.none,
                       ),
                       filled: true,
@@ -84,7 +91,7 @@ class Callsupport extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.02),
               child: Row(
                 children: [
                   Expanded(
@@ -96,12 +103,12 @@ class Callsupport extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: "Briefly describe your issues",
                         hintStyle: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
                           color: GlobalColors.grey80,
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.r),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -132,15 +139,15 @@ class Callsupport extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return Dialog(
-            // insetPadding:
-            //     EdgeInsets.symmetric(horizontal: Screensize.width * 0.1),
+            insetPadding:
+                EdgeInsets.symmetric(horizontal: Screensize.width * 0.1),
             backgroundColor: Colors.white,
             child: Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 20),
+                  horizontal: Screensize.width * 0.05,
+                  vertical: Screensize.height * 0.02),
               decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                  BoxDecoration(borderRadius: BorderRadius.circular(20.r)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -148,18 +155,18 @@ class Callsupport extends StatelessWidget {
                   Text(
                     "Alert",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16.sp,
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: 10),
+                        vertical: Screensize.height * 0.02),
                     child: Text(
                       "Callback requested! Our team will contact you shortly.",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
                       ),
@@ -176,7 +183,7 @@ class Callsupport extends StatelessWidget {
                         child: Text(
                           "OK",
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16.sp,
                             color: GlobalColors.deepTeal,
                             fontWeight: FontWeight.w600,
                           ),

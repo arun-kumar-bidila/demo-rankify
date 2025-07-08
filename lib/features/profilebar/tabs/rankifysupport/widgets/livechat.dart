@@ -33,7 +33,8 @@ class _LivechatState extends State<Livechat> {
         Container(
           color: GlobalColors.greyF8,
           padding: EdgeInsets.symmetric(
-            vertical: 10,
+            vertical: Screensize.height * 0.01,
+            // horizontal: Screensize.width * 0.05,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,18 +43,18 @@ class _LivechatState extends State<Livechat> {
                 onPressed: () {},
                 style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     backgroundColor: GlobalColors.greyF0),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    vertical: 5,
-                    horizontal: 10,
+                    vertical: Screensize.height * 0.005,
+                    horizontal: Screensize.width * 0.02,
                   ),
                   child: Text(
                     "How do I purchase books?",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
                       color: GlobalColors.grey80,
                     ),
@@ -64,18 +65,18 @@ class _LivechatState extends State<Livechat> {
                 onPressed: () {},
                 style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     backgroundColor: GlobalColors.greyF0),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                   vertical: 5,
-                    horizontal: 10,
+                    vertical: Screensize.height * 0.005,
+                    horizontal: Screensize.width * 0.02,
                   ),
                   child: Text(
                     "Payment issues",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
                       color: GlobalColors.grey80,
                     ),
@@ -88,27 +89,29 @@ class _LivechatState extends State<Livechat> {
         Container(
           color: Colors.white,
           padding: EdgeInsets.symmetric(
-            vertical: 5,
+            vertical: Screensize.height * 0.01,
             // horizontal: Screensize.width * 0.05,
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
+          child: Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: Screensize.height * 0.005,
+                    horizontal: Screensize.width * 0.03,
+                  ),
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Type your message...",
                       hintStyle: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
                         color: GlobalColors.grey80,
                       ),
                       filled: true,
                       fillColor: GlobalColors.greyF8,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(30.r),
                         borderSide: BorderSide.none,
                       ),
                       isDense: true,
@@ -119,24 +122,26 @@ class _LivechatState extends State<Livechat> {
                     ),
                   ),
                 ),
-                Container(
-                    decoration: BoxDecoration(
-                        color: GlobalColors.greyD9, shape: BoxShape.circle),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.send,
-                          size: 20,
-                          color: GlobalColors.buttonColor,
-                        ),
-                      ),
-                    ))
-              ],
-            ),
+              ),
+              Container(
+                margin:EdgeInsets.only(
+                      
+                      right: Screensize.width * 0.02,
+                    ),
+                  decoration: BoxDecoration(
+                      color: GlobalColors.greyD9, shape: BoxShape.circle),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: Screensize.height * 0.015,
+                      horizontal: Screensize.width * 0.04,
+                    ),
+                    child: Icon(
+                      Icons.send,
+                      size: 25.r,
+                      color: GlobalColors.buttonColor,
+                    ),
+                  ))
+            ],
           ),
         ),
       ],
@@ -148,20 +153,20 @@ class _LivechatState extends State<Livechat> {
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         margin: EdgeInsets.only(
-          top: 10,
-          bottom: 10,
-          left: isUser ? 120 : 16,
-          right: isUser ? 16 : 120,
+          top: Screensize.height * 0.02,
+          bottom: Screensize.height * 0.02,
+          left: isUser ? Screensize.width * 0.3 : Screensize.width * 0.05,
+          right: isUser ? Screensize.width * 0.05 : Screensize.width * 0.3,
         ),
         padding: EdgeInsets.symmetric(
-            horizontal: 12,
-            vertical: 8),
+            horizontal: Screensize.width * 0.03,
+            vertical: Screensize.height * 0.01),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topRight: isUser ? Radius.circular(3) : Radius.circular(10),
-              topLeft: isUser ? Radius.circular(10) : Radius.circular(3),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10),
+              topRight: isUser ? Radius.circular(3.r) : Radius.circular(10.r),
+              topLeft: isUser ? Radius.circular(10.r) : Radius.circular(3.r),
+              bottomLeft: Radius.circular(10.r),
+              bottomRight: Radius.circular(10.r),
             ),
             color: isUser ? GlobalColors.buttonColor : Colors.white),
         child: Column(
@@ -170,7 +175,7 @@ class _LivechatState extends State<Livechat> {
             Text(
               text,
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
                   color: isUser ? Colors.white : GlobalColors.grey5E),
             ),
@@ -181,7 +186,7 @@ class _LivechatState extends State<Livechat> {
                 Text(
               "14:20 ",
               style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 10.sp,
                   fontWeight: FontWeight.w400,
                   color: isUser ? Colors.white : GlobalColors.grey5E),
             ),
