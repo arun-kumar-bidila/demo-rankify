@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-// import 'package:rankify/utils/screen_size.dart';
+import 'package:rankify/utils/screen_size.dart';
 
 class Mainsector extends StatefulWidget {
   const Mainsector({super.key});
@@ -45,23 +45,22 @@ class _MainsectorState extends State<Mainsector> {
       "subSectore": ["BSNL", "LIC", "FCI", "Postal Department"]
     },
   ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(
-          horizontal: 18,
-          vertical:  20),
+          horizontal: Screensize.width * 0.05,
+          vertical: Screensize.height * 0.02),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Select Main Sector",
             style: TextStyle(
-                fontSize: 18,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
                 color: GlobalColors.grey19),
           ),
@@ -70,19 +69,19 @@ class _MainsectorState extends State<Mainsector> {
               _buildMainSectorDialog();
             },
             child: Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin: EdgeInsets.only(top: Screensize.height * 0.02),
                 padding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                    vertical: 10),
+                    horizontal: Screensize.width * 0.05,
+                    vertical: Screensize.height * 0.01),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                     border: Border.all(color: GlobalColors.greyC6, width: 1)),
                 child: Row(
                   children: [
                     Text(
                       "Civil Services",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
                           color: GlobalColors.grey19),
                     ),
@@ -101,23 +100,23 @@ class _MainsectorState extends State<Mainsector> {
           return Dialog(
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10)),
+                borderRadius: BorderRadius.circular(10.r)),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 20),
+                  vertical: Screensize.height * 0.02,
+                  horizontal: Screensize.width * 0.05),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
-                    padding:  EdgeInsets.only(bottom: 10),
+                    padding:  EdgeInsets.only(bottom: Screensize.height*0.01),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Select Sector",
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18.sp,
                               fontWeight: FontWeight.w600,
                               color: Colors.black),
                         ),
@@ -127,7 +126,7 @@ class _MainsectorState extends State<Mainsector> {
                           },
                           child: Icon(
                             Icons.close_rounded,
-                            size: 25,
+                            size: 25.r,
                             color: Colors.black,
                           ),
                         )
@@ -135,7 +134,7 @@ class _MainsectorState extends State<Mainsector> {
                     ),
                   ),
                   SizedBox(
-                    height: 400,
+                    height: Screensize.height * 0.5,
                     child: ListView.builder(
                         itemCount: sectors.length,
                         itemBuilder: (context, index) {
@@ -156,10 +155,10 @@ class _MainsectorState extends State<Mainsector> {
       {required sectorTitle, required List<dynamic> subsector}) {
     return Container(
       // padding: EdgeInsets.zero,
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
         decoration: BoxDecoration(
             color: GlobalColors.greyF5,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: BorderRadius.circular(10.r)),
         child: Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
@@ -168,31 +167,31 @@ class _MainsectorState extends State<Mainsector> {
                Text(
                 sectorTitle,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
                     color: GlobalColors.grey19),
               ),
             
             childrenPadding:
-                EdgeInsets.symmetric(horizontal: 20),
+                EdgeInsets.symmetric(horizontal: Screensize.width * 0.05),
             children: [
               Column(
                 children: subsector.map<Widget>((point) {
                   return Container(
                     margin: EdgeInsets.only(
-                        bottom: 10),
+                        bottom: Screensize.height * 0.02),
                     padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 20),
+                        vertical: Screensize.height * 0.01,
+                        horizontal: Screensize.width * 0.05),
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10.r)),
                     child: Row(
                       children: [
                         Text(
                           point,
                           style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
                               color: GlobalColors.grey19),
                         )

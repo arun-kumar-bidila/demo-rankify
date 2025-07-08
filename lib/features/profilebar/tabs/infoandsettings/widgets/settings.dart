@@ -17,19 +17,19 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.02),
       padding: EdgeInsets.symmetric(
-          horizontal: 18,
-          vertical:  20),
+          horizontal: Screensize.width * 0.05,
+          vertical: Screensize.height * 0.02),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Settings",
             style: TextStyle(
-                fontSize: 18,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
                 color: GlobalColors.grey19),
           ),
@@ -89,10 +89,10 @@ class _SettingsState extends State<Settings> {
           children: [
             Padding(
               padding:
-                  EdgeInsets.symmetric(horizontal: 20),
+                  EdgeInsets.symmetric(horizontal: Screensize.width * 0.05),
               child: Icon(
                 icon,
-                size: 20,
+                size: 20.r,
                 color: Colors.black,
               ),
             ),
@@ -100,7 +100,7 @@ class _SettingsState extends State<Settings> {
               child: Text(
                 lable,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
                     color: GlobalColors.grey19),
               ),

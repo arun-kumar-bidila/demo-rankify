@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
 import 'package:rankify/features/profilebar/tabs/rankifyworks/widgets/rankifycards.dart';
-
-
-
+import 'package:rankify/utils/screen_size.dart';
 
 class Howrankifyworks extends StatefulWidget {
   const Howrankifyworks({super.key});
@@ -19,37 +17,30 @@ class _HowrankifyworksState extends State<Howrankifyworks> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.only(left: Screensize.width * 0.05,top: Screensize.height*0.02,right: Screensize.width * 0.05),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 20),
                 padding: EdgeInsets.symmetric(
-                    horizontal: 11,
-                    vertical: 30,
-                ),
+                    vertical: Screensize.height * 0.02,
+                    horizontal: Screensize.width * 0.05),
                 decoration: BoxDecoration(
                     gradient: GlobalColors.primaryGradient,
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10.r)),
                 child: Column(
                   children: [
                     Stack(
                       children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 30,
-                            color: Colors.white,
-                          ),
+                        Icon(
+                          Icons.arrow_back,
+                          size: 30.r,
+                          color: Colors.white,
                         ),
                         Center(
                           child: Text(
                             "How Rankify Works",
                             style: TextStyle(
-                              fontSize: 22,
+                              fontSize: 20.sp,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
                             ),
@@ -59,11 +50,11 @@ class _HowrankifyworksState extends State<Howrankifyworks> {
                     ),
                     Center(
                       child: Padding(
-                        padding:  EdgeInsets.symmetric(vertical: 10),
+                        padding:  EdgeInsets.symmetric(vertical: Screensize.height*0.01),
                         child: Text(
                           "AI-Powered Competitive Exam Platfom",
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),
@@ -71,9 +62,9 @@ class _HowrankifyworksState extends State<Howrankifyworks> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(vertical: 10),
+                      padding:  EdgeInsets.symmetric(vertical: Screensize.height*0.01),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                          _buildTopInfo("1K", "Daily Users"),
                          _buildTopInfo("50+", "Live Exam"),
@@ -98,7 +89,7 @@ class _HowrankifyworksState extends State<Howrankifyworks> {
         Text(
           title,
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 18.sp,
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
@@ -106,7 +97,7 @@ class _HowrankifyworksState extends State<Howrankifyworks> {
         Text(
           subtitle,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 12.sp,
             fontWeight: FontWeight.w400,
             color: Colors.white,
           ),

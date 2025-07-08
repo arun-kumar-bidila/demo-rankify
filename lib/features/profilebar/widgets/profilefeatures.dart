@@ -22,13 +22,13 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
-      margin: EdgeInsets.symmetric(vertical: 10),
+          color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
+      margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.02),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Buildprofilefeature(
-              svgIcon: 'assets/svg/people.svg',
+              icon: Icons.group,
               label: "Refer & Earn",
               onTap: () {
                 Navigator.push(context,
@@ -36,7 +36,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/trophy.svg',
+              icon: Icons.emoji_events,
               label: "Winners List",
               onTap: () {
                 Navigator.push(context,
@@ -44,12 +44,12 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/graph.svg',
+              icon: Icons.bar_chart,
               label: "Check Your Performance",
               onTap: () {},
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/settings.svg',
+              icon: Icons.settings,
               label: "My Info & Settings",
               onTap: () {
                 Navigator.push(context,
@@ -57,7 +57,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/info.svg',
+              icon: Icons.info,
               label: "How to Work Rankify",
               onTap: () {
                 Navigator.push(context,
@@ -65,7 +65,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/lock.svg',
+              icon: Icons.lock,
               label: "Privacy Policy",
               onTap: () {
                 Navigator.push(
@@ -77,7 +77,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/24_7.svg',  // TODO: svg logo of more has some problem sort it
+              icon: Icons.more_horiz,
               label: "More",
               onTap: () {
                 Navigator.push(
@@ -85,7 +85,7 @@ class _ProfilefeaturesState extends State<Profilefeatures> {
               },
               pos: 0),
           Buildprofilefeature(
-              svgIcon: 'assets/svg/24_7.svg',
+              icon: Icons.access_time,
               label: "24 x 7 Help & Support ",
               onTap: () {
                 Navigator.push(context,

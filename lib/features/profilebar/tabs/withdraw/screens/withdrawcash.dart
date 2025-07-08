@@ -20,31 +20,30 @@ class _WithdrawcashState extends State<Withdrawcash> {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: Screensize.width * 0.03),
         child: Column(
           children: [
             Withdrawcashtitle(),
             Withdrawmoneyfield(),
             Padding(
                 padding:
-                    EdgeInsets.only(top: 60),
+                    EdgeInsets.symmetric(vertical: Screensize.height * 0.05),
                 child: TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
                         backgroundColor: GlobalColors.buttonColor,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
+                            borderRadius: BorderRadius.circular(10.r))),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              vertical:5,
-                              ),
+                              vertical: Screensize.height * 0.005),
                           child: Text(
                             "Withdraw Money",
                             style: TextStyle(
-                                fontSize: 19,
+                                fontSize: 17.sp,
                                 fontWeight: FontWeight.w900,
                                 color: Colors.white),
                           ),

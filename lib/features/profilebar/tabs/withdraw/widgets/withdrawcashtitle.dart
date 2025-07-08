@@ -15,16 +15,15 @@ class _WithdrawcashtitleState extends State<Withdrawcashtitle> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        top: 22,
-        bottom: 22,
+        top: Screensize.height * 0.02,
+        bottom: Screensize.height*0.02
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 30
-      ),
+          vertical: Screensize.height * 0.03,
+          horizontal: Screensize.width * 0.05),
       decoration: BoxDecoration(
           gradient: GlobalColors.primaryGradient,
-          borderRadius: BorderRadius.circular(10)),
+          borderRadius: BorderRadius.circular(10.r)),
       child: Row(
         children: [
           GestureDetector(
@@ -33,7 +32,7 @@ class _WithdrawcashtitleState extends State<Withdrawcashtitle> {
               },
               child: Icon(
                 Icons.arrow_back,
-                size: 30,
+                size: 30.r,
                 color: Colors.white,
               )),
           Expanded(
@@ -41,21 +40,21 @@ class _WithdrawcashtitleState extends State<Withdrawcashtitle> {
               children: [
                 Padding(
                   padding:
-                      EdgeInsets.only(left: 20),
+                      EdgeInsets.only(left: Screensize.width * 0.05),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Your Balance",
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
                             color: Colors.white),
                       ),
                       Text(
                         "₹82",
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 20.sp,
                             fontWeight: FontWeight.w700,
                             color: Colors.white),
                       )
@@ -67,7 +66,7 @@ class _WithdrawcashtitleState extends State<Withdrawcashtitle> {
           ),
           Icon(
             Icons.refresh,
-            size: 30,
+            size: 30.r,
             color: Colors.white,
           )
         ],
