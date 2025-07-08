@@ -1,10 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/auth/screens/fullname.dart';
+import 'package:rankify/features/auth/screens/details_screen.dart';
 import 'package:rankify/features/auth/screens/phonesignup.dart';
 import 'package:rankify/features/bottombar/bottombar2.dart';
 import 'package:rankify/features/profilebar/tabs/winnerslist/screens/winnerslist.dart';
@@ -15,7 +14,6 @@ import 'package:rankify/utils/screen_size.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 

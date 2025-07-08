@@ -1,6 +1,6 @@
 class UserData {
   String? state;
-
+  String? district;
   String? stateExam;
   String? category;
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/utils/screen_size.dart';
+// import 'package:rankify/utils/screen_size.dart';
 
 class LanguageInfo extends StatefulWidget {
   const LanguageInfo({super.key});
@@ -19,6 +19,7 @@ class _LanguageInfoState extends State<LanguageInfo> {
     "മലയാളം",
     "ಕನ್ನಡ "
   ];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,40 +28,40 @@ class _LanguageInfoState extends State<LanguageInfo> {
       },
       child: Container(
         margin: EdgeInsets.symmetric(
-          vertical: Screensize.height * 0.02,
+          vertical: 20,
         ),
         padding: EdgeInsets.symmetric(
-            vertical: Screensize.height * 0.02,
-            horizontal: Screensize.width * 0.05),
+            horizontal: 18,
+          vertical:  20),
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
         child: Row(
           children: [
             Padding(
               padding:
-                  EdgeInsets.symmetric(horizontal: Screensize.width * 0.05),
+                  EdgeInsets.symmetric(horizontal: 20),
               child: Icon(
                 Icons.language,
                 color: Colors.black,
-                size: 20.r,
+                size: 20,
               ),
             ),
             Expanded(
               child: Text(
                 "Language",
                 style: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 18,
                     fontWeight: FontWeight.w500,
                     color: GlobalColors.grey19),
               ),
             ),
             Padding(
               padding:
-                  EdgeInsets.symmetric(horizontal: Screensize.width * 0.02),
+                  EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 "English",
                 style: TextStyle(
-                    fontSize: 16.sp,
+                    fontSize: 18,
                     fontWeight: FontWeight.w500,
                     color: GlobalColors.buttonColor),
               ),
@@ -68,7 +69,7 @@ class _LanguageInfoState extends State<LanguageInfo> {
             Icon(
               Icons.arrow_forward_ios_rounded,
               color: Colors.black,
-              size: 15.r,
+              size: 15,
             ),
           ],
         ),
@@ -83,12 +84,12 @@ class _LanguageInfoState extends State<LanguageInfo> {
           return Dialog(
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.r),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  vertical: Screensize.height * 0.02,
-                  horizontal: Screensize.width * 0.05),
+                  vertical: 20,
+                  horizontal: 20),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -98,7 +99,7 @@ class _LanguageInfoState extends State<LanguageInfo> {
                       Text(
                         "Select Language",
                         style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 20,
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
@@ -108,7 +109,7 @@ class _LanguageInfoState extends State<LanguageInfo> {
                         },
                         child: Icon(
                           Icons.close_rounded,
-                          size: 25.r,
+                          size: 25,
                           color: Colors.black,
                         ),
                       )
@@ -117,27 +118,28 @@ class _LanguageInfoState extends State<LanguageInfo> {
                   for (int i = 0; i < languages.length; i++)
                     Container(
                       margin: EdgeInsets.symmetric(
-                          vertical: Screensize.height * 0.01),
+                          vertical: 5),
                       padding: EdgeInsets.symmetric(
-                          vertical: Screensize.height * .01,
+                          vertical: 10,
+                          horizontal: 10
                          ),
                       decoration: BoxDecoration(
                           color: GlobalColors.greyF5,
-                          borderRadius: BorderRadius.circular(10.r)),
+                          borderRadius: BorderRadius.circular(10)),
                       child: Row(
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: Screensize.width * 0.05),
+                                horizontal: 20),
                             child: Image.asset(
                               "icons/india.png",
-                              height: Screensize.height * 0.02,
+                              height: 20,
                             ),
                           ),
                           Text(
                             languages[i],
                             style: TextStyle(
-                                fontSize: 15.sp,
+                                fontSize: 17,
                                 fontWeight: FontWeight.w500,
                                 color: GlobalColors.grey5D),
                           )

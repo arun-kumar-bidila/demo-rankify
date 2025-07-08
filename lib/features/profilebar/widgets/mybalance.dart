@@ -17,8 +17,8 @@ class _MybalanceState extends State<Mybalance> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: Screensize.height * 0.02,
-        horizontal: Screensize.width * 0.05,
+        vertical: 10,
+        horizontal: 15,
       ),
       // margin: EdgeInsets.symmetric(
       //   vertical: Screensize.height * 0.02,
@@ -26,7 +26,7 @@ class _MybalanceState extends State<Mybalance> {
       // ),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -35,24 +35,24 @@ class _MybalanceState extends State<Mybalance> {
           Text(
             "My Balance",
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 16,
               fontWeight: FontWeight.w500,
               color: GlobalColors.grey9F,
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
+            padding: EdgeInsets.symmetric(vertical: 5),
             child: Text(
               "₹82",
               style: TextStyle(
-                fontSize: 20.sp,
+                fontSize: 22,
                 fontWeight: FontWeight.w600,
                 color: GlobalColors.grey19,
               ),
             ),
           ),
           Row(
-            children: [_buildButton("WITH DRAW",Withdrawcash()), _buildButton("ADD CASH",Addcash())],
+            children: [_buildButton("WITHDRAW",Withdrawcash()), _buildButton("ADD CASH",Addcash())],
           )
         ],
       ),
@@ -66,17 +66,17 @@ class _MybalanceState extends State<Mybalance> {
             context, MaterialPageRoute(builder: (context) => page));
       },
       child: Container(
-        margin: EdgeInsets.only(right: Screensize.width * 0.05),
+        margin: EdgeInsets.only(right: 10),
         padding: EdgeInsets.symmetric(
-            horizontal: Screensize.width * 0.03,
-            vertical: Screensize.height * 0.01),
+            horizontal: 14,
+            vertical: 4),
         decoration: BoxDecoration(
             color: GlobalColors.buttonColor,
-            borderRadius: BorderRadius.circular(5.r)),
+            borderRadius: BorderRadius.circular(5)),
         child: Text(
           label,
           style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 14,
               color: Colors.white,
               fontWeight: FontWeight.w500),
         ),

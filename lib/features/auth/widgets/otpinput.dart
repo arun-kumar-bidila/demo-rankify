@@ -1,10 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/common/widgets/custom_button.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/features/auth/screens/fullname.dart';
+import 'package:rankify/features/auth/screens/details_screen.dart';
 
 class OTPInput extends StatefulWidget {
   final String verificationId;
@@ -107,11 +106,8 @@ class _OTPInputState extends State<OTPInput> {
               try {
                 String otp = getOTP();
                 print("Entered OTP: $otp");
-                final cred = PhoneAuthProvider.credential(
-                    verificationId: widget.verificationId, smsCode: otp);
-                await FirebaseAuth.instance.signInWithCredential(cred);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailsPage()));
+                    MaterialPageRoute(builder: (context) => DetailsScreen()));
               } catch (e) {
                 print("error occured in otpinput");
               }

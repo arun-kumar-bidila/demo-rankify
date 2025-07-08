@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rankify/constants/colors.dart';
-import 'package:rankify/utils/screen_size.dart';
+// import 'package:rankify/utils/screen_size.dart';
 
 class Genderinfo extends StatefulWidget {
   const Genderinfo({super.key});
@@ -16,21 +16,21 @@ class _GenderinfoState extends State<Genderinfo> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: Screensize.width * 0.05,
-          vertical: Screensize.height * 0.01),
+          horizontal: 18,
+          vertical:  20),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: Text(
               "Gender",
               style: TextStyle(
-                  fontSize: 16.sp,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: GlobalColors.grey19),
             ),
@@ -40,20 +40,20 @@ class _GenderinfoState extends State<Genderinfo> {
               _buildGenderInfoDialog();
             },
             child: Container(
-              margin: EdgeInsets.symmetric(vertical: Screensize.height * 0.01),
+              margin: EdgeInsets.symmetric(vertical: 10),
               padding: EdgeInsets.symmetric(
-                  horizontal: Screensize.width * 0.05,
-                  vertical: Screensize.height * 0.01),
+                  horizontal: 20,
+                  vertical: 10),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.r),
+                  borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: GlobalColors.greyC6, width: 1)),
               child: Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(right: Screensize.width * 0.05),
+                    padding: EdgeInsets.only(right: 20),
                     child: Image.asset(
                       "icons/genders.png",
-                      height: Screensize.height * 0.03,
+                      height: 20,
                       color: Colors.black,
                     ),
                   ),
@@ -61,7 +61,7 @@ class _GenderinfoState extends State<Genderinfo> {
                     child: Text(
                       "Select Gender",
                       style: TextStyle(
-                        fontSize: 16.sp,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: GlobalColors.grey19,
                       ),
@@ -69,7 +69,7 @@ class _GenderinfoState extends State<Genderinfo> {
                   ),
                   Icon(
                     Icons.keyboard_arrow_down_rounded,
-                    size: 20.r,
+                    size: 20,
                     color: Colors.black,
                   )
                 ],
@@ -88,11 +88,11 @@ class _GenderinfoState extends State<Genderinfo> {
           return Dialog(
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.r)),
+                borderRadius: BorderRadius.circular(10)),
             child: Container(
               padding: EdgeInsets.symmetric(
-                  vertical: Screensize.height * 0.02,
-                  horizontal: Screensize.width * 0.05),
+                  vertical: 10,
+                  horizontal: 20),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -102,7 +102,7 @@ class _GenderinfoState extends State<Genderinfo> {
                       Text(
                         "Select Gender",
                         style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 20,
                             fontWeight: FontWeight.w600,
                             color: Colors.black),
                       ),
@@ -112,7 +112,7 @@ class _GenderinfoState extends State<Genderinfo> {
                         },
                         child: Icon(
                           Icons.close_rounded,
-                          size: 25.r,
+                          size: 25,
                           color: Colors.black,
                         ),
                       )
@@ -121,19 +121,19 @@ class _GenderinfoState extends State<Genderinfo> {
                   for (int i = 0; i < genders.length; i++)
                     Container(
                       margin: EdgeInsets.symmetric(
-                          vertical: Screensize.height * 0.01),
+                          vertical: 5),
                       padding: EdgeInsets.symmetric(
-                          vertical: Screensize.height * .01,
-                          horizontal: Screensize.width * 0.05),
+                          vertical: 10,
+                          horizontal: 10),
                       decoration: BoxDecoration(
                           color: GlobalColors.greyF5,
-                          borderRadius: BorderRadius.circular(10.r)),
+                          borderRadius: BorderRadius.circular(10)),
                       child: Row(
                         children: [
                           Text(
                             genders[i],
                             style: TextStyle(
-                                fontSize: 15.sp,
+                                fontSize: 17,
                                 fontWeight: FontWeight.w500,
                                 color: GlobalColors.grey5D),
                           )

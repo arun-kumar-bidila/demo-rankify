@@ -13,36 +13,36 @@ class Addcash extends StatefulWidget {
   State<Addcash> createState() => _AddcashState();
 }
 
-class _AddcashState extends State<Addcash> {
+class _AddcashState extends State<Addcash> { 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Screensize.width * 0.03),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
             Addcashtitle(),
             Addmoneyfield(),
             Padding(
                 padding:
-                    EdgeInsets.symmetric(vertical: Screensize.height * 0.05),
+                    EdgeInsets.only(top: 60),
                 child: TextButton(
                     onPressed: () {},
                     style: TextButton.styleFrom(
                         backgroundColor: GlobalColors.buttonColor,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.r))),
+                            borderRadius: BorderRadius.circular(10))),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
                          padding:
-                    EdgeInsets.symmetric(vertical: Screensize.height * 0.005),
+                    EdgeInsets.symmetric(vertical: 5),
                           child: Text(
                             "Add Money",
                             style: TextStyle(
-                                fontSize: 17.sp,
+                                fontSize: 17,
                                 fontWeight: FontWeight.w900,
                                 color: Colors.white),
                           ),
